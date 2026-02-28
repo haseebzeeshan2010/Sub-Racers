@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://do2t4h1scsse3"]
+
+[ext_resource type="Script" uid="uid://blucuvn0os2ir" path="res://CarGame/start_scene.gd" id="1_h1jog"]
+[ext_resource type="PackedScene" uid="uid://hsbom88xjqfu" path="res://GameJamKit/Prefabs/CarGameOLD/PlayerCar/PlayerCar.tscn" id="2_dnpvf"]
+[ext_resource type="Script" uid="uid://dbey2af3dgiyw" path="res://GameJamKit/Prefabs/CarGameOLD/Camera3D.gd" id="3_2w0lw"]
+[ext_resource type="PackedScene" uid="uid://dv40irq3vgrr7" path="res://CarGame/EnemyCar/EnemyCar.tscn" id="4_kjsks"]
+[ext_resource type="Script" uid="uid://ck1wj2p1pgu8c" path="res://GameJamKit/Prefabs/CarGameOLD/start_signal.gd" id="5_re6lr"]
+[ext_resource type="PackedScene" uid="uid://du6qtct7w7qe6" path="res://GameJamKit/Prefabs/CarGameOLD/EnemyCar/enemy_path.tscn" id="6_40an5"]
+[ext_resource type="PackedScene" uid="uid://bjqfckyoamvmb" path="res://cliff.tscn" id="7_mksou"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sr0ot"]
+texture_repeat = 1
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3siu6"]
+sky_top_color = Color(0.36078432, 0.42745098, 1, 1)
+sky_horizon_color = Color(0.30164886, 0.722728, 0.90974844, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_hfvu7"]
+sky_material = SubResource("ProceduralSkyMaterial_3siu6")
+
+[sub_resource type="Environment" id="Environment_rpohf"]
+background_mode = 1
+background_color = Color(0.24115592, 0.5531948, 1, 1)
+sky = SubResource("Sky_hfvu7")
+ambient_light_source = 2
+ambient_light_color = Color(0.22919756, 0.5947704, 0.99999994, 1)
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.33647245, 0.70938826, 0.14295116, 1)
+fog_light_energy = 0.1
+fog_density = 0.045
+fog_height = -1.85
+fog_height_density = 0.43
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.025
+volumetric_fog_albedo = Color(0.031946305, 0.45859075, 0.765062, 1)
+volumetric_fog_anisotropy = 0.45
+adjustment_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_4pmvp"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -19.957859, 0, 5.0337243, 0, 0, 0, 0, 0, 0, -19.537014, 0, -8.293345, 0, 0, 0, 0, 0, 0, -10.558772, 0, -23.023266, 0, 0, 0, 0, 0, 0, -3.5445204, 0, -29.195805, 0, 0, 0, 0, 0, 0, 1.5654736, 0, -43.818623, 0, 0, 0, 0, 0, 0, -23.910847, 0, -70.00262, 0, 0, 0, 0, 0, 0, -44.433426, 0, -71.771805, 0, 0, 0, 0, 0, 0, -64.60217, 0, -60.80284, 0, 0, 0, 0, 0, 0, -67.43288, 0, -47.003162, 0, 0, 0, 0, 0, 0, -55.75624, 0, -29.665115, 0, 0, 0, 0, 0, 0, -60.002274, 0, -9.850207, 0, 0, 0, 0, 0, 0, -58.233093, 0, 19.16449, 0, 0, 0, 0, 0, 0, -62.47914, 0, 40.040905, 0, 0, 0, 0, 0, 0, -56.110077, 0, 88.51666, 0, 0, 0, 0, 0, 0, -44.433426, 0, 99.83946, 0, 0, 0, 0, 0, 0, -30.633747, 0, 104.439354, 0, 0, 0, 0, 0, 0, -10.111163, 0, 101.608665, 0, 0, 0, 0, 0, 0, -5.1574583, 0, 87.10131, 0, 0, 0, 0, 0, 0, -10.111163, 0, 58.440468, 0, 0, 0, 0, 0, 0, -16.480259, 0, 27.656597),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 20
+
+[node name="StartScene" type="Control" unique_id=586721950]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h1jog")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=812589472]
+visible = false
+modulate = Color(0.46229059, 0.46229059, 0.46229059, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_sr0ot")
+
+[node name="Control" type="Control" parent="." unique_id=161428879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="Control" unique_id=2035376851]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 209.0
+offset_top = -27.0
+offset_right = 405.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/StartButton" unique_id=1042425398]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+
+[node name="Label2" type="Label" parent="Control/StartButton" unique_id=836487442]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = 45.0
+offset_right = 43.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Use arrow keys to control"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=426473827]
+environment = SubResource("Environment_rpohf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2007390150]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 1.741
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 1.89
+shadow_enabled = true
+shadow_blur = 10.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=549068732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.32872, -12.918022, -1.4367981)
+use_collision = true
+size = Vector3(146.75488, 1, 257.88147)
+
+[node name="PlayerCar" parent="." unique_id=1438980510 instance=ExtResource("2_dnpvf")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5761786, 3.0237923, 2.3776245)
+gravity_scale = 0.0
+script = null
+
+[node name="Camera3D" type="Camera3D" parent="PlayerCar" unique_id=676308985 node_paths=PackedStringArray("target", "lookattarget")]
+transform = Transform3D(1, 0, 0, 0, 0.35836798, 0.9335804, 0, -0.9335804, 0.35836798, -1.576, 9.289, 7.9367185)
+top_level = true
+script = ExtResource("3_2w0lw")
+follow_speed = 3.0
+lookat_speed = 5.0
+lookat_offset = Vector3(0, 0.185, 0.565)
+target = NodePath("../Node3D")
+lookattarget = NodePath("..")
+
+[node name="Node3D" type="Node3D" parent="PlayerCar" unique_id=2109911946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.289, 6.055)
+
+[node name="EnemyCar" parent="." unique_id=1978284857 instance=ExtResource("4_kjsks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.024086, 3.0237913, 5.509904)
+script = null
+
+[node name="StartSignal" type="Node" parent="." unique_id=1555102881]
+script = ExtResource("5_re6lr")
+
+[node name="Timer" type="Timer" parent="StartSignal" unique_id=1304808512]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="EnemyPath" parent="." unique_id=962503257 instance=ExtResource("6_40an5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.294046, 1, -10.696328)
+curve = SubResource("Curve3D_4pmvp")
+
+[node name="Cliffs" type="Node3D" parent="." unique_id=1208823141]
+transform = Transform3D(22.205, 0, 0, 0, 22.205, 0, 0, 0, 22.205, -220.714, -16.599, -182.892)
+
+[node name="cliff051_lp" parent="Cliffs" unique_id=1011174152 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 8.981086, 0.850349, 8.133483)
+
+[node name="cliff051_lp25" parent="Cliffs" unique_id=212078460 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 9.011678, 0.850349, 9.549629)
+
+[node name="cliff051_lp26" parent="Cliffs" unique_id=541245852 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 9.409155, 0.850349, 11.052052)
+
+[node name="cliff051_lp15" parent="Cliffs" unique_id=66052203 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.0044813934, 0, -0.07326996, 0, 0.07340689, 0, 0.07326996, 0, 0.0044813934, 8.981086, 0.850349, 8.133483)
+
+[node name="cliff051_lp20" parent="Cliffs" unique_id=792049152 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.0044813934, 0, -0.07326996, 0, 0.07340689, 0, 0.07326996, 0, 0.0044813934, 9.063836, 0.850349, 9.80226)
+
+[node name="cliff051_lp21" parent="Cliffs" unique_id=1110059489 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.036578, 0, -0.06364448, 0, 0.07340689, 0, 0.06364448, 0, 0.036578, 9.275094, 0.850349, 11.101258)
+
+[node name="cliff051_lp3" parent="Cliffs" unique_id=1404473055 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.050288748, 0, 0.053475346, 0, 0.07340688, 0, -0.053475346, 0, 0.050288748, 9.428571, 0.82590765, 6.534396)
+
+[node name="cliff051_lp13" parent="Cliffs" unique_id=1776576220 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.0341226, 0, -0.06499399, 0, 0.07340688, 0, 0.06499399, 0, -0.0341226, 9.428571, 0.82590765, 6.534396)
+
+[node name="cliff051_lp7" parent="Cliffs" unique_id=1673640992 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.06953176, 0, 0.023535198, 0, 0.07340688, 0, -0.023535198, 0, -0.06953176, 9.285487, 0.82590765, 5.9172587)
+
+[node name="cliff051_lp14" parent="Cliffs" unique_id=1752596954 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.061772678, 0, -0.039657377, 0, 0.07340688, 0, 0.039657377, 0, 0.061772678, 9.030688, 0.82590765, 6.0467978)
+
+[node name="cliff051_lp2" parent="Cliffs" unique_id=719916576 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 10.800886, 0.850349, 8.133483)
+
+[node name="cliff051_lp22" parent="Cliffs" unique_id=170671621 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.130296, 0.850349, 9.505129)
+
+[node name="cliff051_lp23" parent="Cliffs" unique_id=315473599 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.303728, 0.850349, 10.536913)
+
+[node name="cliff051_lp24" parent="Cliffs" unique_id=1434357654 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.49826, 0.850349, 12.096838)
+
+[node name="cliff051_lp4" parent="Cliffs" unique_id=1840296347 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.050992712, 0, -0.052804485, 0, 0.07340689, 0, 0.052804485, 0, -0.050992712, 11.406875, 0.850349, 6.734589)
+
+[node name="cliff051_lp5" parent="Cliffs" unique_id=1661158091 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.03725681, 0, -0.06324951, 0, 0.07340689, 0, 0.06324951, 0, 0.03725681, 11.752432, 0.85034865, 5.0158815)
+
+[node name="cliff051_lp6" parent="Cliffs" unique_id=785115566 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.06357223, 0, -0.03670344, 0, 0.07340689, 0, 0.03670344, 0, 0.06357223, 10.881197, 0.85034865, 4.1478753)
+
+[node name="cliff051_lp9" parent="Cliffs" unique_id=943200378 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.06357223, 0, -0.03670344, 0, 0.07340689, 0, 0.03670344, 0, 0.06357223, 9.755057, 0.85034865, 3.13732)
+
+[node name="cliff051_lp8" parent="Cliffs" unique_id=1934903973 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.07193323, 0, 0.014634983, 0, 0.07340691, 0, -0.014634983, 0, 0.07193323, 8.143929, 0.8503492, 3.1013255)
+
+[node name="cliff051_lp10" parent="Cliffs" unique_id=1652285072 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.028091602, 0, 0.06781913, 0, 0.07340691, 0, -0.06781913, 0, 0.028091602, 6.6667676, 0.8503492, 4.029468)
+
+[node name="cliff051_lp16" parent="Cliffs" unique_id=1693262081 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.037823815, 0, 0.06291209, 0, 0.0734069, 0, -0.06291209, 0, 0.037823815, 6.8857927, 0.85034865, 8.25005)
+
+[node name="cliff051_lp17" parent="Cliffs" unique_id=1959934749 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.037823815, 0, 0.06291209, 0, 0.0734069, 0, -0.06291209, 0, 0.037823815, 5.855447, 0.85034865, 9.358112)
+
+[node name="cliff051_lp18" parent="Cliffs" unique_id=537017033 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.013358446, 0, 0.072181195, 0, 0.07340691, 0, -0.072181195, 0, -0.013358446, 5.790918, 0.8503492, 10.968349)
+
+[node name="cliff051_lp19" parent="Cliffs" unique_id=1971847300 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.067310885, 0, 0.029288558, 0, 0.07340693, 0, -0.029288558, 0, -0.067310885, 6.692748, 0.8503492, 12.461721)
+
+[node name="cliff051_lp27" parent="Cliffs" unique_id=1469134212 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.067310885, 0, 0.029288558, 0, 0.07340693, 0, -0.029288558, 0, -0.067310885, 8.105738, 0.8503492, 13.157282)
+
+[node name="cliff051_lp28" parent="Cliffs" unique_id=1999068793 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.07285975, 0, -0.00894606, 0, 0.07340693, 0, 0.00894606, 0, -0.07285975, 10.124417, 0.8503492, 13.394943)
+
+[node name="cliff051_lp11" parent="Cliffs" unique_id=1641063526 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.032753993, 0, 0.06569436, 0, 0.07340691, 0, -0.06569436, 0, -0.032753993, 6.735648, 0.8503492, 5.733594)
+
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="StartSignal/Timer" to="StartSignal" method="_on_timer_timeout"]
