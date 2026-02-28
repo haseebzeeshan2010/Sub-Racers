@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://dv40irq3vgrr7"]
+
+[ext_resource type="Script" uid="uid://dpokfxv1k35ln" path="res://GameJamKit/Prefabs/CarGameOLD/EnemyCar/enemy_car.gd" id="1_wl6ju"]
+[ext_resource type="Script" uid="uid://beauwh3uu3gci" path="res://GameJamKit/Prefabs/CarGameOLD/skid_3d.gd" id="2_mi6s3"]
+[ext_resource type="PackedScene" uid="uid://bmm22g4delcje" path="res://GameJamKit/Prefabs/CarGameOLD/Van.tscn" id="3_ragrb"]
+[ext_resource type="PackedScene" uid="uid://qqxa251y3qlc" path="res://submarine.tscn" id="4_vq8u1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_87qnq"]
+friction = 0.12
+rough = true
+absorbent = true
+
+[sub_resource type="Curve" id="Curve_yfcwr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_08l1u"]
+curve = SubResource("Curve_yfcwr")
+
+[sub_resource type="Curve" id="Curve_j28rr"]
+_data = [Vector2(0, 0), 0.0, 9.87334, 0, 0, Vector2(0.29608938, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_shnlv"]
+curve = SubResource("Curve_j28rr")
+
+[sub_resource type="Curve" id="Curve_shnlv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yfcwr"]
+curve = SubResource("Curve_shnlv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yfcwr"]
+lifetime_randomness = 0.91
+inherit_velocity_ratio = 1.815
+direction = Vector3(0, 0, 1)
+spread = 7.2
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 1, 0)
+scale_min = 2.3
+scale_max = 3.1999998
+scale_curve = SubResource("CurveTexture_shnlv")
+alpha_curve = SubResource("CurveTexture_08l1u")
+turbulence_noise_strength = 0.03
+turbulence_influence_over_life = SubResource("CurveTexture_yfcwr")
+
+[sub_resource type="Gradient" id="Gradient_j28rr"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.4745098)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_shnlv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yfcwr"]
+noise = SubResource("FastNoiseLite_shnlv")
+color_ramp = SubResource("Gradient_j28rr")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j28rr"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("NoiseTexture2D_yfcwr")
+grow_amount = 0.162
+proximity_fade_distance = 32.06
+distance_fade_mode = 1
+distance_fade_max_distance = 9.9
+stencil_flags = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_j28rr"]
+material = SubResource("StandardMaterial3D_j28rr")
+radius = 0.1
+height = 0.2
+radial_segments = 7
+rings = 7
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vq8u1"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fkbh"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.3882353, 1, 1, 0.14901961)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sdwml"]
+material = SubResource("StandardMaterial3D_6fkbh")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j28rr"]
+radius = 0.6621094
+height = 2.6269531
+
+[node name="EnemyCar" type="RigidBody3D" unique_id=1438980510]
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_87qnq")
+gravity_scale = 0.0
+script = ExtResource("1_wl6ju")
+impulse_strength = 5000
+torque_strength = 30
+
+[node name="CSGBox3D" type="Node3D" parent="." unique_id=968829302]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -0.4)
+
+[node name="Trail" type="GPUParticles3D" parent="CSGBox3D" unique_id=17648354]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.72445965, -0.21377409, -0.5)
+amount = 100
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_yfcwr")
+draw_pass_1 = SubResource("SphereMesh_j28rr")
+script = ExtResource("2_mi6s3")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="CSGBox3D/Trail" unique_id=377686697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.9802322e-08)
+amount = 193
+lifetime = 10.0
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_vq8u1")
+draw_pass_1 = SubResource("SphereMesh_sdwml")
+
+[node name="Trail2" type="GPUParticles3D" parent="CSGBox3D" unique_id=1180434804]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7244597, -0.21377409, 0.4999999)
+amount = 100
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_yfcwr")
+draw_pass_1 = SubResource("SphereMesh_j28rr")
+script = ExtResource("2_mi6s3")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="CSGBox3D/Trail2" unique_id=142587504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.9802322e-08)
+amount = 193
+lifetime = 10.0
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_vq8u1")
+draw_pass_1 = SubResource("SphereMesh_sdwml")
+
+[node name="DirectionalLight3D" type="SpotLight3D" parent="CSGBox3D" unique_id=291902809]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.39242893, 1.0608096, 0.22307728)
+light_color = Color(0.8663822, 0.5486251, 0, 1)
+light_energy = 21.065
+light_volumetric_fog_energy = 100.0
+light_specular = 1.585
+distance_fade_enabled = true
+spot_range = 49.110535
+spot_angle = 20.359303
+
+[node name="Submarine" parent="CSGBox3D" unique_id=1471293272 instance=ExtResource("4_vq8u1")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -0.39242896, 0.44365114, -1.7153619e-08)
+
+[node name="van" parent="CSGBox3D" unique_id=32210201 instance=ExtResource("3_ragrb")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=856888220]
+transform = Transform3D(-4.371139e-08, 0, 1, -1, -4.371139e-08, -4.371139e-08, 4.371139e-08, -1, 1.9106855e-15, 0, 0.16656494, -0.34628907)
+shape = SubResource("CapsuleShape3D_j28rr")
