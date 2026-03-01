@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dksvvdyi6xj12"]
+
+[ext_resource type="Texture2D" uid="uid://c78no16klxo1w" path="res://CarGame/PlayerSub/yellow-submarine/textures/SubLow0Smooth_DefaultMaterial_BaseColor.png" id="1_qywo4"]
+[ext_resource type="Texture2D" uid="uid://b5nn53p83yeoh" path="res://CarGame/PlayerSub/yellow-submarine/textures/SubLow0Smooth_DefaultMaterial_Metallic.png" id="2_2xgcg"]
+[ext_resource type="Texture2D" uid="uid://dvdcdtf1rp1vk" path="res://CarGame/PlayerSub/yellow-submarine/textures/SubLow0Smooth_DefaultMaterial_Normal.png" id="3_fxffa"]
+[ext_resource type="Texture2D" uid="uid://cxhodv1rjc8sr" path="res://CarGame/PlayerSub/yellow-submarine/textures/SubLow0Smooth_DefaultMaterial_RoughnessAlt.png" id="4_svcgu"]
+
+[resource]
+albedo_texture = ExtResource("1_qywo4")
+metallic = 1.0
+metallic_texture = ExtResource("2_2xgcg")
+roughness_texture = ExtResource("4_svcgu")
+normal_enabled = true
+normal_texture = ExtResource("3_fxffa")

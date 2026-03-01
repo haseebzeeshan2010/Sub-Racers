@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://cvl4ylwowp602"]
+
+[ext_resource type="Script" uid="uid://cuyodde3m1c6r" path="res://CarGame/PlayerSub/PlayerCar.gd" id="1_mwr16"]
+[ext_resource type="Script" uid="uid://beauwh3uu3gci" path="res://CarGame/skid_3d.gd" id="3_j28rr"]
+[ext_resource type="PackedScene" path="res://game_jam_player_sub.tscn" id="6_51rkg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_87qnq"]
+friction = 0.12
+rough = true
+absorbent = true
+
+[sub_resource type="Curve" id="Curve_yfcwr"]
+_data = [Vector2(0, 0.7404922), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_08l1u"]
+curve = SubResource("Curve_yfcwr")
+
+[sub_resource type="Curve" id="Curve_j28rr"]
+_data = [Vector2(0, 0), 0.0, 9.87334, 0, 0, Vector2(0.29608938, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_shnlv"]
+curve = SubResource("Curve_j28rr")
+
+[sub_resource type="Curve" id="Curve_shnlv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yfcwr"]
+curve = SubResource("Curve_shnlv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yfcwr"]
+lifetime_randomness = 0.91
+inherit_velocity_ratio = 1.815
+direction = Vector3(0, 0, 1)
+spread = 7.2
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 1, 0)
+scale_min = 2.3
+scale_max = 3.1999998
+scale_curve = SubResource("CurveTexture_shnlv")
+alpha_curve = SubResource("CurveTexture_08l1u")
+turbulence_noise_strength = 0.03
+turbulence_influence_over_life = SubResource("CurveTexture_yfcwr")
+
+[sub_resource type="Gradient" id="Gradient_j28rr"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.4745098)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_shnlv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yfcwr"]
+noise = SubResource("FastNoiseLite_shnlv")
+color_ramp = SubResource("Gradient_j28rr")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51rkg"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("NoiseTexture2D_yfcwr")
+grow_amount = 0.162
+proximity_fade_distance = 32.06
+distance_fade_mode = 1
+distance_fade_max_distance = 9.9
+stencil_flags = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_j28rr"]
+material = SubResource("StandardMaterial3D_51rkg")
+radius = 0.1
+height = 0.2
+radial_segments = 7
+rings = 7
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_51rkg"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fkbh"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.3882353, 1, 1, 0.14901961)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1dc1q"]
+material = SubResource("StandardMaterial3D_6fkbh")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j28rr"]
+radius = 0.6621094
+height = 2.0913086
+
+[node name="PlayerCar" type="RigidBody3D" unique_id=1438980510]
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_87qnq")
+gravity_scale = 2.0
+script = ExtResource("1_mwr16")
+impulse_strength = 8000
+torque_strength = 30
+
+[node name="CSGBox3D" type="Node3D" parent="." unique_id=968829302]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -0.4)
+
+[node name="DirectionalLight3D" type="SpotLight3D" parent="CSGBox3D" unique_id=1001033506]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.6171584, -0.2230773)
+light_color = Color(0.8663822, 0.5486251, 0, 1)
+light_energy = 21.065
+light_volumetric_fog_energy = 100.0
+light_specular = 1.585
+distance_fade_enabled = true
+spot_range = 49.110535
+spot_angle = 20.359303
+
+[node name="Submarine" parent="CSGBox3D" unique_id=1839833756 instance=ExtResource("6_51rkg")]
+unique_name_in_owner = true
+transform = Transform3D(-1.9670125e-08, 0, 0.45, 0, 0.45, 0, -0.45, 0, -1.9670125e-08, -0.1992572, 0.16167974, -8.709809e-09)
+
+[node name="Trail" type="GPUParticles3D" parent="CSGBox3D/Submarine" unique_id=17648354]
+unique_name_in_owner = true
+transform = Transform3D(-2.2222223, 0, 1.9427286e-07, 0, 2.2222223, 0, -1.9427286e-07, 0, -2.2222223, 1.1111112, -0.8343419, -1.1671165)
+amount = 100
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_yfcwr")
+draw_pass_1 = SubResource("SphereMesh_j28rr")
+script = ExtResource("3_j28rr")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="CSGBox3D/Submarine/Trail" unique_id=25455284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.9802322e-08)
+amount = 193
+lifetime = 10.0
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_51rkg")
+draw_pass_1 = SubResource("SphereMesh_1dc1q")
+
+[node name="Trail2" type="GPUParticles3D" parent="CSGBox3D/Submarine" unique_id=1180434804]
+unique_name_in_owner = true
+transform = Transform3D(-2.2222223, 0, 1.9427286e-07, 0, 2.2222223, 0, -1.9427286e-07, 0, -2.2222223, -1.1111109, -0.8343419, -1.1671169)
+amount = 100
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_yfcwr")
+draw_pass_1 = SubResource("SphereMesh_j28rr")
+script = ExtResource("3_j28rr")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="CSGBox3D/Submarine/Trail2" unique_id=679311908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.9802322e-08)
+amount = 193
+lifetime = 10.0
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_51rkg")
+draw_pass_1 = SubResource("SphereMesh_1dc1q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=856888220]
+transform = Transform3D(-4.371139e-08, 0, 1, -1, -4.371139e-08, -4.371139e-08, 4.371139e-08, -1, 1.9106855e-15, 0, 0.16656496, -0.0784668)
+shape = SubResource("CapsuleShape3D_j28rr")

@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://qqxa251y3qlc"]
+
+[ext_resource type="PackedScene" uid="uid://dlaymv41jrf6f" path="res://CarGame/EnemyCar/submarine/source/Submarine.fbx" id="1_qvldv"]
+[ext_resource type="Material" path="res://CarGame/EnemyCar/enemysubmetal.tres" id="2_wxksq"]
+[ext_resource type="Material" uid="uid://dksvvdyi6xj12" path="res://CarGame/PlayerSub/playersubmaterial.tres" id="3_a2b0v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2y6f"]
+albedo_color = Color(0.4537487, 0.4537487, 0.4537487, 1)
+metallic = 1.0
+roughness = 0.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8e5i"]
+emission_enabled = true
+emission = Color(0, 0.8452136, 0.9950196, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vve82"]
+albedo_color = Color(0.32610995, 0.26694855, 0.25015607, 1)
+metallic = 1.0
+roughness = 0.12
+
+[node name="Submarine" unique_id=1471293272 instance=ExtResource("1_qvldv")]
+
+[node name="Arm_Section01_001" parent="." index="0" unique_id=1368967110]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section02_001" parent="Arm_Section01_001" index="0" unique_id=1635581502]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section02_SideAttacher_001" parent="Arm_Section01_001/Arm_Section02_001" index="0" unique_id=1363937680]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section02_Attacher_001" parent="Arm_Section01_001/Arm_Section02_001/Arm_Section02_SideAttacher_001" index="0" unique_id=733697136]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section03_001" parent="Arm_Section01_001/Arm_Section02_001/Arm_Section02_SideAttacher_001/Arm_Section02_Attacher_001" index="0" unique_id=1467849198]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section03_Attacher_001" parent="Arm_Section01_001/Arm_Section02_001/Arm_Section02_SideAttacher_001/Arm_Section02_Attacher_001/Arm_Section03_001" index="0" unique_id=1935814587]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_HandAttacher_001" parent="Arm_Section01_001/Arm_Section02_001/Arm_Section02_SideAttacher_001/Arm_Section02_Attacher_001/Arm_Section03_001" index="1" unique_id=685421205]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Torches_001" parent="Arm_Section01_001/Arm_Section02_001/Arm_Section02_SideAttacher_001/Arm_Section02_Attacher_001/Arm_Section03_001/Arm_HandAttacher_001" index="0" unique_id=1662965611]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Fingers_001" parent="Arm_Section01_001/Arm_Section02_001/Arm_Section02_SideAttacher_001/Arm_Section02_Attacher_001/Arm_Section03_001/Arm_HandAttacher_001/Arm_Torches_001" index="0" unique_id=2003606938]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section01_Wire" parent="Arm_Section01_001" index="1" unique_id=90434071]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section01_002" parent="." index="1" unique_id=158122124]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section02_002" parent="Arm_Section01_002" index="0" unique_id=153032248]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section02_SideAttacher_002" parent="Arm_Section01_002/Arm_Section02_002" index="0" unique_id=1024885726]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section02_Attacher_002" parent="Arm_Section01_002/Arm_Section02_002/Arm_Section02_SideAttacher_002" index="0" unique_id=824827437]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section03_002" parent="Arm_Section01_002/Arm_Section02_002/Arm_Section02_SideAttacher_002/Arm_Section02_Attacher_002" index="0" unique_id=859552529]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section03_Attacher_002" parent="Arm_Section01_002/Arm_Section02_002/Arm_Section02_SideAttacher_002/Arm_Section02_Attacher_002/Arm_Section03_002" index="0" unique_id=962291870]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_HandAttacher_002" parent="Arm_Section01_002/Arm_Section02_002/Arm_Section02_SideAttacher_002/Arm_Section02_Attacher_002/Arm_Section03_002" index="1" unique_id=824788590]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Torches_002" parent="Arm_Section01_002/Arm_Section02_002/Arm_Section02_SideAttacher_002/Arm_Section02_Attacher_002/Arm_Section03_002/Arm_HandAttacher_002" index="0" unique_id=472882589]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Fingers_002" parent="Arm_Section01_002/Arm_Section02_002/Arm_Section02_SideAttacher_002/Arm_Section02_Attacher_002/Arm_Section03_002/Arm_HandAttacher_002/Arm_Torches_002" index="0" unique_id=1953816807]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Arm_Section01_Wire_001" parent="Arm_Section01_002" index="1" unique_id=1278759049]
+surface_material_override/0 = SubResource("StandardMaterial3D_c2y6f")
+
+[node name="Body_Main" parent="." index="2" unique_id=1375815021]
+surface_material_override/0 = ExtResource("2_wxksq")
+
+[node name="Body_Glass" parent="." index="3" unique_id=95890392]
+surface_material_override/0 = SubResource("StandardMaterial3D_a8e5i")
+
+[node name="Body_Back_Fins" parent="." index="6" unique_id=1823230418]
+surface_material_override/0 = ExtResource("3_a2b0v")
+
+[node name="SideTurbines" parent="." index="8" unique_id=939315926]
+surface_material_override/0 = SubResource("StandardMaterial3D_vve82")
+
+[node name="Body_Tail" parent="." index="12" unique_id=424203269]
+surface_material_override/0 = ExtResource("2_wxksq")

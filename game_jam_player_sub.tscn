@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ec2o2pc5v47e"]
+
+[ext_resource type="PackedScene" uid="uid://c2kggpah1g0ua" path="res://GameJamPlayerSub.fbx" id="1_k85ah"]
+[ext_resource type="Material" uid="uid://dksvvdyi6xj12" path="res://playersubmaterial.tres" id="2_mapis"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mapis"]
+albedo_color = Color(0, 0.6784314, 1, 1)
+emission_enabled = true
+emission = Color(0.6128386, 0.6449315, 1, 1)
+emission_energy_multiplier = 4.37
+
+[node name="GameJamPlayerSub" unique_id=1839833756 instance=ExtResource("1_k85ah")]
+
+[node name="Sub" parent="." index="0" unique_id=1996246562]
+surface_material_override/0 = ExtResource("2_mapis")
+
+[node name="Sub_001" parent="." index="1" unique_id=1117848151]
+surface_material_override/0 = SubResource("StandardMaterial3D_mapis")
