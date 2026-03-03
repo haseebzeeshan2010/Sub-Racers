@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://do2t4h1scsse3"]
 
 [ext_resource type="Script" uid="uid://blucuvn0os2ir" path="res://CarGame/start_scene.gd" id="1_h1jog"]
-[ext_resource type="PackedScene" uid="uid://cvl4ylwowp602" path="res://CarGame/PlayerCar/PlayerCar.tscn" id="2_dnpvf"]
+[ext_resource type="PackedScene" uid="uid://cvl4ylwowp602" path="res://CarGame/PlayerSub/PlayerCar.tscn" id="2_dnpvf"]
 [ext_resource type="Script" uid="uid://dbey2af3dgiyw" path="res://CarGame/Camera3D.gd" id="3_2w0lw"]
-[ext_resource type="PackedScene" uid="uid://dv40irq3vgrr7" path="res://CarGame/EnemyCar/EnemyCar.tscn" id="4_kjsks"]
+[ext_resource type="PackedScene" uid="uid://dq5uetiyvnwgv" path="res://CarGame/EnemyCar/EnemyCar.tscn" id="4_kjsks"]
 [ext_resource type="Script" uid="uid://ck1wj2p1pgu8c" path="res://CarGame/start_signal.gd" id="5_re6lr"]
-[ext_resource type="PackedScene" uid="uid://du6qtct7w7qe6" path="res://CarGame/EnemyCar/enemy_path.tscn" id="6_40an5"]
+[ext_resource type="PackedScene" path="res://CarGame/EnemyCar/enemy_path.tscn" id="6_40an5"]
 [ext_resource type="PackedScene" path="res://cliff.tscn" id="7_mksou"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_sr0ot"]
@@ -147,7 +147,6 @@ top_level = true
 script = ExtResource("3_2w0lw")
 follow_speed = 3.0
 lookat_speed = 5.0
-lookat_offset = Vector3(0, 0.185, 0.565)
 target = NodePath("../Node3D")
 lookattarget = NodePath("..")
 

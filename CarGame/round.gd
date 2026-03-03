@@ -10,7 +10,7 @@ var roundcontinues = true
 
 func _process(delta: float) -> void:
 	pass
-var initialtimer = 10
+var initialtimer = 11
 
 func _on_body_entered(body: Node3D) -> void:
 	if not body is RigidBody3D:
@@ -24,7 +24,7 @@ func _on_body_entered(body: Node3D) -> void:
 		
 
 func _on_round_finished(player_won: bool) -> void:
-	%GameOver.visible = true
+	%GameOver.play("GameOver")
 	if roundcontinues:
 		if player_won:
 			%Label2.text = "You came 1st"

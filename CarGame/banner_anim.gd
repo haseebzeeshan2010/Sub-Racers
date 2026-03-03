@@ -1,4 +1,4 @@
-extends Control
+extends AnimationPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://CarGame/Level1.tscn")
+func _on_timer_timeout() -> void:
+	#current_animation = "LeaveScreen"
+	play("LeaveScreen")
 	pass # Replace with function body.
