@@ -12,5 +12,11 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
+	%TransitionPlayer.play("StartSceneExit")
+	
+	pass # Replace with function body.
+
+
+func _on_transition_player_animation_finished(anim_name: StringName) -> void:
 	get_tree().change_scene_to_file("res://CarGame/Level1.tscn")
 	pass # Replace with function body.

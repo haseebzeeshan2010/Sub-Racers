@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dq5uetiyvnwgv" path="res://CarGame/EnemyCar/EnemyCar.tscn" id="3_ddnfo"]
 [ext_resource type="Script" uid="uid://ck1wj2p1pgu8c" path="res://CarGame/start_signal.gd" id="4_ki2kc"]
 [ext_resource type="PackedScene" path="res://CarGame/EnemyCar/enemy_path.tscn" id="5_m5g4e"]
-[ext_resource type="PackedScene" path="res://cliff.tscn" id="6_w7jgq"]
+[ext_resource type="PackedScene" uid="uid://bjqfckyoamvmb" path="res://Environment/cliff.tscn" id="6_w7jgq"]
 [ext_resource type="AudioStream" uid="uid://j1h0pe2hs2nw" path="res://RacingMusic.wav" id="7_hji3u"]
 [ext_resource type="Script" uid="uid://pjrr6dhyqt5a" path="res://CarGame/banner_anim.gd" id="8_iqlb0"]
 [ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://CarGame/Audiowide-Regular.ttf" id="8_y7fof"]
@@ -88,7 +88,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%TimerLabel:self_modulate")
+tracks/1/path = NodePath("../../TimerLabel/TimerLabel:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -115,7 +115,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%TimerLabel:self_modulate")
+tracks/1/path = NodePath("../../TimerLabel/TimerLabel:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -142,7 +142,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%TimerLabel:self_modulate")
+tracks/1/path = NodePath("../../TimerLabel/TimerLabel:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -225,7 +225,7 @@ default_font = ExtResource("8_y7fof")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ssud0"]
 size = Vector3(19.980637, 19.980957, 1)
 
-[node name="Node3D" type="Node3D" unique_id=1656276191]
+[node name="Level1" type="Node3D" unique_id=1656276191]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1978545274]
 environment = SubResource("Environment_lmkhv")
@@ -252,6 +252,7 @@ use_keyboard_steering = true
 [node name="Camera3D" type="Camera3D" parent="PlayerCar" unique_id=1022024141 node_paths=PackedStringArray("target", "lookattarget")]
 transform = Transform3D(1, 0, 0, 0, 0.35836798, 0.9335804, 0, -0.9335804, 0.35836798, -1.576, 9.289, 7.9367185)
 top_level = true
+current = true
 script = ExtResource("2_iqlb0")
 follow_speed = 3.0
 lookat_speed = 5.0
@@ -284,89 +285,89 @@ transform = Transform3D(22.205, 0, 0, 0, 22.205, 0, 0, 0, 22.205, -220.714, -16.
 [node name="cliff051_lp" parent="Cliffs" unique_id=1011174152 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 8.981086, 0.850349, 8.133483)
 
-[node name="cliff051_lp25" parent="Cliffs" unique_id=1579583798 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp25" parent="Cliffs" unique_id=200219655 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 9.011678, 0.850349, 9.549629)
 
-[node name="cliff051_lp26" parent="Cliffs" unique_id=2100703359 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp26" parent="Cliffs" unique_id=462783920 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 9.409155, 0.850349, 11.052052)
 
-[node name="cliff051_lp15" parent="Cliffs" unique_id=1396060069 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp15" parent="Cliffs" unique_id=1296627044 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.0044813934, 0, -0.07326996, 0, 0.07340689, 0, 0.07326996, 0, 0.0044813934, 8.981086, 0.850349, 8.133483)
 
-[node name="cliff051_lp20" parent="Cliffs" unique_id=1858434629 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp20" parent="Cliffs" unique_id=2059970401 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.0044813934, 0, -0.07326996, 0, 0.07340689, 0, 0.07326996, 0, 0.0044813934, 9.063836, 0.850349, 9.80226)
 
-[node name="cliff051_lp21" parent="Cliffs" unique_id=1462137267 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp21" parent="Cliffs" unique_id=1663410012 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.036578, 0, -0.06364448, 0, 0.07340689, 0, 0.06364448, 0, 0.036578, 9.275094, 0.850349, 11.101258)
 
-[node name="cliff051_lp3" parent="Cliffs" unique_id=2058353419 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp3" parent="Cliffs" unique_id=630036143 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.050288748, 0, 0.053475346, 0, 0.07340688, 0, -0.053475346, 0, 0.050288748, 9.428571, 0.82590765, 6.534396)
 
-[node name="cliff051_lp13" parent="Cliffs" unique_id=1976936784 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp13" parent="Cliffs" unique_id=398576516 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.0341226, 0, -0.06499399, 0, 0.07340688, 0, 0.06499399, 0, -0.0341226, 9.428571, 0.82590765, 6.534396)
 
-[node name="cliff051_lp7" parent="Cliffs" unique_id=1413284762 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp7" parent="Cliffs" unique_id=1573653317 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.06953176, 0, 0.023535198, 0, 0.07340688, 0, -0.023535198, 0, -0.06953176, 9.285487, 0.82590765, 5.9172587)
 
-[node name="cliff051_lp14" parent="Cliffs" unique_id=10813342 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp14" parent="Cliffs" unique_id=524480103 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.061772678, 0, -0.039657377, 0, 0.07340688, 0, 0.039657377, 0, 0.061772678, 9.030688, 0.82590765, 6.0467978)
 
-[node name="cliff051_lp2" parent="Cliffs" unique_id=1621592004 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp2" parent="Cliffs" unique_id=1164378525 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 10.800886, 0.850349, 8.133483)
 
-[node name="cliff051_lp22" parent="Cliffs" unique_id=1416436322 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp22" parent="Cliffs" unique_id=1048044353 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.130296, 0.850349, 9.505129)
 
-[node name="cliff051_lp23" parent="Cliffs" unique_id=281394593 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp23" parent="Cliffs" unique_id=1416414410 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.303728, 0.850349, 10.536913)
 
-[node name="cliff051_lp24" parent="Cliffs" unique_id=1344806154 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp24" parent="Cliffs" unique_id=2037216349 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.49826, 0.850349, 12.096838)
 
-[node name="cliff051_lp4" parent="Cliffs" unique_id=1763545082 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp4" parent="Cliffs" unique_id=1843504414 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.050992712, 0, -0.052804485, 0, 0.07340689, 0, 0.052804485, 0, -0.050992712, 11.406875, 0.850349, 6.734589)
 
-[node name="cliff051_lp5" parent="Cliffs" unique_id=343607819 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp5" parent="Cliffs" unique_id=1849577832 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.03725681, 0, -0.06324951, 0, 0.07340689, 0, 0.06324951, 0, 0.03725681, 11.752432, 0.85034865, 5.0158815)
 
-[node name="cliff051_lp6" parent="Cliffs" unique_id=730955879 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp6" parent="Cliffs" unique_id=1217924571 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.06357223, 0, -0.03670344, 0, 0.07340689, 0, 0.03670344, 0, 0.06357223, 10.881197, 0.85034865, 4.1478753)
 
-[node name="cliff051_lp9" parent="Cliffs" unique_id=1961212796 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp9" parent="Cliffs" unique_id=698561146 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.06357223, 0, -0.03670344, 0, 0.07340689, 0, 0.03670344, 0, 0.06357223, 9.755057, 0.85034865, 3.13732)
 
-[node name="cliff051_lp8" parent="Cliffs" unique_id=637885311 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp8" parent="Cliffs" unique_id=1143694290 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.07193323, 0, 0.014634983, 0, 0.07340691, 0, -0.014634983, 0, 0.07193323, 8.143929, 0.8503492, 3.1013255)
 
-[node name="cliff051_lp10" parent="Cliffs" unique_id=589334936 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp10" parent="Cliffs" unique_id=1240507631 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.028091602, 0, 0.06781913, 0, 0.07340691, 0, -0.06781913, 0, 0.028091602, 6.6667676, 0.8503492, 4.029468)
 
-[node name="cliff051_lp16" parent="Cliffs" unique_id=864848843 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp16" parent="Cliffs" unique_id=1097138597 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.037823815, 0, 0.06291209, 0, 0.0734069, 0, -0.06291209, 0, 0.037823815, 6.8857927, 0.85034865, 8.25005)
 
-[node name="cliff051_lp17" parent="Cliffs" unique_id=2145985581 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp17" parent="Cliffs" unique_id=1789853711 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.037823815, 0, 0.06291209, 0, 0.0734069, 0, -0.06291209, 0, 0.037823815, 5.855447, 0.85034865, 9.358112)
 
-[node name="cliff051_lp18" parent="Cliffs" unique_id=490646992 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp18" parent="Cliffs" unique_id=1297868748 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.013358446, 0, 0.072181195, 0, 0.07340691, 0, -0.072181195, 0, -0.013358446, 5.790918, 0.8503492, 10.968349)
 
-[node name="cliff051_lp19" parent="Cliffs" unique_id=753721655 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp19" parent="Cliffs" unique_id=547861419 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.067310885, 0, 0.029288558, 0, 0.07340693, 0, -0.029288558, 0, -0.067310885, 6.692748, 0.8503492, 12.461721)
 
-[node name="cliff051_lp27" parent="Cliffs" unique_id=1403582973 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp27" parent="Cliffs" unique_id=762268514 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.067310885, 0, 0.029288558, 0, 0.07340693, 0, -0.029288558, 0, -0.067310885, 8.105738, 0.8503492, 13.157282)
 
-[node name="cliff051_lp28" parent="Cliffs" unique_id=1148037411 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp28" parent="Cliffs" unique_id=491011438 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.07285975, 0, -0.00894606, 0, 0.07340693, 0, 0.00894606, 0, -0.07285975, 10.124417, 0.8503492, 13.394943)
 
-[node name="cliff051_lp11" parent="Cliffs" unique_id=2053958300 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp11" parent="Cliffs" unique_id=99999173 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.032753993, 0, 0.06569436, 0, 0.07340691, 0, -0.06569436, 0, -0.032753993, 6.735648, 0.8503492, 5.733594)
 
 [node name="RacingMusic" type="AudioStreamPlayer" parent="." unique_id=416574071]
 stream = ExtResource("7_hji3u")
 autoplay = true
 
-[node name="cliff051_lp12" parent="." unique_id=139948139 instance=ExtResource("6_w7jgq")]
+[node name="cliff051_lp12" parent="." unique_id=1833479471 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.099509224, 0, 1.6269599, 0, 1.6300006, 0, -1.6269599, 0, -0.099509224, -63.934345, 2.2830038, -21.373272)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=606016527]
@@ -493,7 +494,7 @@ vertical_alignment = 2
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_w7jgq")
 
-[node name="TextureRect2" type="TextureButton" parent="UI/GameOver" unique_id=2053153425]
+[node name="ExitButton" type="TextureButton" parent="UI/GameOver" unique_id=2053153425]
 self_modulate = Color(1, 0.36044765, 0.2604604, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -507,6 +508,7 @@ texture_normal = ExtResource("11_ki2kc")
 
 [node name="ButtonContainer" type="Control" parent="UI/GameOver" unique_id=1886243447]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
