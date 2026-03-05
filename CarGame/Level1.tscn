@@ -219,6 +219,26 @@ _data = {
 &"RESET": SubResource("Animation_w7jgq")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hji3u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y7fof"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tycxw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4rwh6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c1dok"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5g4e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7jgq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bg8ad"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d626y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4x24"]
+
 [sub_resource type="Theme" id="Theme_ht5rq"]
 default_font = ExtResource("8_y7fof")
 
@@ -494,17 +514,28 @@ vertical_alignment = 2
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_w7jgq")
 
-[node name="ExitButton" type="TextureButton" parent="UI/GameOver" unique_id=2053153425]
+[node name="ExitButton" type="Button" parent="UI/GameOver" unique_id=1310108037]
 self_modulate = Color(1, 0.36044765, 0.2604604, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
+offset_left = -105.00003
+offset_top = -105.0
+offset_right = 104.99997
+offset_bottom = 105.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.285, 0.285)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture_normal = ExtResource("11_ki2kc")
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hji3u")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y7fof")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tycxw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4rwh6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c1dok")
+icon = ExtResource("11_ki2kc")
 
 [node name="ButtonContainer" type="Control" parent="UI/GameOver" unique_id=1886243447]
 layout_mode = 1
@@ -519,7 +550,7 @@ offset_bottom = -14.199951
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="TextureButton" type="TextureButton" parent="UI/GameOver/ButtonContainer" unique_id=915012142]
+[node name="TextureButton" type="Button" parent="UI/GameOver/ButtonContainer" unique_id=1924508688]
 self_modulate = Color(0.7670039, 1, 0.66922677, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -529,8 +560,16 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.69, 0.69)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture_normal = ExtResource("12_m5g4e")
-stretch_mode = 4
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m5g4e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w7jgq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bg8ad")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d626y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j4x24")
+icon = ExtResource("12_m5g4e")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Label" type="Label" parent="UI/GameOver/ButtonContainer/TextureButton" unique_id=976106511]
 layout_mode = 1

@@ -435,9 +435,8 @@ turbulence_noise_scale = 0.0
 material = ExtResource("2_7xrmt")
 size = Vector2(0.205, 4.355)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_lurxh"]
-height = 31.97815
-radius = 31.781738
+[sub_resource type="BoxShape3D" id="BoxShape3D_lurxh"]
+size = Vector3(4.16, 39.272, 2.74)
 
 [node name="Volcano" type="Node3D" unique_id=1874404699]
 script = ExtResource("1_lurxh")
@@ -510,7 +509,6 @@ material = SubResource("StandardMaterial3D_fvg0o")
 
 [node name="LavaBubbles" type="GPUParticles3D" parent="." unique_id=1192851191]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74317646, 2.9802322e-08)
-visible = false
 amount = 200
 lifetime = 3.0
 speed_scale = 0.25
@@ -534,7 +532,7 @@ draw_pass_1 = SubResource("QuadMesh_lurxh")
 [node name="Area3D" type="Area3D" parent="." unique_id=1862324028]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2093359532]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.989075, 0)
-shape = SubResource("CylinderShape3D_lurxh")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.049974, 0)
+shape = SubResource("BoxShape3D_lurxh")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

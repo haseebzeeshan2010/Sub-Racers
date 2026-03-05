@@ -17,13 +17,13 @@ sky_top_color = Color(0.36078432, 0.42745098, 1, 1)
 sky_horizon_color = Color(0.30164886, 0.722728, 0.90974844, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_hfvu7"]
+[sub_resource type="Sky" id="Sky_kjsks"]
 sky_material = SubResource("ProceduralSkyMaterial_3siu6")
 
 [sub_resource type="Environment" id="Environment_rpohf"]
 background_mode = 1
 background_color = Color(0.24115592, 0.5531948, 1, 1)
-sky = SubResource("Sky_hfvu7")
+sky = SubResource("Sky_kjsks")
 ambient_light_source = 2
 ambient_light_color = Color(0.22919756, 0.5947704, 0.99999994, 1)
 tonemap_mode = 2

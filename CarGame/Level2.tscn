@@ -39,10 +39,10 @@ fog_enabled = true
 fog_light_color = Color(0.33647245, 0.70938826, 0.14295116, 1)
 fog_light_energy = 0.1
 fog_density = 0.045
-fog_height = -1.85
-fog_height_density = 0.43
+fog_height = 1.0
+fog_height_density = 0.35
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.015
+volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0.031946305, 0.45859075, 0.765062, 1)
 volumetric_fog_anisotropy = 0.45
 adjustment_enabled = true
@@ -72,7 +72,10 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_br8w3")
 size = Vector2(0.2, 0.2)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_iqlb0"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ssud0"]
+size = Vector3(19.980637, 19.980957, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8et01"]
 
 [sub_resource type="Animation" id="Animation_iqlb0"]
 resource_name = "EnterScreen"
@@ -92,7 +95,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%TimerLabel:self_modulate")
+tracks/1/path = NodePath("../../TimerLabel/TimerLabel:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -119,7 +122,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%TimerLabel:self_modulate")
+tracks/1/path = NodePath("../../TimerLabel/TimerLabel:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -146,7 +149,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%TimerLabel:self_modulate")
+tracks/1/path = NodePath("../../TimerLabel/TimerLabel:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -156,7 +159,7 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ddnfo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t0m7s"]
 _data = {
 &"EnterScreen": SubResource("Animation_iqlb0"),
 &"LeaveScreen": SubResource("Animation_ki2kc"),
@@ -217,17 +220,34 @@ tracks/1/keys = {
 "values": [1.9]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w7jgq"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgwyx"]
 _data = {
 &"GameOver": SubResource("Animation_m5g4e"),
 &"RESET": SubResource("Animation_w7jgq")
 }
 
-[sub_resource type="Theme" id="Theme_ht5rq"]
-default_font = ExtResource("9_16igy")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe7c6"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ssud0"]
-size = Vector3(19.980637, 19.980957, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16igy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwiur"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_joqfh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wcoos"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_643nv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6f70g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7b1v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h2dyh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mk3tc"]
+
+[sub_resource type="Theme" id="Theme_eksbg"]
+default_font = ExtResource("9_16igy")
 
 [node name="Node3D" type="Node3D" unique_id=1656276191]
 
@@ -462,196 +482,6 @@ visibility_aabb = AABB(-4, -4, -4, 5.975, 27.185, 100)
 process_material = SubResource("ParticleProcessMaterial_jy1iq")
 draw_pass_1 = SubResource("QuadMesh_ssud0")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1008795407]
-
-[node name="BannerContainer" type="Control" parent="UI" unique_id=765359917]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="TextureRect" type="TextureRect" parent="UI/BannerContainer" unique_id=1444311569]
-self_modulate = Color(0.08235294, 0.08235294, 0.08235294, 0.7764706)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 2.0
-anchor_top = 0.36
-anchor_right = 2.0
-anchor_bottom = 0.64
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("CanvasTexture_iqlb0")
-
-[node name="BannerAnim" type="AnimationPlayer" parent="UI/BannerContainer" unique_id=1181721306]
-root_node = NodePath("../TextureRect")
-libraries/ = SubResource("AnimationLibrary_ddnfo")
-autoplay = &"EnterScreen"
-script = ExtResource("8_fe7c6")
-
-[node name="TimerLabel" type="Control" parent="UI" unique_id=282214612]
-layout_mode = 3
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.8
-anchor_bottom = 0.8
-offset_right = -6.1035156e-05
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TimerLabel" type="Label" parent="UI/TimerLabel" unique_id=602703684]
-unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -49.000008
-offset_right = 192.0
-offset_bottom = 49.000008
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("9_16igy")
-theme_override_font_sizes/font_size = 99
-text = "10"
-horizontal_alignment = 1
-
-[node name="GameOver" type="Control" parent="UI" unique_id=168357013]
-layout_mode = 3
-anchor_left = 0.3
-anchor_top = 1.1
-anchor_right = 0.7
-anchor_bottom = 1.9
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="TextureRect" type="TextureRect" parent="UI/GameOver" unique_id=888964052]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("10_qwiur")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="UI/GameOver/TextureRect" unique_id=1432950691]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-offset_top = 5.449951
-offset_bottom = 72.94995
-grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("9_16igy")
-theme_override_font_sizes/font_size = 38
-text = "Nice Job!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="UI/GameOver/TextureRect" unique_id=745550681]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.4
-anchor_right = 0.5
-anchor_bottom = 0.6
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("9_16igy")
-theme_override_font_sizes/font_size = 38
-text = "You got...1st place!"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="GameOver" type="AnimationPlayer" parent="UI/GameOver" unique_id=1754658220]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_w7jgq")
-
-[node name="TextureRect2" type="TextureButton" parent="UI/GameOver" unique_id=2053153425]
-self_modulate = Color(1, 0.36044765, 0.2604604, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.285, 0.285)
-pivot_offset_ratio = Vector2(0.5, 0.5)
-texture_normal = ExtResource("11_joqfh")
-
-[node name="ButtonContainer" type="Control" parent="UI/GameOver" unique_id=1886243447]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.149994
-offset_top = -139.19995
-offset_right = -9.0
-offset_bottom = -14.199951
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="TextureButton" type="TextureButton" parent="UI/GameOver/ButtonContainer" unique_id=915012142]
-self_modulate = Color(0.7670039, 1, 0.66922677, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.69, 0.69)
-pivot_offset_ratio = Vector2(0.5, 0.5)
-texture_normal = ExtResource("12_wcoos")
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="UI/GameOver/ButtonContainer/TextureButton" unique_id=976106511]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -15.39856
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_16igy")
-theme_override_font_sizes/font_size = 44
-text = "Next Level"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Container" type="Control" parent="UI" unique_id=1076637628]
-layout_mode = 3
-anchor_right = 0.2
-anchor_bottom = 0.25
-
-[node name="SpeedLabel" type="Label" parent="UI/Container" unique_id=302055813]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = -0.3
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 4.5776367e-05
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_ht5rq")
-theme_override_font_sizes/font_size = 50
-text = "26 mph"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("13_643nv")
-use_mph = true
-
 [node name="Timer" type="Timer" parent="." unique_id=1168113881]
 autostart = true
 
@@ -776,6 +606,215 @@ transform = Transform3D(-5.0395722, 0, 2.3413727, 0, 10.999999, 0, -9.506856, 0,
 
 [node name="rock_low_finished8" parent="." unique_id=1937610628 instance=ExtResource("15_ig2m3")]
 transform = Transform3D(4.8713927, 0, -2.1194139, 0, 16.105, 0, 6.4902043, 0, 1.5907816, -195.22612, -11.920474, -51.14958)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=241358392]
+
+[node name="BannerContainer" type="Control" parent="UI" unique_id=795363081]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="UI/BannerContainer" unique_id=957542664]
+self_modulate = Color(0.08235294, 0.08235294, 0.08235294, 0.7764706)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 0.36
+anchor_right = 2.0
+anchor_bottom = 0.64
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_8et01")
+
+[node name="BannerAnim" type="AnimationPlayer" parent="UI/BannerContainer" unique_id=502620515]
+root_node = NodePath("../TextureRect")
+libraries/ = SubResource("AnimationLibrary_t0m7s")
+autoplay = &"EnterScreen"
+script = ExtResource("8_fe7c6")
+
+[node name="TimerLabel" type="Control" parent="UI" unique_id=1792564275]
+layout_mode = 3
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+offset_right = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="UI/TimerLabel" unique_id=1611720453]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -49.000008
+offset_right = 192.0
+offset_bottom = 49.000008
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_16igy")
+theme_override_font_sizes/font_size = 99
+text = "10"
+horizontal_alignment = 1
+
+[node name="GameOver" type="Control" parent="UI" unique_id=1374956555]
+layout_mode = 3
+anchor_left = 0.3
+anchor_top = 1.1
+anchor_right = 0.7
+anchor_bottom = 1.9
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="UI/GameOver" unique_id=1927716590]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_qwiur")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="UI/GameOver/TextureRect" unique_id=1348230224]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 5.449951
+offset_bottom = 72.94995
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_16igy")
+theme_override_font_sizes/font_size = 38
+text = "Nice Job!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/GameOver/TextureRect" unique_id=514947213]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_16igy")
+theme_override_font_sizes/font_size = 38
+text = "You got...1st place!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="GameOver" type="AnimationPlayer" parent="UI/GameOver" unique_id=1152089209]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_fgwyx")
+
+[node name="ExitButton" type="Button" parent="UI/GameOver" unique_id=1015268778]
+self_modulate = Color(1, 0.36044765, 0.2604604, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -105.00003
+offset_top = -105.0
+offset_right = 104.99997
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.285, 0.285)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7c6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_16igy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qwiur")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_joqfh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wcoos")
+icon = ExtResource("11_joqfh")
+
+[node name="ButtonContainer" type="Control" parent="UI/GameOver" unique_id=1253461027]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.149994
+offset_top = -139.19995
+offset_right = -9.0
+offset_bottom = -14.199951
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureButton" type="Button" parent="UI/GameOver/ButtonContainer" unique_id=2082599979]
+self_modulate = Color(0.7670039, 1, 0.66922677, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.69, 0.69)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_643nv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6f70g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n7b1v")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h2dyh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mk3tc")
+icon = ExtResource("12_wcoos")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="UI/GameOver/ButtonContainer/TextureButton" unique_id=1389994389]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.39856
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_16igy")
+theme_override_font_sizes/font_size = 44
+text = "Next Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Container" type="Control" parent="UI" unique_id=122305753]
+layout_mode = 3
+anchor_right = 0.2
+anchor_bottom = 0.25
+
+[node name="SpeedLabel" type="Label" parent="UI/Container" unique_id=1487242539]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.5776367e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eksbg")
+theme_override_font_sizes/font_size = 50
+text = "26 mph"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_643nv")
+use_mph = true
 
 [connection signal="race_started" from="StartSignal" to="EnemyCar" method="_on_start_signal_race_started"]
 [connection signal="race_started" from="StartSignal" to="Round" method="_on_start_signal_race_started"]
