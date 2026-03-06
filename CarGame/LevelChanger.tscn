@@ -1,17 +1,30 @@
 [gd_scene format=3 uid="uid://vli6htolp18n"]
 
+[ext_resource type="Script" uid="uid://bnxype685o35p" path="res://CarGame/level_changer.gd" id="1_w8hgf"]
 [ext_resource type="Script" uid="uid://j8wm5sacjgg4" path="res://UIComponents/carousel_container.gd" id="1_wm1ts"]
 [ext_resource type="Texture2D" uid="uid://bohu1txxxy63o" path="res://Window.png" id="2_jo8us"]
 [ext_resource type="FontFile" uid="uid://cott0r83xkqf0" path="res://CarGame/MajorMonoDisplay-Regular.ttf" id="3_uj5s8"]
 [ext_resource type="Texture2D" uid="uid://byedtws4pivm2" path="res://Level1Preview.png" id="4_w8hgf"]
 [ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Table.png" id="5_yhv3p"]
+[ext_resource type="Texture2D" uid="uid://yetu8ghelqme" path="res://Level2Preview.png" id="6_jo8us"]
 [ext_resource type="PackedScene" uid="uid://cvl4ylwowp602" path="res://CarGame/PlayerSub/PlayerCar.tscn" id="6_mlmim"]
+[ext_resource type="Texture2D" uid="uid://uiyuu4286xv1" path="res://LevelLockedPreviewimg.png" id="7_uj5s8"]
 [ext_resource type="Script" uid="uid://dbey2af3dgiyw" path="res://CarGame/Camera3D.gd" id="7_yjhph"]
 [ext_resource type="PackedScene" path="res://CarGame/EnemyCar/enemy_path.tscn" id="8_j2m4h"]
 [ext_resource type="PackedScene" uid="uid://bjqfckyoamvmb" path="res://Environment/cliff.tscn" id="9_glct8"]
 [ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://CarGame/Audiowide-Regular.ttf" id="10_x36pa"]
 [ext_resource type="Texture2D" uid="uid://cpmt2o0mkjcrv" path="res://CarGame/Replay_BTN_DIS.png" id="11_festa"]
 [ext_resource type="Texture2D" uid="uid://7tviho6ym02a" path="res://CarGame/Replay_BTN.png" id="12_7w5j7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uj5s8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8hgf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhv3p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mlmim"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjhph"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ay7qp"]
 sky_top_color = Color(0.36078432, 0.42745098, 1, 1)
@@ -64,6 +77,110 @@ load_path = "res://.godot/imported/Forward_BTN_DIS.png-8235279830f6754965b3a9c9c
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7emii"]
 load_path = "res://.godot/imported/Forward_BTN.png-7e93732576d0c1d0ccd530f1816a7d8e.ctex"
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_w8hgf"]
+
+[sub_resource type="Animation" id="Animation_kjsks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CarouselContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_re6lr"]
+resource_name = "StartSceneExit"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w8hgf"]
+resource_name = "StartSceneExit_LevelChanger"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CarouselContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yhv3p"]
+_data = {
+&"RESET": SubResource("Animation_kjsks"),
+&"StartSceneExit": SubResource("Animation_re6lr"),
+&"StartSceneExit_LevelChanger": SubResource("Animation_w8hgf")
+}
+
 [node name="LevelChanger" type="Control" unique_id=725159966]
 layout_mode = 3
 anchors_preset = 15
@@ -71,6 +188,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_w8hgf")
 
 [node name="CarouselContainer" type="Control" parent="." unique_id=1880077351 node_paths=PackedStringArray("position_offset_node")]
 layout_mode = 1
@@ -93,23 +211,129 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 423.36
+offset_top = 324.0
+offset_right = 423.36
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Level" type="TextureRect" parent="CarouselContainer/CarouselOffset" unique_id=498522763]
+[node name="Tutorial" type="TextureRect" parent="CarouselContainer/CarouselOffset" unique_id=84822167]
+self_modulate = Color(0, 0.9702073, 0.48425937, 1)
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.467
 anchor_top = 0.365
 anchor_right = 0.467
 anchor_bottom = 0.365
-offset_left = -152.064
-offset_top = -217.08
-offset_right = 153.216
-offset_bottom = 217.08
+offset_left = -537.984
+offset_top = -453.6
+offset_right = -232.70398
+offset_bottom = -19.440002
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_jo8us")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Tutorial" unique_id=1795293259]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.04
+anchor_right = 1.0
+anchor_bottom = 0.095
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_uj5s8")
+theme_override_font_sizes/font_size = 29
+text = "tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CarouselContainer/CarouselOffset/Tutorial" unique_id=2035925005]
+z_index = 1
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 0.2
+offset_top = -126.15
+offset_right = 0.19998169
+offset_bottom = 78.58516
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_w8hgf")
+expand_mode = 2
+stretch_mode = 5
+flip_h = true
+
+[node name="StartButton" type="Button" parent="CarouselContainer/CarouselOffset/Tutorial" unique_id=1752632798]
+self_modulate = Color(0, 0.9702073, 0.48425937, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060000002
+anchor_top = 0.75100005
+anchor_right = 0.94000006
+anchor_bottom = 0.924
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.745, 0.745)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1.353256, 1.353256, 1.353256, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uj5s8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8hgf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhv3p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mlmim")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjhph")
+icon = ExtResource("5_yhv3p")
+
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Tutorial/StartButton" unique_id=631026496]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.048
+anchor_right = 0.92200005
+anchor_bottom = 0.832
+offset_left = -0.087566376
+offset_top = 0.03456831
+offset_right = -0.07357788
+offset_bottom = 0.045204163
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_uj5s8")
+theme_override_font_sizes/font_size = 24
+text = "start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="TextureRect" parent="CarouselContainer/CarouselOffset" unique_id=498522763]
+modulate = Color(1, 1, 1, 0.465)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.467
+anchor_top = 0.365
+anchor_right = 0.467
+anchor_bottom = 0.365
+offset_left = -211.374
+offset_top = -453.6
+offset_right = 93.906006
+offset_bottom = -19.440002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_jo8us")
 expand_mode = 1
@@ -151,7 +375,7 @@ expand_mode = 2
 stretch_mode = 5
 flip_h = true
 
-[node name="StartButton" type="TextureButton" parent="CarouselContainer/CarouselOffset/Level" unique_id=621226419]
+[node name="StartButton" type="Button" parent="CarouselContainer/CarouselOffset/Level" unique_id=369537090]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
@@ -163,8 +387,14 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.745, 0.745)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture_normal = ExtResource("5_yhv3p")
-stretch_mode = 4
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1.353256, 1.353256, 1.353256, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uj5s8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8hgf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhv3p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mlmim")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjhph")
+icon = ExtResource("5_yhv3p")
 
 [node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Level/StartButton" unique_id=1546248479]
 layout_mode = 1
@@ -183,23 +413,26 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_uj5s8")
 theme_override_font_sizes/font_size = 24
-text = "start level"
+text = "start"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Level2" type="TextureRect" parent="CarouselContainer/CarouselOffset" unique_id=1921539866]
+modulate = Color(1, 1, 1, 0)
+z_index = -2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.467
 anchor_top = 0.365
 anchor_right = 0.467
 anchor_bottom = 0.365
-offset_left = -152.064
-offset_top = -217.08
-offset_right = 153.216
-offset_bottom = 217.08
+offset_left = 115.23602
+offset_top = -453.6
+offset_right = 420.51605
+offset_bottom = -19.440002
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.65, 0.65)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_jo8us")
 expand_mode = 1
@@ -218,8 +451,8 @@ grow_vertical = 2
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("3_uj5s8")
-theme_override_font_sizes/font_size = 29
-text = "murky waters"
+theme_override_font_sizes/font_size = 24
+text = "thermal trench"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -236,12 +469,12 @@ offset_right = 0.19998169
 offset_bottom = 78.58516
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_w8hgf")
+texture = ExtResource("6_jo8us")
 expand_mode = 2
 stretch_mode = 5
 flip_h = true
 
-[node name="StartButton" type="TextureButton" parent="CarouselContainer/CarouselOffset/Level2" unique_id=590485918]
+[node name="StartButton" type="Button" parent="CarouselContainer/CarouselOffset/Level2" unique_id=12997808]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
@@ -253,10 +486,16 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.745, 0.745)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture_normal = ExtResource("5_yhv3p")
-stretch_mode = 4
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1.353256, 1.353256, 1.353256, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uj5s8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8hgf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhv3p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mlmim")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjhph")
+icon = ExtResource("5_yhv3p")
 
-[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Level2/StartButton" unique_id=1614746180]
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Level2/StartButton" unique_id=735615419]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.078
@@ -273,28 +512,32 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_uj5s8")
 theme_override_font_sizes/font_size = 24
-text = "start level"
+text = "start"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level3" type="TextureRect" parent="CarouselContainer/CarouselOffset" unique_id=1888909170]
+[node name="LevelLocked" type="TextureRect" parent="CarouselContainer/CarouselOffset" unique_id=1888909170]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 0.7236347, 0.7892788, 1)
+z_index = -3
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.467
 anchor_top = 0.365
 anchor_right = 0.467
 anchor_bottom = 0.365
-offset_left = -152.064
-offset_top = -217.08
-offset_right = 153.216
-offset_bottom = 217.08
+offset_left = 441.84607
+offset_top = -453.6
+offset_right = 747.1261
+offset_bottom = -19.440002
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.65, 0.65)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_jo8us")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Level3" unique_id=890388943]
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/LevelLocked" unique_id=890388943]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
@@ -313,7 +556,7 @@ text = "locked"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CarouselContainer/CarouselOffset/Level3" unique_id=1650012576]
+[node name="TextureRect" type="TextureRect" parent="CarouselContainer/CarouselOffset/LevelLocked" unique_id=1650012576]
 z_index = 1
 layout_mode = 1
 anchors_preset = 14
@@ -326,12 +569,13 @@ offset_right = 0.19998169
 offset_bottom = 78.58516
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_w8hgf")
+texture = ExtResource("7_uj5s8")
 expand_mode = 2
 stretch_mode = 5
 flip_h = true
 
-[node name="StartButton" type="TextureButton" parent="CarouselContainer/CarouselOffset/Level3" unique_id=1629182528]
+[node name="StartButton" type="Button" parent="CarouselContainer/CarouselOffset/LevelLocked" unique_id=397261603]
+self_modulate = Color(2.055, 0.815, 0.815, 1)
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
@@ -343,10 +587,16 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.745, 0.745)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture_normal = ExtResource("5_yhv3p")
-stretch_mode = 4
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1.353256, 1.353256, 1.353256, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uj5s8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8hgf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhv3p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mlmim")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjhph")
+icon = ExtResource("5_yhv3p")
 
-[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Level3/StartButton" unique_id=1865495278]
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/LevelLocked/StartButton" unique_id=1553795615]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.078
@@ -532,6 +782,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.038397167, 0.038397167, 0.03839716, 0.44705883)
 
 [node name="Control" type="Control" parent="." unique_id=1117914489]
@@ -567,7 +818,7 @@ pivot_offset_ratio = Vector2(1, 0)
 texture_normal = SubResource("CompressedTexture2D_aef3r")
 texture_pressed = SubResource("CompressedTexture2D_7emii")
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=33251730]
+[node name="TitleScreenButton" type="TextureButton" parent="." unique_id=33251730]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -581,5 +832,25 @@ pivot_offset_ratio = Vector2(0, 1)
 texture_normal = ExtResource("11_festa")
 texture_pressed = ExtResource("12_7w5j7")
 
+[node name="TransitionBack" type="TextureRect" parent="." unique_id=321706531]
+self_modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_w8hgf")
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=914495900]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_yhv3p")
+
+[connection signal="pressed" from="CarouselContainer/CarouselOffset/Tutorial/StartButton" to="." method="_on_start_tutorial_button_pressed"]
+[connection signal="pressed" from="CarouselContainer/CarouselOffset/Level/StartButton" to="." method="_on_start_level_button_pressed"]
+[connection signal="pressed" from="CarouselContainer/CarouselOffset/Level2/StartButton" to="." method="_on_start_level2_button_pressed"]
 [connection signal="pressed" from="Control/TextureButton" to="CarouselContainer" method="move_left"]
 [connection signal="pressed" from="Control/TextureButton2" to="CarouselContainer" method="move_right"]
+[connection signal="pressed" from="TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
+[connection signal="animation_finished" from="TransitionPlayer" to="." method="_on_transition_player_animation_finished"]

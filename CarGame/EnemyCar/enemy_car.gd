@@ -3,10 +3,10 @@ extends RigidBody3D
 @export var impulse_strength = 1500
 @export var torque_strength = 100
 @export var enemytrack: Path3D
-var race_start = false
+var race_active = false
 
 func _physics_process(delta):
-	if not race_start:
+	if not race_active:
 		return
 
 	#Get Relative Velocities(Useful for Drifting Code)
@@ -73,9 +73,5 @@ func _physics_process(delta):
 
 
 func _on_start_signal_race_started() -> void:
-	race_start = true
-	pass # Replace with function body.
-
-
-func _on_node_3d_race_started() -> void:
+	race_active = true
 	pass # Replace with function body.
