@@ -436,10 +436,9 @@ material = ExtResource("2_7xrmt")
 size = Vector2(0.205, 4.355)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lurxh"]
-size = Vector3(4.16, 39.272, 2.74)
+size = Vector3(3.1, 39.272, 2.3)
 
 [node name="Volcano" type="Node3D" unique_id=1874404699]
-script = ExtResource("1_lurxh")
 
 [node name="SM_Rocks_01" type="MeshInstance3D" parent="." unique_id=1499966164]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13221963, -1e-08, 0.6848956)
@@ -520,8 +519,7 @@ draw_pass_1 = SubResource("SphereMesh_bxrik")
 [node name="LavaBurst" type="GPUParticles3D" parent="." unique_id=395449046]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2435822, 2.9802322e-08)
-emitting = false
-amount = 100
+amount = 50
 lifetime = 2.0
 speed_scale = 0.4
 randomness = 0.1
@@ -530,9 +528,9 @@ process_material = SubResource("ParticleProcessMaterial_7xrmt")
 draw_pass_1 = SubResource("QuadMesh_lurxh")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1862324028]
+collision_layer = 2
+script = ExtResource("1_lurxh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2093359532]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.049974, 0)
 shape = SubResource("BoxShape3D_lurxh")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

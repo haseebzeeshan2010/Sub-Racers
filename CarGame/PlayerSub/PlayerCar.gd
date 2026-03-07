@@ -3,11 +3,17 @@ extends RigidBody3D
 @export var impulse_strength = 1500
 @export var torque_strength = 100
 @export var use_keyboard_steering = false
+@export var max_health = 11
 
 var mouse_position_3d = Vector3.ZERO
 var has_valid_mouse_position = false
+var race_active = false
 
 func _physics_process(delta):
+	if not race_active:
+		return
+	
+	
 	#Get Relative Velocities(Useful for Drifting Code)
 	var vel: Vector3 = linear_velocity
 	var basis := global_transform.basis
@@ -28,7 +34,7 @@ func _physics_process(delta):
 		var ray_direction = camera.project_ray_normal(mouse_pos)
 		
 		# Define a plane at the car's Y position (or ground level)
-		var plane_y = global_transform.origin.y # Use car's height
+		var plane_y = global_transform.origin.y # Use sub's height
 		var plane_normal = Vector3.UP
 		
 		# Calculate intersection with the horizontal plane
@@ -41,7 +47,7 @@ func _physics_process(delta):
 		
 		# Fallback: If horizontal plane intersection failed, use a vertical plane ahead of the car
 		if not has_valid_mouse_position:
-			# Create a vertical plane 50 units ahead of the car
+			# Create a vertical plane 50 units ahead of the sub
 			var plane_distance = 50.0
 			var plane_point = global_transform.origin - global_transform.basis.z * plane_distance
 			var plane_forward = - global_transform.basis.z
@@ -54,13 +60,13 @@ func _physics_process(delta):
 					mouse_position_3d = ray_origin + ray_direction * t_vertical
 					has_valid_mouse_position = true
 		
-		# Check if the target is behind the car and clamp to minimum distance ahead
+		# Check if the target is behind the sub and clamp to minimum distance ahead
 		if has_valid_mouse_position:
 			var to_target = mouse_position_3d - global_transform.origin
 			var forward = - global_transform.basis.z
 			var forward_distance = to_target.dot(forward)
 			
-			# If target is behind the car (negative forward distance), clamp to minimum distance ahead
+			# If target is behind the sub (negative forward distance), clamp to minimum distance ahead
 			var min_forward_distance = 10.0
 			if forward_distance < min_forward_distance:
 				# Project the target onto a circle at the minimum distance
@@ -141,10 +147,38 @@ func _physics_process(delta):
 		if has_node("%Trail2"):
 			%Trail2.stop_skid()
 			
-	# CAR TILT CODE
+	# SUB TILT CODE
 	
 	%Submarine.rotation = Vector3(0, 1.570796, -lerp(%Submarine.rotation.x, angular_velocity.y * 10, delta))
 
 
+
+
+
+#RACE START AND FINISH CODE
 func _on_start_signal_race_started() -> void:
+	race_active = true
+	pass # Replace with function body.
+
+
+func _on_round_round_finished(player_won: bool) -> void:
+	race_active = false
+	pass # Replace with function body.
+
+#DAMAGE CODE
+func _on_damage_area_area_entered(area: Area3D) -> void:
+	max_health -= 4
+	max_health = clamp(max_health,0,11)
+	%DamageFlashPlayer.play("DamageFlash")
+	%HealthBar.update_bar(max_health)
+	
+	if max_health == 0:
+		race_active = false
+		axis_lock_linear_y = false
+		# Low damping for good drag on
+		linear_damp = 0.5
+		angular_damp = 5
+		%LavaOver.visible = true
+		%NormalOver.visible = false
+		%GameOver.play("GameOver")
 	pass # Replace with function body.

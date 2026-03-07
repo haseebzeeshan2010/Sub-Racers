@@ -75,3 +75,8 @@ func _physics_process(delta):
 func _on_start_signal_race_started() -> void:
 	race_active = true
 	pass # Replace with function body.
+
+
+func _on_round_round_finished(player_won: bool) -> void:
+	race_active = false
+	pass # Replace with function body.

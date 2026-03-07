@@ -10,12 +10,9 @@
 [ext_resource type="Script" uid="uid://pjrr6dhyqt5a" path="res://CarGame/banner_anim.gd" id="8_fe7c6"]
 [ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://CarGame/Audiowide-Regular.ttf" id="9_16igy"]
 [ext_resource type="Texture2D" uid="uid://bohu1txxxy63o" path="res://Window.png" id="10_qwiur"]
-[ext_resource type="Texture2D" uid="uid://do1u5knh7l2hj" path="res://Close_BTN.png" id="11_joqfh"]
 [ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Table.png" id="12_wcoos"]
-[ext_resource type="Script" uid="uid://31o5fsqrhs6g" path="res://CarGame/speed.gd" id="13_643nv"]
 [ext_resource type="Script" uid="uid://ds48mo05w2ooy" path="res://CarGame/round.gd" id="14_6f70g"]
 [ext_resource type="PackedScene" uid="uid://bqcf6k2jf8fqi" path="res://Environment/cliff2.tscn" id="15_ig2m3"]
-[ext_resource type="PackedScene" uid="uid://dl6g54otr30ps" path="res://Environment/free-pack-rocks-stylized/source/Free Pack - Rocks Stylized.fbx" id="16_0j5de"]
 [ext_resource type="PackedScene" uid="uid://cwpv2rithryuf" path="res://Environment/volcano1.tscn" id="17_4ubjj"]
 [ext_resource type="PackedScene" uid="uid://cqut2qt4cekxo" path="res://Environment/volcanodecoration.tscn" id="18_8et01"]
 
@@ -39,10 +36,10 @@ fog_enabled = true
 fog_light_color = Color(0.33647245, 0.70938826, 0.14295116, 1)
 fog_light_energy = 0.1
 fog_density = 0.045
-fog_height = 1.0
-fog_height_density = 0.35
+fog_height = -1.85
+fog_height_density = 0.43
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.01
+volumetric_fog_density = 0.025
 volumetric_fog_albedo = Color(0.031946305, 0.45859075, 0.765062, 1)
 volumetric_fog_anisotropy = 0.45
 adjustment_enabled = true
@@ -75,9 +72,11 @@ size = Vector2(0.2, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ssud0"]
 size = Vector3(19.980637, 19.980957, 1)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_8et01"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_t0m7s"]
 
-[sub_resource type="Animation" id="Animation_iqlb0"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_fgwyx"]
+
+[sub_resource type="Animation" id="Animation_fe7c6"]
 resource_name = "EnterScreen"
 length = 2.0
 tracks/0/type = "value"
@@ -105,7 +104,7 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ki2kc"]
+[sub_resource type="Animation" id="Animation_16igy"]
 resource_name = "LeaveScreen"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -132,7 +131,7 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_ddnfo"]
+[sub_resource type="Animation" id="Animation_qwiur"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -159,14 +158,14 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_t0m7s"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_joqfh"]
 _data = {
-&"EnterScreen": SubResource("Animation_iqlb0"),
-&"LeaveScreen": SubResource("Animation_ki2kc"),
-&"RESET": SubResource("Animation_ddnfo")
+&"EnterScreen": SubResource("Animation_fe7c6"),
+&"LeaveScreen": SubResource("Animation_16igy"),
+&"RESET": SubResource("Animation_qwiur")
 }
 
-[sub_resource type="Animation" id="Animation_m5g4e"]
+[sub_resource type="Animation" id="Animation_wcoos"]
 resource_name = "GameOver"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -193,7 +192,7 @@ tracks/1/keys = {
 "values": [1.9, 0.9]
 }
 
-[sub_resource type="Animation" id="Animation_w7jgq"]
+[sub_resource type="Animation" id="Animation_643nv"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -220,36 +219,166 @@ tracks/1/keys = {
 "values": [1.9]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgwyx"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6f70g"]
 _data = {
-&"GameOver": SubResource("Animation_m5g4e"),
-&"RESET": SubResource("Animation_w7jgq")
+&"GameOver": SubResource("Animation_wcoos"),
+&"RESET": SubResource("Animation_643nv")
 }
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe7c6"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e207g"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16igy"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gvx1"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwiur"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cms70"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_joqfh"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ot64l"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wcoos"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p5x2t"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_643nv"]
+[sub_resource type="Animation" id="Animation_kjsks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CarouselContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameOver:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6f70g"]
+[sub_resource type="Animation" id="Animation_re6lr"]
+resource_name = "StartSceneExit"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7b1v"]
+[sub_resource type="Animation" id="Animation_w8hgf"]
+resource_name = "StartSceneExit_LevelChanger"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CarouselContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h2dyh"]
+[sub_resource type="Animation" id="Animation_hji3u"]
+resource_name = "StartScene_LevelExitInternal"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOver:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mk3tc"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0s5mj"]
+_data = {
+&"RESET": SubResource("Animation_kjsks"),
+&"StartSceneExit": SubResource("Animation_re6lr"),
+&"StartSceneExit_LevelChanger": SubResource("Animation_w8hgf"),
+&"StartScene_LevelExitInternal": SubResource("Animation_hji3u")
+}
 
-[sub_resource type="Theme" id="Theme_eksbg"]
-default_font = ExtResource("9_16igy")
-
-[node name="Node3D" type="Node3D" unique_id=1656276191]
+[node name="Level2" type="Node3D" unique_id=1656276191]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1978545274]
 environment = SubResource("Environment_8et01")
@@ -270,7 +399,7 @@ size = Vector3(442.54892, 1, 557.6564)
 [node name="PlayerCar" parent="." unique_id=1438980510 instance=ExtResource("1_xbdra")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5761786, 3.0237923, 2.3776245)
-gravity_scale = 0.0
+gravity_scale = 0.3
 use_keyboard_steering = true
 
 [node name="Camera3D" type="Camera3D" parent="PlayerCar" unique_id=1022024141 node_paths=PackedStringArray("target", "lookattarget")]
@@ -294,7 +423,7 @@ enemytrack = NodePath("../EnemyPath")
 script = ExtResource("4_4ubjj")
 
 [node name="Timer" type="Timer" parent="StartSignal" unique_id=344354673]
-wait_time = 11.0
+wait_time = 6.0
 one_shot = true
 autostart = true
 
@@ -470,6 +599,116 @@ transform = Transform3D(-0.011135251, 0, 0.072145745, 0, 0.123, 0, -0.072145745,
 [node name="cliff051_lp35" parent="Cliffs" unique_id=1424632841 instance=ExtResource("6_t0m7s")]
 transform = Transform3D(0.07068213, 0, -0.018249363, 0, 0.123, 0, 0.018249363, 0, 0.07068213, 5.2575808, 0.8503491, -8.996573)
 
+[node name="rock_low_finished2" parent="Cliffs" unique_id=247795142 instance=ExtResource("15_ig2m3")]
+transform = Transform3D(-0.013158151, 0, 0.11929848, 0, 0.61128086, 0, -0.48439687, 0, -0.0032406219, -0.6780853, 0.25999033, -0.68299866)
+
+[node name="rock_low_finished5" parent="Cliffs" unique_id=1421836271 instance=ExtResource("15_ig2m3")]
+transform = Transform3D(-0.22695665, 0, 0.10544349, 0, 0.61128086, 0, -0.42814034, 0, -0.055895444, -0.4395218, -0.12423992, 1.1072149)
+
+[node name="rock_low_finished6" parent="Cliffs" unique_id=579708669 instance=ExtResource("15_ig2m3")]
+transform = Transform3D(0.2193827, 0, -0.0954476, 0, 0.8949708, 0, 0.29228574, 0, 0.07164069, 0.20645142, 0.25999033, 3.6395864)
+
+[node name="rock_low_finished7" parent="Cliffs" unique_id=1945070418 instance=ExtResource("15_ig2m3")]
+transform = Transform3D(-0.22695665, 0, 0.10544349, 0, 0.61128086, 0, -0.42814034, 0, -0.055895444, 1.0235958, 0.25999033, 5.193002)
+
+[node name="rock_low_finished8" parent="Cliffs" unique_id=1937610628 instance=ExtResource("15_ig2m3")]
+transform = Transform3D(0.2193827, 0, -0.0954476, 0, 0.8949708, 0, 0.29228574, 0, 0.07164069, 1.1478443, 0.25999033, 5.9330072)
+
+[node name="rock_low_finished3" parent="Cliffs" unique_id=177144527 instance=ExtResource("15_ig2m3")]
+transform = Transform3D(-0.02813364, 0.11606172, 0.09977025, -0.08157699, 0.0688458, -0.2204072, -0.19694118, -0.03530859, 0.045707222, 3.8268194, 1.0252571, -8.308202)
+
+[node name="rock_low_finished4" parent="Cliffs" unique_id=837180717 instance=ExtResource("15_ig2m3")]
+transform = Transform3D(-0.10710041, -0.07685991, 0.13385227, 0.07473873, 0.09631713, 0.19612399, -0.16973166, 0.07635258, -0.027743205, 4.3602204, 1.0252571, -8.8947115)
+
+[node name="rock_low_finished" parent="Cliffs" unique_id=517129216 instance=ExtResource("15_ig2m3")]
+transform = Transform3D(0.12676969, 0.104210064, 0.033312764, 0.14624001, -0.0924576, 0.15639764, 0.1176092, -0.036822926, -0.16362707, 10.612632, 1.0252571, -0.6910982)
+
+[node name="Volcanoes" type="Node3D" parent="." unique_id=1302245250]
+transform = Transform3D(0.67281884, 0, 0.7398073, 0, 1, 0, -0.7398073, 0, 0.67281884, -74.52191, -12.071715, -308.56693)
+
+[node name="Volcano9" parent="Volcanoes" unique_id=176165509 instance=ExtResource("18_8et01")]
+transform = Transform3D(5.066326, 0, -4.956709, 0, 0.165, 0, 5.5707493, 0, 4.507886, -63.51744, -0.19701004, 150.20288)
+
+[node name="Volcano10" parent="Volcanoes" unique_id=1885190465 instance=ExtResource("18_8et01")]
+transform = Transform3D(3.9864519, 0, -4.956709, 0, 2.805, 0, 4.3833585, 0, 4.507886, -86.56896, -0.19701004, 185.06538)
+
+[node name="Volcano13" parent="Volcanoes" unique_id=1710803615 instance=ExtResource("18_8et01")]
+transform = Transform3D(5.509573, 0, 2.4645858, 0, 2.805, 0, -2.1795032, 0, 6.230234, -101.99824, -0.19701004, 199.09756)
+
+[node name="Volcano11" parent="Volcanoes" unique_id=284795833 instance=ExtResource("18_8et01")]
+transform = Transform3D(2.5398912, 0, -10.664322, 0, 2.805, 0, 2.7927728, 0, 9.698684, -74.952, -0.19701004, 174.50032)
+
+[node name="Volcano14" parent="Volcanoes" unique_id=1598212793 instance=ExtResource("17_4ubjj")]
+
+[node name="Volcano15" parent="Volcanoes" unique_id=2077180642 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(0.8038569, 0, -1.4692124, 0, 2.71, 0, 0.5948229, 0, 1.9855266, 20.465286, 0, -10.488983)
+
+[node name="Volcano16" parent="Volcanoes" unique_id=1444271203 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(2.4181187, 0, -0.7591578, 0, 3.8149996, 0, 2.8202708, 0, 0.65090674, 22.111694, -1.9073486e-06, -25.744385)
+
+[node name="Volcano17" parent="Volcanoes" unique_id=848082170 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(0.8829477, 0, -0.4694714, 0, 1, 0, 0.4694714, 0, 0.8829477, 24.698883, 0, -36.078705)
+
+[node name="Volcano18" parent="Volcanoes" unique_id=989981623 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(-0.7629844, 0, -1.59665, 0, 2.7100005, 0, 0.64641714, 0, -1.8845714, 16.108597, 0, -26.127838)
+
+[node name="Volcano19" parent="Volcanoes" unique_id=1981810616 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(3.7116766, -7.028029e-05, 0.042292476, 4.5339428e-05, 3.815, 0.00014712359, -0.15711641, -0.00055880204, 0.99910545, -5.4106445, -1.9073486e-06, -36.080444)
+
+[node name="Volcano20" parent="Volcanoes" unique_id=77768442 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.346298, 3.8146973e-06, -13.754913)
+
+[node name="Volcano21" parent="Volcanoes" unique_id=1959324402 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(0.8038569, 0, -1.4692124, 0, 2.71, 0, 0.5948229, 0, 1.9855266, -2.1783295, 3.8146973e-06, -24.243927)
+
+[node name="Volcano22" parent="Volcanoes" unique_id=1524204906 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(3.7117634, 0, 0.041736245, 0, 3.815, 0, -0.15505004, 0, 0.9991289, 19.667496, 1.9073486e-06, -49.83542)
+
+[node name="Volcano23" parent="Volcanoes" unique_id=446030900 instance=ExtResource("18_8et01")]
+transform = Transform3D(-1.9771571, 0, -6.6164656, 0, 2.585, 0, 12.403405, 0, -1.0546935, 6.091156, -0.19701004, -56.505096)
+
+[node name="Volcano24" parent="Volcanoes" unique_id=1710554242 instance=ExtResource("18_8et01")]
+transform = Transform3D(6.6550007, 0, -4.7683716e-07, 0, 5.8, 0, 4.7683716e-07, 0, 6.7, 6.0711975, -0.19701004, -6.626068)
+
+[node name="Volcano" parent="Volcanoes" unique_id=1874404699 instance=ExtResource("18_8et01")]
+transform = Transform3D(-0.4436438, 0, 5.249654, 0, 3.471, 0, -4.5092287, 0, -0.51649094, -173.62477, -0.19700623, -34.68701)
+
+[node name="Volcano2" parent="Volcanoes" unique_id=1540338462 instance=ExtResource("18_8et01")]
+transform = Transform3D(1.2749217, 0, 2.7045655, 0, 2.99, 0, -2.7045655, 0, 1.2749217, -118.9682, -0.47158623, -111.222534)
+
+[node name="Volcano3" parent="Volcanoes" unique_id=1403883910 instance=ExtResource("18_8et01")]
+transform = Transform3D(1.574396, 0, -1.7311491, 0, 2.34, 0, 1.7311491, 0, 1.574396, -73.42758, -0.19701004, -136.01129)
+
+[node name="Volcano4" parent="Volcanoes" unique_id=1824727948 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(0.67281884, 0, -0.7398073, 0, 1, 0, 0.7398073, 0, 0.67281884, -115.52623, -0.19700623, -98.4126)
+
+[node name="Volcano5" parent="Volcanoes" unique_id=1032764629 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(0.67281884, 0, -0.7398073, 0, 1, 0, 0.7398073, 0, 0.67281884, -207.74266, -0.19700623, -56.262848)
+
+[node name="Volcano6" parent="Volcanoes" unique_id=1493200816 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(0.67281884, 0, -0.7398073, 0, 1, 0, 0.7398073, 0, 0.67281884, -224.56557, -0.19700623, -33.28076)
+
+[node name="Volcano28" parent="Volcanoes" unique_id=1131824863 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(0.67281884, 0, -0.7398073, 0, 1, 0, 0.7398073, 0, 0.67281884, -284.1675, -0.19700623, 75.746506)
+
+[node name="Volcano8" parent="Volcanoes" unique_id=1186302990 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(-0.4539997, 0, 2.8782544, 0, 1.765, 0, -2.275145, 0, -0.5743487, -197.56526, -0.19700623, 33.081192)
+
+[node name="Volcano12" parent="Volcanoes" unique_id=611918947 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(2.7168412, 0, 3.6907067, 0, 4.37, 0, -1.7836127, 0, 5.621772, -227.31824, -0.19700623, 37.560608)
+
+[node name="Volcano25" parent="Volcanoes" unique_id=1927127377 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(0.67281884, 0, -0.7398073, 0, 1, 0, 0.7398073, 0, 0.67281884, -224.16158, -0.19700623, 74.02551)
+
+[node name="Volcano26" parent="Volcanoes" unique_id=446836812 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(0.67281884, 0, -0.7398073, 0, 1, 0, 0.7398073, 0, 0.67281884, -256.46832, -0.19700623, 90.84204)
+
+[node name="Volcano27" parent="Volcanoes" unique_id=442824499 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(0.67281884, 0, -0.7398073, 0, 1, 0, 0.7398073, 0, 0.67281884, -258.68463, -0.19700623, 118.71466)
+
+[node name="Volcano7" parent="Volcanoes" unique_id=1334095856 instance=ExtResource("17_4ubjj")]
+transform = Transform3D(3.858616, 0, -4.0948334, 0, 1.13, 0, 4.242795, 0, 3.7240522, -199.75696, -0.19700623, -5.535919)
+
 [node name="RacingMusic" type="AudioStreamPlayer" parent="." unique_id=416574071]
 stream = ExtResource("7_fgwyx")
 autoplay = true
@@ -482,9 +721,6 @@ visibility_aabb = AABB(-4, -4, -4, 5.975, 27.185, 100)
 process_material = SubResource("ParticleProcessMaterial_jy1iq")
 draw_pass_1 = SubResource("QuadMesh_ssud0")
 
-[node name="Timer" type="Timer" parent="." unique_id=1168113881]
-autostart = true
-
 [node name="Round" type="Area3D" parent="." unique_id=776691815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.6515665)
 script = ExtResource("14_6f70g")
@@ -493,123 +729,19 @@ script = ExtResource("14_6f70g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.135765, 1.590332, 0)
 shape = SubResource("BoxShape3D_ssud0")
 
-[node name="rock_low_finished" parent="." unique_id=517129216 instance=ExtResource("15_ig2m3")]
-transform = Transform3D(2.814921, 2.3139844, 0.7397099, 2.6315892, -1.6637746, 2.8143756, 2.6115122, -0.81765306, -3.633339, 14.939477, 1.850502, -198.23784)
+[node name="UI" type="CanvasLayer" parent="." unique_id=1534109434]
 
-[node name="Free Pack - Rocks Stylized" parent="." unique_id=1228002559 instance=ExtResource("16_0j5de")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.261845, -12.418015, -119.0004)
+[node name="TransitionBack" type="TextureRect" parent="UI" unique_id=11497166]
+self_modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_t0m7s")
 
-[node name="Volcano9" parent="." unique_id=176165509 instance=ExtResource("18_8et01")]
-transform = Transform3D(7.53, 0, 0, 0, 0.165, 0, 0, 0, 6.7, -6.1364603, -12.268725, -160.51694)
-
-[node name="Volcano10" parent="." unique_id=1885190465 instance=ExtResource("18_8et01")]
-transform = Transform3D(5.925, 0, 0, 0, 2.805, 0, 0, 0, 6.7, 4.145587, -12.268725, -120.007095)
-
-[node name="Volcano13" parent="." unique_id=1710803615 instance=ExtResource("18_8et01")]
-transform = Transform3D(2.094532, 0, 6.267392, 0, 2.805, 0, -5.542433, 0, 2.3685, 4.145587, -12.268725, -99.15129)
-
-[node name="Volcano11" parent="." unique_id=284795833 instance=ExtResource("18_8et01")]
-transform = Transform3D(3.775, 0, 0, 0, 2.805, 0, 0, 0, 14.415, 4.145587, -12.268725, -135.70978)
-
-[node name="rock_low_finished3" parent="." unique_id=177144527 instance=ExtResource("15_ig2m3")]
-transform = Transform3D(-0.62470746, 2.5771503, 2.2153983, -1.467978, 1.2388803, -3.9662278, -4.373079, -0.78402716, 1.0149288, -135.73947, 1.850502, -367.3756)
-
-[node name="rock_low_finished4" parent="." unique_id=837180717 instance=ExtResource("15_ig2m3")]
-transform = Transform3D(-2.3781645, -1.7066742, 2.9721897, 1.3449235, 1.7332268, 3.5292513, -3.7688913, 1.695409, -0.61603785, -123.89531, 1.850502, -380.39905)
-
-[node name="Free Pack - Rocks Stylized2" parent="." unique_id=1654874086 instance=ExtResource("16_0j5de")]
-transform = Transform3D(0.67281884, 0, 0.7398073, 0, 1, 0, -0.7398073, 0, 0.67281884, -71.824844, -12.418015, -319.88446)
-
-[node name="Volcano14" parent="." unique_id=1598212793 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(0.67281884, 0, 0.7398073, 0, 1, 0, -0.7398073, 0, 0.67281884, -74.52191, -12.071715, -308.56693)
-
-[node name="Volcano15" parent="." unique_id=2077180642 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(0.98090434, 0, 0.48039323, 0, 2.71, 0, -0.19449115, 0, 2.4228337, -68.51228, -12.071715, -330.76447)
-
-[node name="Volcano16" parent="." unique_id=1444271203 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(3.7134128, 0, -0.029230058, 0, 3.8149996, 0, 0.10858953, 0, 0.99957275, -78.69061, -12.071717, -342.2466)
-
-[node name="Volcano17" parent="." unique_id=848082170 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(0.94138217, 0, 0.33734196, 0, 1, 0, -0.33734196, 0, 0.94138217, -84.59532, -12.071715, -351.11377)
-
-[node name="Volcano18" parent="." unique_id=989981623 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(-0.03512612, 0, -2.4684758, 0, 2.7100005, 0, 0.999383, 0, -0.08676183, -83.01332, -12.071715, -338.06348)
-
-[node name="Volcano19" parent="." unique_id=1981810616 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(2.3810499, -0.0004606917, 0.76760066, 4.5339428e-05, 3.815, 0.00014712359, -2.8516362, -0.00032397863, 0.6409287, -104.85486, -12.071717, -328.8397)
-
-[node name="Volcano20" parent="." unique_id=77768442 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(0.67281884, 0, 0.7398073, 0, 1, 0, -0.7398073, 0, 0.67281884, -63.60752, -12.071712, -341.01172)
-
-[node name="Volcano21" parent="." unique_id=1959324402 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(0.98090434, 0, 0.48039323, 0, 2.71, 0, -0.19449115, 0, 2.4228337, -93.92336, -12.071712, -323.26715)
-
-[node name="Volcano22" parent="." unique_id=1524204906 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(2.382637, 0, 0.76724374, 0, 3.815, 0, -2.85031, 0, 0.64135593, -98.15782, -12.071713, -356.64728)
-
-[node name="Volcano23" parent="." unique_id=446030900 instance=ExtResource("18_8et01")]
-transform = Transform3D(7.845861, 0, -5.2319527, 0, 2.585, 0, 9.80796, 0, 4.185292, -112.22653, -12.268725, -351.09088)
-
-[node name="Volcano24" parent="." unique_id=1710554242 instance=ExtResource("18_8et01")]
-transform = Transform3D(4.47761, 0, 4.9567084, 0, 5.8, 0, -4.9234176, 0, 4.5078864, -75.339096, -12.268725, -317.51657)
-
-[node name="Volcano" parent="." unique_id=1874404699 instance=ExtResource("18_8et01")]
-transform = Transform3D(-3.634452, 0, 3.149962, 0, 3.471, 0, -2.705683, 0, -4.231237, -217.00162, -12.268722, -203.45612)
-
-[node name="Volcano2" parent="." unique_id=1540338462 instance=ExtResource("18_8et01")]
-transform = Transform3D(-1.143066, 0, 2.762879, 0, 2.99, 0, -2.762879, 0, -1.143066, -236.8492, -12.543302, -295.386)
-
-[node name="Volcano3" parent="." unique_id=1403883910 instance=ExtResource("18_8et01")]
-transform = Transform3D(2.34, 0, 0, 0, 2.34, 0, 0, 0, 2.34, -224.5475, -12.268725, -345.7556)
-
-[node name="Volcano4" parent="." unique_id=1824727948 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225.05647, -12.268722, -289.31363)
-
-[node name="Volcano5" parent="." unique_id=1032764629 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -255.91873, -12.268722, -192.73209)
-
-[node name="Volcano6" parent="." unique_id=1493200816 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250.23518, -12.268722, -164.8236)
-
-[node name="Volcano28" parent="." unique_id=1131824863 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.67732, -12.268722, -47.374054)
-
-[node name="Volcano8" parent="." unique_id=1186302990 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(-1.9886283, 0, 1.5116364, 0, 1.765, 0, -1.194888, 0, -2.5157862, -182.97382, -12.268722, -140.14905)
-
-[node name="Volcano12" parent="." unique_id=611918947 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(0.5084121, 0, 6.6422043, 0, 4.37, 0, -3.2099872, 0, 1.052022, -199.67828, -12.268722, -115.12375)
-
-[node name="Volcano25" parent="." unique_id=1927127377 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170.57742, -12.268722, -92.9248)
-
-[node name="Volcano26" parent="." unique_id=446836812 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.87302, -12.268722, -57.70957)
-
-[node name="Volcano27" parent="." unique_id=442824499 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.74382, -12.268722, -37.316685)
-
-[node name="Volcano7" parent="." unique_id=1334095856 instance=ExtResource("17_4ubjj")]
-transform = Transform3D(5.735, 0, 0, 0, 1.13, 0, 0, 0, 5.535, -213.01764, -12.268722, -164.50993)
-
-[node name="rock_low_finished2" parent="." unique_id=247795142 instance=ExtResource("15_ig2m3")]
-transform = Transform3D(-0.29217672, 0, 2.6490226, 0, 10.999999, 0, -10.756032, 0, -0.071958005, -235.77089, -11.920474, -198.05798)
-
-[node name="rock_low_finished5" parent="." unique_id=1421836271 instance=ExtResource("15_ig2m3")]
-transform = Transform3D(-5.0395722, 0, 2.3413727, 0, 10.999999, 0, -9.506856, 0, -1.2411582, -230.47359, -18.834698, -158.30629)
-
-[node name="rock_low_finished6" parent="." unique_id=579708669 instance=ExtResource("15_ig2m3")]
-transform = Transform3D(4.8713927, 0, -2.1194139, 0, 16.105, 0, 6.4902043, 0, 1.5907816, -216.12975, -11.920474, -102.07499)
-
-[node name="rock_low_finished7" parent="." unique_id=1945070418 instance=ExtResource("15_ig2m3")]
-transform = Transform3D(-5.0395722, 0, 2.3413727, 0, 10.999999, 0, -9.506856, 0, -1.2411582, -197.98506, -11.920474, -67.58139)
-
-[node name="rock_low_finished8" parent="." unique_id=1937610628 instance=ExtResource("15_ig2m3")]
-transform = Transform3D(4.8713927, 0, -2.1194139, 0, 16.105, 0, 6.4902043, 0, 1.5907816, -195.22612, -11.920474, -51.14958)
-
-[node name="UI" type="CanvasLayer" parent="." unique_id=241358392]
-
-[node name="BannerContainer" type="Control" parent="UI" unique_id=795363081]
+[node name="BannerContainer" type="Control" parent="UI" unique_id=1769693187]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -618,7 +750,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="TextureRect" type="TextureRect" parent="UI/BannerContainer" unique_id=957542664]
+[node name="TextureRect" type="TextureRect" parent="UI/BannerContainer" unique_id=339907246]
 self_modulate = Color(0.08235294, 0.08235294, 0.08235294, 0.7764706)
 layout_mode = 1
 anchors_preset = -1
@@ -628,15 +760,15 @@ anchor_right = 2.0
 anchor_bottom = 0.64
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_8et01")
+texture = SubResource("CanvasTexture_fgwyx")
 
-[node name="BannerAnim" type="AnimationPlayer" parent="UI/BannerContainer" unique_id=502620515]
+[node name="BannerAnim" type="AnimationPlayer" parent="UI/BannerContainer" unique_id=1278118368]
 root_node = NodePath("../TextureRect")
-libraries/ = SubResource("AnimationLibrary_t0m7s")
+libraries/ = SubResource("AnimationLibrary_joqfh")
 autoplay = &"EnterScreen"
 script = ExtResource("8_fe7c6")
 
-[node name="TimerLabel" type="Control" parent="UI" unique_id=1792564275]
+[node name="TimerLabel" type="Control" parent="UI" unique_id=716493329]
 layout_mode = 3
 anchor_left = 0.2
 anchor_top = 0.2
@@ -646,7 +778,7 @@ offset_right = -6.1035156e-05
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TimerLabel" type="Label" parent="UI/TimerLabel" unique_id=1611720453]
+[node name="TimerLabel" type="Label" parent="UI/TimerLabel" unique_id=1583658120]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -667,7 +799,7 @@ theme_override_font_sizes/font_size = 99
 text = "10"
 horizontal_alignment = 1
 
-[node name="GameOver" type="Control" parent="UI" unique_id=1374956555]
+[node name="GameOver" type="Control" parent="UI" unique_id=1688376858]
 layout_mode = 3
 anchor_left = 0.3
 anchor_top = 1.1
@@ -678,7 +810,8 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="TextureRect" type="TextureRect" parent="UI/GameOver" unique_id=1927716590]
+[node name="NormalOver" type="TextureRect" parent="UI/GameOver" unique_id=402069986]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -688,7 +821,7 @@ grow_vertical = 2
 texture = ExtResource("10_qwiur")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="UI/GameOver/TextureRect" unique_id=1348230224]
+[node name="Label" type="Label" parent="UI/GameOver/NormalOver" unique_id=1631791447]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -702,7 +835,7 @@ text = "Nice Job!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="UI/GameOver/TextureRect" unique_id=514947213]
+[node name="Label2" type="Label" parent="UI/GameOver/NormalOver" unique_id=858157264]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -719,34 +852,53 @@ text = "You got...1st place!"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="GameOver" type="AnimationPlayer" parent="UI/GameOver" unique_id=1152089209]
+[node name="LavaOver" type="TextureRect" parent="UI/GameOver" unique_id=311513015]
 unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_fgwyx")
-
-[node name="ExitButton" type="Button" parent="UI/GameOver" unique_id=1015268778]
-self_modulate = Color(1, 0.36044765, 0.2604604, 1)
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -105.00003
-offset_top = -105.0
-offset_right = 104.99997
-offset_bottom = 105.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.285, 0.285)
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_pressed_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7c6")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_16igy")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_qwiur")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_joqfh")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_wcoos")
-icon = ExtResource("11_joqfh")
+texture = ExtResource("10_qwiur")
+expand_mode = 1
 
-[node name="ButtonContainer" type="Control" parent="UI/GameOver" unique_id=1253461027]
+[node name="Label" type="Label" parent="UI/GameOver/LavaOver" unique_id=1938980802]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 5.449951
+offset_bottom = 72.94995
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_16igy")
+theme_override_font_sizes/font_size = 38
+text = "Nice try..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/GameOver/LavaOver" unique_id=2121429147]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_16igy")
+theme_override_font_sizes/font_size = 22
+text = "You suffered from heat damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="AnimationPlayer" parent="UI/GameOver" unique_id=759053471]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_6f70g")
+
+[node name="ButtonContainer" type="Control" parent="UI/GameOver" unique_id=7987233]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -759,7 +911,7 @@ offset_bottom = -14.199951
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="TextureButton" type="Button" parent="UI/GameOver/ButtonContainer" unique_id=2082599979]
+[node name="TextureButton" type="Button" parent="UI/GameOver/ButtonContainer" unique_id=174353722]
 self_modulate = Color(0.7670039, 1, 0.66922677, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -771,16 +923,16 @@ scale = Vector2(0.69, 0.69)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_643nv")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_6f70g")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_n7b1v")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_h2dyh")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mk3tc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e207g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8gvx1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cms70")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ot64l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p5x2t")
 icon = ExtResource("12_wcoos")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="UI/GameOver/ButtonContainer/TextureButton" unique_id=1389994389]
+[node name="Label" type="Label" parent="UI/GameOver/ButtonContainer/TextureButton" unique_id=902508145]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -789,37 +941,26 @@ offset_bottom = -15.39856
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("9_16igy")
-theme_override_font_sizes/font_size = 44
-text = "Next Level"
+theme_override_font_sizes/font_size = 36
+text = "Back To Selection"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Container" type="Control" parent="UI" unique_id=122305753]
-layout_mode = 3
-anchor_right = 0.2
-anchor_bottom = 0.25
+[node name="TransitionPlayer" type="AnimationPlayer" parent="UI" unique_id=1893408200]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_0s5mj")
 
-[node name="SpeedLabel" type="Label" parent="UI/Container" unique_id=1487242539]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = -0.3
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 4.5776367e-05
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_eksbg")
-theme_override_font_sizes/font_size = 50
-text = "26 mph"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("13_643nv")
-use_mph = true
+[node name="Timer" type="Timer" parent="." unique_id=1168113881]
+autostart = true
 
+[connection signal="race_started" from="StartSignal" to="PlayerCar" method="_on_start_signal_race_started"]
 [connection signal="race_started" from="StartSignal" to="EnemyCar" method="_on_start_signal_race_started"]
 [connection signal="race_started" from="StartSignal" to="Round" method="_on_start_signal_race_started"]
 [connection signal="timeout" from="StartSignal/Timer" to="StartSignal" method="_on_timer_timeout"]
 [connection signal="timeout" from="StartSignal/Timer" to="UI/BannerContainer/BannerAnim" method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer" to="Round" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Round" to="Round" method="_on_body_entered"]
+[connection signal="round_finished" from="Round" to="PlayerCar" method="_on_round_round_finished"]
 [connection signal="round_finished" from="Round" to="Round" method="_on_round_finished"]
+[connection signal="pressed" from="UI/GameOver/ButtonContainer/TextureButton" to="Round" method="_on_texture_button_pressed"]
+[connection signal="animation_finished" from="UI/TransitionPlayer" to="Round" method="_on_transition_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="Round" method="_on_timer_timeout"]

@@ -7,6 +7,8 @@ extends Camera3D
 @export var lookattarget: Node3D
 
 func _physics_process(delta):
+	if not lookattarget or not target:
+		return 
 	global_position = lerp(global_position, target.global_position, delta * follow_speed) # smooth out camera
 	# look_at(lookattarget.global_position, Vector3.UP)
 	#set_global_transform(get_parent().get_global_transform())

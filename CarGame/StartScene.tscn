@@ -1,16 +1,34 @@
 [gd_scene format=3 uid="uid://do2t4h1scsse3"]
 
 [ext_resource type="Script" uid="uid://blucuvn0os2ir" path="res://CarGame/start_scene.gd" id="1_h1jog"]
-[ext_resource type="PackedScene" uid="uid://cvl4ylwowp602" path="res://CarGame/PlayerSub/PlayerCar.tscn" id="2_dnpvf"]
 [ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Table.png" id="2_kjsks"]
 [ext_resource type="Script" uid="uid://dbey2af3dgiyw" path="res://CarGame/Camera3D.gd" id="3_2w0lw"]
 [ext_resource type="FontFile" uid="uid://cott0r83xkqf0" path="res://CarGame/MajorMonoDisplay-Regular.ttf" id="3_re6lr"]
 [ext_resource type="PackedScene" uid="uid://dq5uetiyvnwgv" path="res://CarGame/EnemyCar/EnemyCar.tscn" id="4_kjsks"]
-[ext_resource type="Script" uid="uid://ck1wj2p1pgu8c" path="res://CarGame/start_signal.gd" id="5_re6lr"]
-[ext_resource type="PackedScene" path="res://CarGame/EnemyCar/enemy_path.tscn" id="6_40an5"]
+[ext_resource type="PackedScene" path="res://game_jam_player_sub.tscn" id="7_dnpvf"]
 [ext_resource type="PackedScene" uid="uid://bjqfckyoamvmb" path="res://Environment/cliff.tscn" id="7_mksou"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_kjsks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfvu7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rpohf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4pmvp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4aio6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rj5an"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kjsks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_re6lr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40an5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mksou"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3siu6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3siu6"]
 sky_top_color = Color(0.36078432, 0.42745098, 1, 1)
@@ -39,14 +57,6 @@ volumetric_fog_density = 0.025
 volumetric_fog_albedo = Color(0.031946305, 0.45859075, 0.765062, 1)
 volumetric_fog_anisotropy = 0.45
 adjustment_enabled = true
-
-[sub_resource type="Curve3D" id="Curve3D_4pmvp"]
-closed = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -19.957859, 0, 5.0337243, 0, 0, 0, 0, 0, 0, -19.537014, 0, -8.293345, 0, 0, 0, 0, 0, 0, -10.558772, 0, -23.023266, 0, 0, 0, 0, 0, 0, -3.5445204, 0, -29.195805, 0, 0, 0, 0, 0, 0, 1.5654736, 0, -43.818623, 0, 0, 0, 0, 0, 0, -23.910847, 0, -70.00262, 0, 0, 0, 0, 0, 0, -44.433426, 0, -71.771805, 0, 0, 0, 0, 0, 0, -64.60217, 0, -60.80284, 0, 0, 0, 0, 0, 0, -67.43288, 0, -47.003162, 0, 0, 0, 0, 0, 0, -55.75624, 0, -29.665115, 0, 0, 0, 0, 0, 0, -60.002274, 0, -9.850207, 0, 0, 0, 0, 0, 0, -58.233093, 0, 19.16449, 0, 0, 0, 0, 0, 0, -62.47914, 0, 40.040905, 0, 0, 0, 0, 0, 0, -56.110077, 0, 88.51666, 0, 0, 0, 0, 0, 0, -44.433426, 0, 99.83946, 0, 0, 0, 0, 0, 0, -30.633747, 0, 104.439354, 0, 0, 0, 0, 0, 0, -10.111163, 0, 101.608665, 0, 0, 0, 0, 0, 0, -5.1574583, 0, 87.10131, 0, 0, 0, 0, 0, 0, -10.111163, 0, 58.440468, 0, 0, 0, 0, 0, 0, -16.480259, 0, 27.656597),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 20
 
 [sub_resource type="Animation" id="Animation_kjsks"]
 length = 0.001
@@ -137,7 +147,7 @@ anchor_bottom = 0.67
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartButton" type="TextureButton" parent="Control" unique_id=700450936]
+[node name="StartButton" type="Button" parent="Control" unique_id=349703026]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -148,7 +158,14 @@ offset_bottom = 101.0
 grow_horizontal = 2
 scale = Vector2(0.66, 0.66)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture_normal = ExtResource("2_kjsks")
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hfvu7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rpohf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4pmvp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4aio6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rj5an")
+icon = ExtResource("2_kjsks")
 
 [node name="Label" type="Label" parent="Control/StartButton" unique_id=1042425398]
 layout_mode = 1
@@ -171,7 +188,7 @@ text = "start game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tutorial" type="TextureButton" parent="Control" unique_id=2117969204]
+[node name="Tutorial" type="Button" parent="Control" unique_id=228003650]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -180,12 +197,19 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -180.50002
 offset_top = -101.0
-offset_right = 180.50002
+offset_right = 180.50003
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.66, 0.66)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture_normal = ExtResource("2_kjsks")
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kjsks")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_re6lr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_40an5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mksou")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3siu6")
+icon = ExtResource("2_kjsks")
 
 [node name="Label" type="Label" parent="Control/Tutorial" unique_id=1363540864]
 layout_mode = 1
@@ -224,39 +248,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.32872, -12.918022, -1.436
 use_collision = true
 size = Vector3(146.75488, 1, 257.88147)
 
-[node name="PlayerCar" parent="." unique_id=1438980510 instance=ExtResource("2_dnpvf")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5761786, 3.0237923, 2.3776245)
-gravity_scale = 0.0
-script = null
-
-[node name="Camera3D" type="Camera3D" parent="PlayerCar" unique_id=676308985 node_paths=PackedStringArray("target", "lookattarget")]
-transform = Transform3D(1, 0, 0, 0, 0.35836798, 0.9335804, 0, -0.9335804, 0.35836798, -1.576, 9.289, 7.9367185)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=676308985 node_paths=PackedStringArray("target", "lookattarget")]
+transform = Transform3D(1, 0, 0, 0, 0.56640625, 0.8241262, 0, -0.8241262, 0.56640625, -1.576, 9.289, 7.9367185)
 top_level = true
 script = ExtResource("3_2w0lw")
 follow_speed = 3.0
 lookat_speed = 5.0
-target = NodePath("../Node3D")
-lookattarget = NodePath("..")
-
-[node name="Node3D" type="Node3D" parent="PlayerCar" unique_id=2109911946]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.289, 6.055)
+target = NodePath("")
+lookattarget = NodePath("")
 
 [node name="EnemyCar" parent="." unique_id=1978284857 instance=ExtResource("4_kjsks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.024086, 3.0237913, 5.509904)
 script = null
-
-[node name="StartSignal" type="Node" parent="." unique_id=1555102881]
-script = ExtResource("5_re6lr")
-
-[node name="Timer" type="Timer" parent="StartSignal" unique_id=1304808512]
-wait_time = 10.0
-one_shot = true
-autostart = true
-
-[node name="EnemyPath" parent="." unique_id=962503257 instance=ExtResource("6_40an5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.294046, 1, -10.696328)
-curve = SubResource("Curve3D_4pmvp")
 
 [node name="Cliffs" type="Node3D" parent="." unique_id=1208823141]
 transform = Transform3D(22.205, 0, 0, 0, 22.205, 0, 0, 0, 22.205, -220.714, -16.599, -182.892)
@@ -346,6 +349,8 @@ transform = Transform3D(-0.032753993, 0, 0.06569436, 0, 0.07340691, 0, -0.065694
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_40an5")
 
+[node name="GameJamPlayerSub" parent="." unique_id=1839833756 instance=ExtResource("7_dnpvf")]
+transform = Transform3D(-0.49858624, 0, 0.14768791, 0, 0.52, 0, -0.14768791, 0, -0.49858624, 0.197, 3.219, 1.503)
+
 [connection signal="pressed" from="Control/StartButton" to="." method="_on_button_pressed"]
-[connection signal="timeout" from="StartSignal/Timer" to="StartSignal" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="TransitionPlayer" to="." method="_on_transition_player_animation_finished"]

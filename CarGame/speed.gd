@@ -1,10 +1,12 @@
 extends Label
 
 @export var use_mph = false
+@onready var car = get_owner()
+
 
 
 func _process(_delta: float) -> void:
-	var car = %PlayerCar
+	
 	if car == null:
 		return
 

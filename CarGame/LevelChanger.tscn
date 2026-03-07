@@ -7,10 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://byedtws4pivm2" path="res://Level1Preview.png" id="4_w8hgf"]
 [ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Table.png" id="5_yhv3p"]
 [ext_resource type="Texture2D" uid="uid://yetu8ghelqme" path="res://Level2Preview.png" id="6_jo8us"]
-[ext_resource type="PackedScene" uid="uid://cvl4ylwowp602" path="res://CarGame/PlayerSub/PlayerCar.tscn" id="6_mlmim"]
 [ext_resource type="Texture2D" uid="uid://uiyuu4286xv1" path="res://LevelLockedPreviewimg.png" id="7_uj5s8"]
 [ext_resource type="Script" uid="uid://dbey2af3dgiyw" path="res://CarGame/Camera3D.gd" id="7_yjhph"]
-[ext_resource type="PackedScene" path="res://CarGame/EnemyCar/enemy_path.tscn" id="8_j2m4h"]
 [ext_resource type="PackedScene" uid="uid://bjqfckyoamvmb" path="res://Environment/cliff.tscn" id="9_glct8"]
 [ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://CarGame/Audiowide-Regular.ttf" id="10_x36pa"]
 [ext_resource type="Texture2D" uid="uid://cpmt2o0mkjcrv" path="res://CarGame/Replay_BTN_DIS.png" id="11_festa"]
@@ -56,14 +54,6 @@ adjustment_enabled = true
 dof_blur_far_enabled = true
 dof_blur_far_distance = 0.9
 dof_blur_near_distance = 2.75
-
-[sub_resource type="Curve3D" id="Curve3D_mkx51"]
-closed = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -19.957859, 0, 5.0337243, 0, 0, 0, 0, 0, 0, -19.537014, 0, -8.293345, 0, 0, 0, 0, 0, 0, -10.558772, 0, -23.023266, 0, 0, 0, 0, 0, 0, -3.5445204, 0, -29.195805, 0, 0, 0, 0, 0, 0, 1.5654736, 0, -43.818623, 0, 0, 0, 0, 0, 0, -23.910847, 0, -70.00262, 0, 0, 0, 0, 0, 0, -44.433426, 0, -71.771805, 0, 0, 0, 0, 0, 0, -64.60217, 0, -60.80284, 0, 0, 0, 0, 0, 0, -67.43288, 0, -47.003162, 0, 0, 0, 0, 0, 0, -55.75624, 0, -29.665115, 0, 0, 0, 0, 0, 0, -60.002274, 0, -9.850207, 0, 0, 0, 0, 0, 0, -58.233093, 0, 19.16449, 0, 0, 0, 0, 0, 0, -62.47914, 0, 40.040905, 0, 0, 0, 0, 0, 0, -56.110077, 0, 88.51666, 0, 0, 0, 0, 0, 0, -44.433426, 0, 99.83946, 0, 0, 0, 0, 0, 0, -30.633747, 0, 104.439354, 0, 0, 0, 0, 0, 0, -10.111163, 0, 101.608665, 0, 0, 0, 0, 0, 0, -5.1574583, 0, 87.10131, 0, 0, 0, 0, 0, 0, -10.111163, 0, 58.440468, 0, 0, 0, 0, 0, 0, -16.480259, 0, 27.656597),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 20
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y504e"]
 load_path = "res://.godot/imported/Backward_BTN_DIS.png-d18d736b32ba24f20a64b3396cccfd3f.ctex"
@@ -647,27 +637,14 @@ light_volumetric_fog_energy = 1.89
 shadow_enabled = true
 shadow_blur = 10.0
 
-[node name="PlayerCar" parent="." unique_id=1438980510 instance=ExtResource("6_mlmim")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5761786, 3.0237923, 2.3776245)
-gravity_scale = 0.0
-script = null
-
-[node name="Camera3D" type="Camera3D" parent="PlayerCar" unique_id=1883752105 node_paths=PackedStringArray("target", "lookattarget")]
-transform = Transform3D(1, 0, 0, 0, 0.35836798, 0.9335804, 0, -0.9335804, 0.35836798, -1.576, 9.289, 7.9367185)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1883752105 node_paths=PackedStringArray("target", "lookattarget")]
+transform = Transform3D(1, 0, 0, 0, 0.35836798, 0.9335804, 0, -0.9335804, 0.35836798, -1.431, 17.944, -13.518)
 top_level = true
 script = ExtResource("7_yjhph")
 follow_speed = 3.0
 lookat_speed = 5.0
-target = NodePath("../Node3D")
-lookattarget = NodePath("..")
-
-[node name="Node3D" type="Node3D" parent="PlayerCar" unique_id=87287554]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.289, 6.055)
-
-[node name="EnemyPath" parent="." unique_id=962503257 instance=ExtResource("8_j2m4h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.294046, 1, -10.696328)
-curve = SubResource("Curve3D_mkx51")
+target = NodePath("")
+lookattarget = NodePath("")
 
 [node name="Cliffs" type="Node3D" parent="." unique_id=517004908]
 transform = Transform3D(22.205, 0, 0, 0, 22.205, 0, 0, 0, 22.205, -220.714, -16.599, -182.892)
