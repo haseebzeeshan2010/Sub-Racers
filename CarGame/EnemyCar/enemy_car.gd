@@ -6,6 +6,8 @@ extends RigidBody3D
 var race_active = false
 
 func _physics_process(delta):
+	%EngineAudio.volume_db = (2*linear_velocity.length())-40
+	print(linear_velocity.length())
 	if not race_active:
 		return
 

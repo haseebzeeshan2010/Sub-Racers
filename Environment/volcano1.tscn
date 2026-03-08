@@ -436,7 +436,7 @@ material = ExtResource("2_7xrmt")
 size = Vector2(0.205, 4.355)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lurxh"]
-size = Vector3(3.1, 39.272, 2.3)
+size = Vector3(2.295, 37.882, 1.73)
 
 [node name="Volcano" type="Node3D" unique_id=1874404699]
 

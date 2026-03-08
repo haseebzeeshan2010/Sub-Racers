@@ -34,11 +34,19 @@ func _on_start_level2_button_pressed() -> void:
 
 func _on_title_screen_button_pressed() -> void:
 	scene_to_change = "StartScene"
-	%TransitionPlayer.play("StartSceneExit_LevelChanger")
+	%TransitionPlayer.play("StartSceneExit_LevelChanger_2")
 	print("start title screen")
 	pass # Replace with function body.
 
 
 func _on_transition_player_animation_finished(anim_name: StringName) -> void:
 	get_tree().change_scene_to_file("res://CarGame/"+scene_to_change+".tscn")
+	pass # Replace with function body.
+
+
+func _on_transition_player_animation_started(anim_name: StringName) -> void:
+	#if anim_name == "StartSceneEnter":
+		#get_node("/root/GlobalAudio").selection_music()
+	#if anim_name == "StartSceneExit_LevelChanger":
+		#get_node("/root/GlobalAudio").levelmusic()
 	pass # Replace with function body.

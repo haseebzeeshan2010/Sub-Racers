@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b6vw7mxu5ee4f"]
+
+[ext_resource type="Script" uid="uid://c2v7ghtcxwsu" path="res://global_audio.gd" id="1_tn11u"]
+[ext_resource type="AudioStream" uid="uid://bpavs5i4c3u5l" path="res://SubRacersRaceThemeLoopStream.tres" id="2_tn11u"]
+
+[node name="GlobalAudio" type="Node" unique_id=329492211]
+script = ExtResource("1_tn11u")
+
+[node name="IntroMusic" type="AudioStreamPlayer" parent="." unique_id=1464609466]
+unique_name_in_owner = true
+stream = ExtResource("2_tn11u")
+
+[connection signal="finished" from="IntroMusic" to="." method="_on_intro_music_finished"]

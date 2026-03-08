@@ -1,0 +1,282 @@
+[gd_scene format=3 uid="uid://bmxlxc7b68l71"]
+
+[ext_resource type="Script" uid="uid://davsps7qijnsi" path="res://CarGame/intro.gd" id="1_choiq"]
+[ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://CarGame/Audiowide-Regular.ttf" id="3_h17p2"]
+[ext_resource type="Texture2D" uid="uid://dcrnnx68iq4ic" path="res://Submarine1.png" id="4_h17p2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kjsks"]
+
+[sub_resource type="Animation" id="Animation_8on7w"]
+resource_name = "IntroAnim"
+length = 26.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.8, 9.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(9.588595, 14.4, 19.17719, 23.94999),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LoadingSub:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(14.4, 19.2, 23.94999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LoadingSub/LoadingLabel:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(14.4, 19.2, 23.94999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LoadingSub/LoadingLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(14.366667, 19.19472),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Loading ...", "Loaded!  "]
+}
+
+[sub_resource type="Animation" id="Animation_hjp68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LoadingSub:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LoadingSub/LoadingLabel:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LoadingSub/LoadingLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Loading ..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivov2"]
+_data = {
+&"IntroAnim": SubResource("Animation_8on7w"),
+&"RESET": SubResource("Animation_hjp68")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_eb4ji"]
+font = ExtResource("3_h17p2")
+font_size = 61
+
+[sub_resource type="LabelSettings" id="LabelSettings_choiq"]
+font = ExtResource("3_h17p2")
+font_size = 101
+
+[sub_resource type="LabelSettings" id="LabelSettings_8on7w"]
+font = ExtResource("3_h17p2")
+font_size = 54
+
+[sub_resource type="Animation" id="Animation_choiq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-111.00003]
+}
+
+[sub_resource type="Animation" id="Animation_h17p2"]
+resource_name = "Sub"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9349183),
+"transitions": PackedFloat32Array(0.31864008, 1),
+"update": 0,
+"values": [-111.00003, -171.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8on7w"]
+_data = {
+&"RESET": SubResource("Animation_choiq"),
+&"Sub": SubResource("Animation_h17p2")
+}
+
+[node name="Intro" type="Control" unique_id=586721950]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_choiq")
+
+[node name="TransitionBack" type="TextureRect" parent="." unique_id=1736314230]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_kjsks")
+
+[node name="IntroPlayer" type="AnimationPlayer" parent="." unique_id=1669592868]
+libraries/ = SubResource("AnimationLibrary_ivov2")
+autoplay = &"IntroAnim"
+
+[node name="Label" type="Label" parent="." unique_id=34376963]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A Hack Club Campfire Game"
+label_settings = SubResource("LabelSettings_eb4ji")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=456421757]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -140.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sub Racers"
+label_settings = SubResource("LabelSettings_choiq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadingSub" type="TextureRect" parent="." unique_id=2076948491]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -111.00003
+offset_right = 384.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.32, 0.32)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_h17p2")
+
+[node name="LoadingLabel" type="Label" parent="LoadingSub" unique_id=732109356]
+self_modulate = Color(1, 1, 1, 0)
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.0
+offset_top = 98.0
+offset_right = 321.0
+offset_bottom = 252.00006
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading ..."
+label_settings = SubResource("LabelSettings_8on7w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LoadingSub" unique_id=1098057128]
+libraries/ = SubResource("AnimationLibrary_8on7w")
+autoplay = &"Sub"
+
+[connection signal="animation_finished" from="IntroPlayer" to="." method="_on_intro_player_animation_finished"]
+[connection signal="animation_started" from="IntroPlayer" to="." method="_on_intro_player_animation_started"]

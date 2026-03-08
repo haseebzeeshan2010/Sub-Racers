@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Sub Racer"
-run/main_scene="uid://do2t4h1scsse3"
+run/main_scene="uid://bmxlxc7b68l71"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalAudio="*uid://b6vw7mxu5ee4f"
 
 [display]
 

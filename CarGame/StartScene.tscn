@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Table.png" id="2_kjsks"]
 [ext_resource type="Script" uid="uid://dbey2af3dgiyw" path="res://CarGame/Camera3D.gd" id="3_2w0lw"]
 [ext_resource type="FontFile" uid="uid://cott0r83xkqf0" path="res://CarGame/MajorMonoDisplay-Regular.ttf" id="3_re6lr"]
-[ext_resource type="PackedScene" uid="uid://dq5uetiyvnwgv" path="res://CarGame/EnemyCar/EnemyCar.tscn" id="4_kjsks"]
+[ext_resource type="PackedScene" uid="uid://qqxa251y3qlc" path="res://submarine.tscn" id="7_2w0lw"]
 [ext_resource type="PackedScene" path="res://game_jam_player_sub.tscn" id="7_dnpvf"]
 [ext_resource type="PackedScene" uid="uid://bjqfckyoamvmb" path="res://Environment/cliff.tscn" id="7_mksou"]
 
@@ -85,6 +85,34 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_dnpvf"]
+resource_name = "StartSceneEntrance"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_re6lr"]
 resource_name = "StartSceneExit"
 length = 3.0
@@ -116,6 +144,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_40an5"]
 _data = {
 &"RESET": SubResource("Animation_kjsks"),
+&"StartSceneEntrance": SubResource("Animation_dnpvf"),
 &"StartSceneExit": SubResource("Animation_re6lr")
 }
 
@@ -248,18 +277,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.32872, -12.918022, -1.436
 use_collision = true
 size = Vector3(146.75488, 1, 257.88147)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=676308985 node_paths=PackedStringArray("target", "lookattarget")]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=676308985]
 transform = Transform3D(1, 0, 0, 0, 0.56640625, 0.8241262, 0, -0.8241262, 0.56640625, -1.576, 9.289, 7.9367185)
 top_level = true
 script = ExtResource("3_2w0lw")
 follow_speed = 3.0
 lookat_speed = 5.0
-target = NodePath("")
-lookattarget = NodePath("")
-
-[node name="EnemyCar" parent="." unique_id=1978284857 instance=ExtResource("4_kjsks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.024086, 3.0237913, 5.509904)
-script = null
 
 [node name="Cliffs" type="Node3D" parent="." unique_id=1208823141]
 transform = Transform3D(22.205, 0, 0, 0, 22.205, 0, 0, 0, 22.205, -220.714, -16.599, -182.892)
@@ -348,9 +371,14 @@ transform = Transform3D(-0.032753993, 0, 0.06569436, 0, 0.07340691, 0, -0.065694
 [node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=1125320324]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_40an5")
+autoplay = &"StartSceneEntrance"
 
 [node name="GameJamPlayerSub" parent="." unique_id=1839833756 instance=ExtResource("7_dnpvf")]
 transform = Transform3D(-0.49858624, 0, 0.14768791, 0, 0.52, 0, -0.14768791, 0, -0.49858624, 0.197, 3.219, 1.503)
 
+[node name="Submarine" parent="." unique_id=1471293272 instance=ExtResource("7_2w0lw")]
+transform = Transform3D(-0.16504766, 0, -0.98628557, 0, 1, 0, 0.98628557, 0, -0.16504766, -4.053, 3.005, 5.514)
+
 [connection signal="pressed" from="Control/StartButton" to="." method="_on_button_pressed"]
 [connection signal="animation_finished" from="TransitionPlayer" to="." method="_on_transition_player_animation_finished"]
+[connection signal="animation_started" from="TransitionPlayer" to="." method="_on_transition_player_animation_started"]

@@ -108,6 +108,34 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_jo8us"]
+resource_name = "StartSceneEnter"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.03333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CarouselContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_re6lr"]
 resource_name = "StartSceneExit"
 length = 3.0
@@ -164,11 +192,41 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_uj5s8"]
+resource_name = "StartSceneExit_LevelChanger_2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CarouselContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yhv3p"]
 _data = {
 &"RESET": SubResource("Animation_kjsks"),
+&"StartSceneEnter": SubResource("Animation_jo8us"),
 &"StartSceneExit": SubResource("Animation_re6lr"),
-&"StartSceneExit_LevelChanger": SubResource("Animation_w8hgf")
+&"StartSceneExit_LevelChanger": SubResource("Animation_w8hgf"),
+&"StartSceneExit_LevelChanger_2": SubResource("Animation_uj5s8")
 }
 
 [node name="LevelChanger" type="Control" unique_id=725159966]
@@ -637,14 +695,12 @@ light_volumetric_fog_energy = 1.89
 shadow_enabled = true
 shadow_blur = 10.0
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1883752105 node_paths=PackedStringArray("target", "lookattarget")]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1883752105]
 transform = Transform3D(1, 0, 0, 0, 0.35836798, 0.9335804, 0, -0.9335804, 0.35836798, -1.431, 17.944, -13.518)
 top_level = true
 script = ExtResource("7_yjhph")
 follow_speed = 3.0
 lookat_speed = 5.0
-target = NodePath("")
-lookattarget = NodePath("")
 
 [node name="Cliffs" type="Node3D" parent="." unique_id=517004908]
 transform = Transform3D(22.205, 0, 0, 0, 22.205, 0, 0, 0, 22.205, -220.714, -16.599, -182.892)
@@ -823,6 +879,7 @@ texture = SubResource("CanvasTexture_w8hgf")
 [node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=914495900]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_yhv3p")
+autoplay = &"StartSceneEnter"
 
 [connection signal="pressed" from="CarouselContainer/CarouselOffset/Tutorial/StartButton" to="." method="_on_start_tutorial_button_pressed"]
 [connection signal="pressed" from="CarouselContainer/CarouselOffset/Level/StartButton" to="." method="_on_start_level_button_pressed"]
@@ -831,3 +888,4 @@ libraries/ = SubResource("AnimationLibrary_yhv3p")
 [connection signal="pressed" from="Control/TextureButton2" to="CarouselContainer" method="move_right"]
 [connection signal="pressed" from="TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
 [connection signal="animation_finished" from="TransitionPlayer" to="." method="_on_transition_player_animation_finished"]
+[connection signal="animation_started" from="TransitionPlayer" to="." method="_on_transition_player_animation_started"]

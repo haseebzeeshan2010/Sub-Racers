@@ -6,12 +6,10 @@
 [ext_resource type="Script" uid="uid://ck1wj2p1pgu8c" path="res://CarGame/start_signal.gd" id="4_ki2kc"]
 [ext_resource type="PackedScene" path="res://CarGame/EnemyCar/enemy_path.tscn" id="5_m5g4e"]
 [ext_resource type="PackedScene" uid="uid://bjqfckyoamvmb" path="res://Environment/cliff.tscn" id="6_w7jgq"]
-[ext_resource type="AudioStream" uid="uid://j1h0pe2hs2nw" path="res://RacingMusic.wav" id="7_hji3u"]
 [ext_resource type="Script" uid="uid://pjrr6dhyqt5a" path="res://CarGame/banner_anim.gd" id="8_iqlb0"]
 [ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://CarGame/Audiowide-Regular.ttf" id="8_y7fof"]
 [ext_resource type="Script" uid="uid://ds48mo05w2ooy" path="res://CarGame/round.gd" id="10_d626y"]
 [ext_resource type="Texture2D" uid="uid://bohu1txxxy63o" path="res://Window.png" id="10_ddnfo"]
-[ext_resource type="Texture2D" uid="uid://dirn3p1sd1x0a" path="res://Menu_BTN_DIS.png" id="10_ki2kc"]
 [ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Table.png" id="12_m5g4e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uf45p"]
@@ -160,16 +158,6 @@ _data = {
 &"RESET": SubResource("Animation_ddnfo")
 }
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hji3u"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y7fof"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tycxw"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4rwh6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c1dok"]
-
 [sub_resource type="Animation" id="Animation_m5g4e"]
 resource_name = "GameOver"
 tracks/0/type = "value"
@@ -257,34 +245,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PauseMenu:modulate")
+tracks/1/path = NodePath("GameOver:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CarouselContainer:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("GameOver:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -305,18 +269,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PauseMenu:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_w8hgf"]
@@ -345,6 +297,22 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y7fof"]
+resource_name = "StartScene_LevelEntranceInternal"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333336, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_hji3u"]
@@ -380,6 +348,7 @@ _data = {
 &"RESET": SubResource("Animation_kjsks"),
 &"StartSceneExit": SubResource("Animation_re6lr"),
 &"StartSceneExit_LevelChanger": SubResource("Animation_w8hgf"),
+&"StartScene_LevelEntranceInternal": SubResource("Animation_y7fof"),
 &"StartScene_LevelExitInternal": SubResource("Animation_hji3u")
 }
 
@@ -431,7 +400,7 @@ enemytrack = NodePath("../EnemyPath")
 script = ExtResource("4_ki2kc")
 
 [node name="Timer" type="Timer" parent="StartSignal" unique_id=344354673]
-wait_time = 6.0
+wait_time = 7.0
 one_shot = true
 autostart = true
 
@@ -523,10 +492,6 @@ transform = Transform3D(-0.07285975, 0, -0.00894606, 0, 0.07340693, 0, 0.0089460
 [node name="cliff051_lp11" parent="Cliffs" unique_id=99999173 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.032753993, 0, 0.06569436, 0, 0.07340691, 0, -0.06569436, 0, -0.032753993, 6.735648, 0.8503492, 5.733594)
 
-[node name="RacingMusic" type="AudioStreamPlayer" parent="." unique_id=416574071]
-stream = ExtResource("7_hji3u")
-autoplay = true
-
 [node name="cliff051_lp12" parent="." unique_id=1833479471 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.099509224, 0, 1.6269599, 0, 1.6300006, 0, -1.6269599, 0, -0.099509224, -63.934345, 2.2830038, -21.373272)
 
@@ -607,34 +572,6 @@ theme_override_fonts/font = ExtResource("8_y7fof")
 theme_override_font_sizes/font_size = 99
 text = "10"
 horizontal_alignment = 1
-
-[node name="PauseMenu" type="Control" parent="UI" unique_id=935041857]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="UI/PauseMenu" unique_id=1462568298]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -106.0
-offset_top = 22.0
-offset_right = -22.0
-offset_bottom = 109.0
-grow_horizontal = 0
-theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_hji3u")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_y7fof")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_tycxw")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_4rwh6")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_c1dok")
-icon = ExtResource("10_ki2kc")
-expand_icon = true
 
 [node name="GameOver" type="Control" parent="UI" unique_id=168357013]
 layout_mode = 3
@@ -743,6 +680,7 @@ vertical_alignment = 1
 [node name="TransitionPlayer" type="AnimationPlayer" parent="UI" unique_id=1287910172]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_y7fof")
+autoplay = &"StartScene_LevelEntranceInternal"
 
 [node name="Timer" type="Timer" parent="." unique_id=1168113881]
 autostart = true
@@ -762,6 +700,7 @@ shape = SubResource("BoxShape3D_ssud0")
 [connection signal="timeout" from="StartSignal/Timer" to="UI/BannerContainer/BannerAnim" method="_on_timer_timeout"]
 [connection signal="pressed" from="UI/GameOver/ButtonContainer/TextureButton" to="Round" method="_on_texture_button_pressed"]
 [connection signal="animation_finished" from="UI/TransitionPlayer" to="Round" method="_on_transition_player_animation_finished"]
+[connection signal="animation_started" from="UI/TransitionPlayer" to="Round" method="_on_transition_player_animation_started"]
 [connection signal="timeout" from="Timer" to="Round" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Round" to="Round" method="_on_body_entered"]
 [connection signal="round_finished" from="Round" to="PlayerCar" method="_on_round_round_finished"]

@@ -4,7 +4,10 @@ signal round_finished(player_won: bool)
 
 var nobodies = 0
 var roundcontinues = true
-var initialtimer = 6
+var initialtimer = 7
+
+func _ready() -> void:
+	get_node("/root/GlobalAudio").levelmusic()
 
 func _on_body_entered(body: Node3D) -> void:
 	if not body is RigidBody3D:
@@ -49,5 +52,13 @@ func _on_texture_button_pressed() -> void:
 
 
 func _on_transition_player_animation_finished(_anim_name: StringName) -> void:
-	get_tree().change_scene_to_file("res://CarGame/LevelChanger.tscn")
+	if _anim_name == "StartScene_LevelExitInternal":
+		get_node("/root/GlobalAudio").selection_music()
+		get_tree().change_scene_to_file("res://CarGame/LevelChanger.tscn")
+	pass # Replace with function body.
+
+
+func _on_transition_player_animation_started(_anim_name: StringName) -> void:
+	#if _anim_name == "StartScene_LevelEntranceInternal":
+		#get_node("/root/GlobalAudio").levelmusic()
 	pass # Replace with function body.

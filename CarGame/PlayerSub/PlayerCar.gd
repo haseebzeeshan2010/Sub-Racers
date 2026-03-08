@@ -10,6 +10,7 @@ var has_valid_mouse_position = false
 var race_active = false
 
 func _physics_process(delta):
+	%EngineAudio.volume_db = (2*linear_velocity.length())-40
 	if not race_active:
 		return
 	
@@ -170,6 +171,7 @@ func _on_damage_area_area_entered(area: Area3D) -> void:
 	max_health -= 4
 	max_health = clamp(max_health,0,11)
 	%DamageFlashPlayer.play("DamageFlash")
+	%DamageFlashPlayer.seek(0.0, true)
 	%HealthBar.update_bar(max_health)
 	
 	if max_health == 0:
