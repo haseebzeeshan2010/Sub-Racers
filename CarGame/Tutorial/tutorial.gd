@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	var accelerating := Input.is_action_pressed("ui_up")
 
 	# Detect movement
-	if turning != 0.0 or accelerating:
+	if turning != 0.0 or accelerating and %PlayerCar.race_active:
 		moved = true
 
 	# Emit the signal ONCE when moved becomes true
