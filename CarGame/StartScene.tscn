@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Table.png" id="2_kjsks"]
 [ext_resource type="Script" uid="uid://dbey2af3dgiyw" path="res://CarGame/Camera3D.gd" id="3_2w0lw"]
 [ext_resource type="FontFile" uid="uid://cott0r83xkqf0" path="res://CarGame/MajorMonoDisplay-Regular.ttf" id="3_re6lr"]
+[ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://CarGame/Audiowide-Regular.ttf" id="4_2w0lw"]
 [ext_resource type="PackedScene" uid="uid://qqxa251y3qlc" path="res://submarine.tscn" id="7_2w0lw"]
 [ext_resource type="PackedScene" path="res://game_jam_player_sub.tscn" id="7_dnpvf"]
 [ext_resource type="PackedScene" uid="uid://bjqfckyoamvmb" path="res://Environment/cliff.tscn" id="7_mksou"]
+[ext_resource type="Texture2D" uid="uid://bohu1txxxy63o" path="res://Window.png" id="9_kjsks"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_kjsks"]
 
@@ -20,6 +22,10 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rj5an"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_kjsks"]
+font = ExtResource("4_2w0lw")
+font_size = 36
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kjsks"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_re6lr"]
@@ -29,6 +35,10 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mksou"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3siu6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_re6lr"]
+font = ExtResource("4_2w0lw")
+font_size = 36
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3siu6"]
 sky_top_color = Color(0.36078432, 0.42745098, 1, 1)
@@ -148,6 +158,176 @@ _data = {
 &"StartSceneExit": SubResource("Animation_re6lr")
 }
 
+[sub_resource type="Animation" id="Animation_40an5"]
+resource_name = "CreditHide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.225, 0.22531268),
+"update": 0,
+"values": [0.1, 1.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.225, 0.22531268),
+"update": 0,
+"values": [0.9, 1.9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CreditsCover:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25000024, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.6666667), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CreditsCover:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 2]
+}
+
+[sub_resource type="Animation" id="Animation_m5g4e"]
+resource_name = "CreditShow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.008333334, 1),
+"transitions": PackedFloat32Array(0.22531268, 1),
+"update": 0,
+"values": [1.1, 0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.008333334, 1),
+"transitions": PackedFloat32Array(0.22531268, 1),
+"update": 0,
+"values": [1.9, 0.9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CreditsCover:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.29730183, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.6666667)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CreditsCover:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_w7jgq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CreditsCover:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CreditsCover:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_re6lr"]
+_data = {
+&"CreditHide": SubResource("Animation_40an5"),
+&"CreditShow": SubResource("Animation_m5g4e"),
+&"RESET": SubResource("Animation_w7jgq")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bic46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wg4f5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4xrh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdblw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kb341"]
+
 [node name="StartScene" type="Control" unique_id=586721950]
 layout_mode = 3
 anchors_preset = 15
@@ -213,11 +393,12 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_re6lr")
 theme_override_font_sizes/font_size = 31
-text = "start game"
+text = "Start Game"
+label_settings = SubResource("LabelSettings_kjsks")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tutorial" type="Button" parent="Control" unique_id=228003650]
+[node name="Credits" type="Button" parent="Control" unique_id=228003650]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -240,7 +421,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_mksou")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3siu6")
 icon = ExtResource("2_kjsks")
 
-[node name="Label" type="Label" parent="Control/Tutorial" unique_id=1363540864]
+[node name="Label" type="Label" parent="Control/Credits" unique_id=1363540864]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -257,7 +438,8 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_re6lr")
 theme_override_font_sizes/font_size = 26
-text = "play tutorial"
+text = "Credits"
+label_settings = SubResource("LabelSettings_re6lr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -379,6 +561,133 @@ transform = Transform3D(-0.49858624, 0, 0.14768791, 0, 0.52, 0, -0.14768791, 0, 
 [node name="Submarine" parent="." unique_id=1471293272 instance=ExtResource("7_2w0lw")]
 transform = Transform3D(-0.16504766, 0, -0.98628557, 0, 1, 0, 0.98628557, 0, -0.16504766, -4.053, 3.005, 5.514)
 
+[node name="CreditsCover" type="ColorRect" parent="." unique_id=1591137421]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Credits" type="Control" parent="." unique_id=2123943153]
+layout_mode = 1
+anchor_left = 0.3
+anchor_top = 1.1
+anchor_right = 0.7
+anchor_bottom = 1.9
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="Credits" unique_id=1202637110]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_kjsks")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Credits/TextureRect" unique_id=772779851]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 5.449951
+offset_bottom = 72.94995
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_2w0lw")
+theme_override_font_sizes/font_size = 38
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/TextureRect" unique_id=235488037]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.7375
+offset_top = -57.0
+offset_right = 176.7375
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_2w0lw")
+theme_override_font_sizes/font_size = 14
+text = "Music by Haseeb Zeeshan with guidance from Alex Shore
+
+Sketchfab Assets:
+ - Rock Assets by kEam
+ - Submarines by Landon Wright
+   and MatoyBoii
+
+Free Space Shooter Game GUI from CraftPix
+
+All other UI and Assets as well as all code is by Haseeb Zeeshan"
+autowrap_mode = 2
+
+[node name="GameOver" type="AnimationPlayer" parent="Credits" unique_id=855297639]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_re6lr")
+
+[node name="ButtonContainer" type="Control" parent="Credits" unique_id=164463180]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.149994
+offset_top = -139.19995
+offset_right = -9.0
+offset_bottom = -14.199951
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureButton" type="Button" parent="Credits/ButtonContainer" unique_id=1894771753]
+self_modulate = Color(2.40685, 0.5867145, 0.61704963, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.69, 0.69)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bic46")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wg4f5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p4xrh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fdblw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kb341")
+icon = ExtResource("2_kjsks")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Credits/ButtonContainer/TextureButton" unique_id=1238125700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.39856
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_2w0lw")
+theme_override_font_sizes/font_size = 36
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Control/StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Credits" to="." method="_on_credits_pressed"]
 [connection signal="animation_finished" from="TransitionPlayer" to="." method="_on_transition_player_animation_finished"]
 [connection signal="animation_started" from="TransitionPlayer" to="." method="_on_transition_player_animation_started"]
+[connection signal="pressed" from="Credits/ButtonContainer/TextureButton" to="." method="_on_texture_button_pressed"]

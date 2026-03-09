@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bohu1txxxy63o" path="res://Window.png" id="10_qwiur"]
 [ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Table.png" id="12_wcoos"]
 [ext_resource type="Script" uid="uid://ds48mo05w2ooy" path="res://CarGame/round.gd" id="14_6f70g"]
+[ext_resource type="PackedScene" uid="uid://c35o35rwwtbob" path="res://CarGame/anti_cheat.tscn" id="15_0j5de"]
 [ext_resource type="PackedScene" uid="uid://bqcf6k2jf8fqi" path="res://Environment/cliff2.tscn" id="15_ig2m3"]
 [ext_resource type="PackedScene" uid="uid://cwpv2rithryuf" path="res://Environment/volcano1.tscn" id="17_4ubjj"]
 [ext_resource type="PackedScene" uid="uid://cqut2qt4cekxo" path="res://Environment/volcanodecoration.tscn" id="18_8et01"]
@@ -69,7 +70,7 @@ material = SubResource("StandardMaterial3D_br8w3")
 size = Vector2(0.2, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ssud0"]
-size = Vector3(19.980637, 19.980957, 1)
+size = Vector3(36.881, 19.981, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_t0m7s"]
 
@@ -734,7 +735,7 @@ process_material = SubResource("ParticleProcessMaterial_jy1iq")
 draw_pass_1 = SubResource("QuadMesh_ssud0")
 
 [node name="Round" type="Area3D" parent="." unique_id=776691815]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.6515665)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.773452)
 script = ExtResource("14_6f70g")
 
 [node name="FinishLine" type="CollisionShape3D" parent="Round" unique_id=877648922]
@@ -966,6 +967,9 @@ autoplay = &"StartScene_LevelEntranceInternal"
 [node name="Timer" type="Timer" parent="." unique_id=1168113881]
 autostart = true
 
+[node name="AntiCheat" parent="." unique_id=1482226837 instance=ExtResource("15_0j5de")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.000084)
+
 [connection signal="race_started" from="StartSignal" to="PlayerCar" method="_on_start_signal_race_started"]
 [connection signal="race_started" from="StartSignal" to="EnemyCar" method="_on_start_signal_race_started"]
 [connection signal="race_started" from="StartSignal" to="Round" method="_on_start_signal_race_started"]
@@ -973,6 +977,7 @@ autostart = true
 [connection signal="timeout" from="StartSignal/Timer" to="UI/BannerContainer/BannerAnim" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Round" to="Round" method="_on_body_entered"]
 [connection signal="round_finished" from="Round" to="PlayerCar" method="_on_round_round_finished"]
+[connection signal="round_finished" from="Round" to="EnemyCar" method="_on_round_round_finished"]
 [connection signal="round_finished" from="Round" to="Round" method="_on_round_finished"]
 [connection signal="pressed" from="UI/GameOver/ButtonContainer/TextureButton" to="Round" method="_on_texture_button_pressed"]
 [connection signal="animation_finished" from="UI/TransitionPlayer" to="Round" method="_on_transition_player_animation_finished"]

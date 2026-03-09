@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://CarGame/Audiowide-Regular.ttf" id="8_y7fof"]
 [ext_resource type="Script" uid="uid://ds48mo05w2ooy" path="res://CarGame/round.gd" id="10_d626y"]
 [ext_resource type="Texture2D" uid="uid://bohu1txxxy63o" path="res://Window.png" id="10_ddnfo"]
+[ext_resource type="PackedScene" uid="uid://c35o35rwwtbob" path="res://CarGame/anti_cheat.tscn" id="12_ddnfo"]
 [ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Table.png" id="12_m5g4e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uf45p"]
@@ -353,7 +354,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ssud0"]
-size = Vector3(19.980637, 19.980957, 1)
+size = Vector3(24.621, 19.981, 1)
 
 [node name="Level1" type="Node3D" unique_id=1656276191]
 
@@ -686,12 +687,15 @@ autoplay = &"StartScene_LevelEntranceInternal"
 autostart = true
 
 [node name="Round" type="Area3D" parent="." unique_id=776691815]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.6515665)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.373032, 0, 17.053097)
 script = ExtResource("10_d626y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Round" unique_id=877648922]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.135765, 1.590332, 0)
 shape = SubResource("BoxShape3D_ssud0")
+
+[node name="AntiCheat" parent="." unique_id=1482226837 instance=ExtResource("12_ddnfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.18777)
 
 [connection signal="race_started" from="StartSignal" to="PlayerCar" method="_on_start_signal_race_started"]
 [connection signal="race_started" from="StartSignal" to="EnemyCar" method="_on_start_signal_race_started"]

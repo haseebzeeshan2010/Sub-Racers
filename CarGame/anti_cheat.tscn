@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c35o35rwwtbob"]
+
+[ext_resource type="Script" uid="uid://41fpyv6v241v" path="res://CarGame/anti_cheat.gd" id="1_6k633"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7pn8o"]
+size = Vector3(19.980637, 19.980957, 7.487976)
+
+[node name="AntiCheat" type="Area3D" unique_id=1482226837]
+script = ExtResource("1_6k633")
+force_strength = 150.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1537003767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.135765, 1.590332, -0.045853615)
+shape = SubResource("BoxShape3D_7pn8o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

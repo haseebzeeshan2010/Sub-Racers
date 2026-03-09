@@ -1,0 +1,1170 @@
+[gd_scene format=3 uid="uid://b351sovm4n26d"]
+
+[ext_resource type="Script" uid="uid://bwhspjq4vjff0" path="res://CarGame/Tutorial/tutorial.gd" id="1_aev1h"]
+[ext_resource type="PackedScene" uid="uid://cvl4ylwowp602" path="res://CarGame/PlayerSub/PlayerCar.tscn" id="1_ft6ih"]
+[ext_resource type="Script" uid="uid://dbey2af3dgiyw" path="res://CarGame/Camera3D.gd" id="2_aev1h"]
+[ext_resource type="PackedScene" uid="uid://bjqfckyoamvmb" path="res://Environment/cliff.tscn" id="6_ptdh3"]
+[ext_resource type="Script" uid="uid://pjrr6dhyqt5a" path="res://CarGame/banner_anim.gd" id="7_f60rj"]
+[ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://CarGame/Audiowide-Regular.ttf" id="8_knuiy"]
+[ext_resource type="Texture2D" uid="uid://bohu1txxxy63o" path="res://Window.png" id="9_78ssr"]
+[ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Table.png" id="10_kxrhu"]
+[ext_resource type="Script" uid="uid://ds48mo05w2ooy" path="res://CarGame/round.gd" id="11_uhlms"]
+[ext_resource type="Texture2D" uid="uid://buwblt34mh681" path="res://CarGame/Tutorial/ArrowKeys.png" id="12_5ib6m"]
+[ext_resource type="PackedScene" uid="uid://c35o35rwwtbob" path="res://CarGame/anti_cheat.tscn" id="12_7pn8o"]
+[ext_resource type="Texture2D" uid="uid://dcv0nf33hu0os" path="res://CarGame/Tutorial/WASDKeys.png" id="13_7o8uo"]
+[ext_resource type="PackedScene" uid="uid://dql6rwr2polbh" path="res://CarGame/Tutorial/tutorial_path.tscn" id="15_7o8uo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uf45p"]
+sky_top_color = Color(0.36078432, 0.42745098, 1, 1)
+sky_horizon_color = Color(0.30164886, 0.722728, 0.90974844, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_vm3et"]
+sky_material = SubResource("ProceduralSkyMaterial_uf45p")
+
+[sub_resource type="Environment" id="Environment_lmkhv"]
+background_mode = 1
+background_color = Color(0.24115592, 0.5531948, 1, 1)
+sky = SubResource("Sky_vm3et")
+ambient_light_source = 2
+ambient_light_color = Color(0.22919756, 0.5947704, 0.99999994, 1)
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.33647245, 0.70938826, 0.14295116, 1)
+fog_light_energy = 0.1
+fog_density = 0.045
+fog_height = -1.85
+fog_height_density = 0.43
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.025
+volumetric_fog_albedo = Color(0.031946305, 0.45859075, 0.765062, 1)
+volumetric_fog_anisotropy = 0.45
+adjustment_enabled = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jy1iq"]
+emission_shape_scale = Vector3(4.715, 0.895, 100)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0.5, 0)
+turbulence_enabled = true
+turbulence_noise_strength = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_br8w3"]
+emission_enabled = true
+emission = Color(0, 1, 0.95686275, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_ssud0"]
+material = SubResource("StandardMaterial3D_br8w3")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_m5g4e"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_iqlb0"]
+
+[sub_resource type="Animation" id="Animation_iqlb0"]
+resource_name = "EnterScreen"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, -1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../TimerLabel/TimerLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ki2kc"]
+resource_name = "LeaveScreen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0, 2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../TimerLabel/TimerLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ddnfo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../TimerLabel/TimerLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ddnfo"]
+_data = {
+&"EnterScreen": SubResource("Animation_iqlb0"),
+&"LeaveScreen": SubResource("Animation_ki2kc"),
+&"RESET": SubResource("Animation_ddnfo")
+}
+
+[sub_resource type="Animation" id="Animation_m5g4e"]
+resource_name = "GameOver"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.008333334, 1),
+"transitions": PackedFloat32Array(0.22531268, 1),
+"update": 0,
+"values": [1.1, 0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.008333334, 1),
+"transitions": PackedFloat32Array(0.22531268, 1),
+"update": 0,
+"values": [1.9, 0.9]
+}
+
+[sub_resource type="Animation" id="Animation_w7jgq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w7jgq"]
+_data = {
+&"GameOver": SubResource("Animation_m5g4e"),
+&"RESET": SubResource("Animation_w7jgq")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5g4e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7jgq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bg8ad"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d626y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4x24"]
+
+[sub_resource type="Animation" id="Animation_7pn8o"]
+resource_name = "Line1"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(5.464162, 1),
+"update": 0,
+"values": [0.5, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(5.464162, 1),
+"update": 0,
+"values": [0.5, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FirstLine:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.51, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aev1h"]
+resource_name = "Line1exit"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.53333336, 1),
+"transitions": PackedFloat32Array(1, 5.464162),
+"update": 0,
+"values": [0.0, 0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.53333336, 1),
+"transitions": PackedFloat32Array(1, 5.464162),
+"update": 0,
+"values": [1.0, 0.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FirstLine:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ib6m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FirstLine:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ib6m"]
+_data = {
+&"Line1": SubResource("Animation_7pn8o"),
+&"Line1exit": SubResource("Animation_aev1h"),
+&"RESET": SubResource("Animation_5ib6m")
+}
+
+[sub_resource type="Animation" id="Animation_7o8uo"]
+resource_name = "Line2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_78ssr"]
+resource_name = "Line2Exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ptdh3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f60rj"]
+_data = {
+&"Line2": SubResource("Animation_7o8uo"),
+&"Line2Exit": SubResource("Animation_78ssr"),
+&"RESET": SubResource("Animation_ptdh3")
+}
+
+[sub_resource type="Animation" id="Animation_f60rj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%SecondLine:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%ThirdLine:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_knuiy"]
+resource_name = "secondthirdanim"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%SecondLine:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%ThirdLine:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78ssr"]
+_data = {
+&"RESET": SubResource("Animation_f60rj"),
+&"secondthirdanim": SubResource("Animation_knuiy")
+}
+
+[sub_resource type="Animation" id="Animation_kjsks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOver:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_re6lr"]
+resource_name = "StartSceneExit"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w8hgf"]
+resource_name = "StartSceneExit_LevelChanger"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y7fof"]
+resource_name = "StartScene_LevelEntranceInternal"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333336, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hji3u"]
+resource_name = "StartScene_LevelExitInternal"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOver:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y7fof"]
+_data = {
+&"RESET": SubResource("Animation_kjsks"),
+&"StartSceneExit": SubResource("Animation_re6lr"),
+&"StartSceneExit_LevelChanger": SubResource("Animation_w8hgf"),
+&"StartScene_LevelEntranceInternal": SubResource("Animation_y7fof"),
+&"StartScene_LevelExitInternal": SubResource("Animation_hji3u")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ssud0"]
+size = Vector3(19.980637, 19.980957, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_5ib6m"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.9389582, 1.9073486e-05, -4.1189327, 0, 0, 0, 0, 0, 0, 3.4891214, 1.9073486e-05, -13.550243, 0, 0, 0, 0, 0, 0, 5.6318913, 1.9073486e-05, -24.807436, 0, 0, 0, 0, 0, 0, 11.86474, 1.9073486e-05, -29.886053, 0, 0, 0, 0, 0, 0, 19.020975, 1.9073486e-05, -38.889065, 0, 0, 0, 0, 0, 0, 23.176203, 1.9073486e-05, -49.508, 0, 0, 0, 0, 0, 0, 15.558283, 1.9073486e-05, -62.89709, 0, 0, 0, 0, 0, 0, 0.8538699, 1.9073486e-05, -71.93811, 0, 0, 0, 0, 0, 0, -13.141298, 1.9073486e-05, -80.54306, 0, 0, 0, 0, 0, 0, -24.854248, 1.9073486e-05, -84.70851, 0, 0, 0, 0, 0, 0, -36.687634, 1.9073486e-05, -80.08136, 0, 0, 0, 0, 0, 0, -44.009075, 1.9073486e-05, -74.10673, 0, 0, 0, 0, 0, 0, -47.075718, 1.9073486e-05, -63.922123, 0, 0, 0, 0, 0, 0, -47.999104, 1.9073486e-05, -50.30218, 0, 0, 0, 0, 0, 0, -45.228947, 1.9073486e-05, -42.453403, 0, 0, 0, 0, 0, 0, -41.07371, 1.9073486e-05, -36.913086, 0, 0, 0, 0, 0, 0, -40.84287, 1.9073486e-05, -25.139925, 0, 0, 0, 0, 0, 0, -41.997097, 1.9073486e-05, -12.4433775, 0, 0, 0, 0, 0, 0, -44.733974, 1.9073486e-05, 4.0119505, 0, 0, 0, 0, 0, 0, -51.65936, 1.9073486e-05, 18.786116, 0, 0, 0, 0, 0, 0, -61.766895, 1.9073486e-05, 42.275665, 0, 0, 0, 0, 0, 0, -63.45718, 1.9073486e-05, 56.40455, 0, 0, 0, 0, 0, 0, -55.77654, 1.9073486e-05, 69.46549, 0, 0, 0, 0, 0, 0, -47.68526, 1.9073486e-05, 76.671776, 0, 0, 0, 0, 0, 0, -35.071552, 1.9073486e-05, 87.238106, 0, 0, 0, 0, 0, 0, -26.338108, 1.9073486e-05, 94.553986, 0, 0, 0, 0, 0, 0, -16.180866, 1.9073486e-05, 97.0933, 0, 0, 0, 0, 0, 0, -1.6375554, 1.9073486e-05, 95.70821, 0, 0, 0, 0, 0, 0, 8.288851, 1.9073486e-05, 91.09129, 0, 0, 0, 0, 0, 0, 11.982378, 1.9073486e-05, 77.2405, 0, 0, 0, 0, 0, 0, 7.827151, 1.9073486e-05, 53.46333, 0, 0, 0, 0, 0, 0, 5.056994, 1.9073486e-05, 30.840387, 0, 0, 0, 0, 0, 0, 3.8440232, 1.9073486e-05, 14.888388),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 33
+
+[node name="Tutorial" type="Node3D" unique_id=1656276191]
+script = ExtResource("1_aev1h")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1978545274]
+environment = SubResource("Environment_lmkhv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1499661367]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 1.741
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 1.89
+shadow_enabled = true
+shadow_blur = 10.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1159978761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.32872, -12.918022, -1.4367981)
+use_collision = true
+size = Vector3(146.75488, 1, 257.88147)
+
+[node name="PlayerCar" parent="." unique_id=1438980510 instance=ExtResource("1_ft6ih")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5761786, 3.0237923, 2.3776245)
+use_keyboard_steering = true
+
+[node name="Camera3D" type="Camera3D" parent="PlayerCar" unique_id=1022024141 node_paths=PackedStringArray("target", "lookattarget")]
+transform = Transform3D(1, 0, 0, 0, 0.35836798, 0.9335804, 0, -0.9335804, 0.35836798, -1.576, 9.289, 7.9367185)
+top_level = true
+current = true
+script = ExtResource("2_aev1h")
+follow_speed = 3.0
+lookat_speed = 5.0
+target = NodePath("../Node3D")
+lookattarget = NodePath("..")
+
+[node name="Node3D" type="Node3D" parent="PlayerCar" unique_id=271230850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.289, 6.055)
+
+[node name="Cliffs" type="Node3D" parent="." unique_id=1628155291]
+transform = Transform3D(22.205, 0, 0, 0, 22.205, 0, 0, 0, 22.205, -220.714, -16.599, -182.892)
+
+[node name="cliff051_lp" parent="Cliffs" unique_id=1011174152 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.0019702415, 0, 0.07338043, 0, 0.07340689, 0, -0.07338043, 0, -0.0019702415, 8.98938, 0.85034883, 8.133482)
+
+[node name="cliff051_lp25" parent="Cliffs" unique_id=200219655 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 9.011678, 0.850349, 9.549629)
+
+[node name="cliff051_lp26" parent="Cliffs" unique_id=462783920 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 9.409155, 0.850349, 11.052052)
+
+[node name="cliff051_lp15" parent="Cliffs" unique_id=1296627044 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.010705746, 0, -0.07262201, 0, 0.07340689, 0, 0.07262201, 0, -0.010705746, 8.815584, 0.8503489, 8.133482)
+
+[node name="cliff051_lp20" parent="Cliffs" unique_id=2059970401 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.004481393, 0, -0.07326996, 0, 0.07340689, 0, 0.07326996, 0, 0.004481393, 8.749328, 0.85034895, 9.802259)
+
+[node name="cliff051_lp21" parent="Cliffs" unique_id=1663410012 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.036578, 0, -0.06364448, 0, 0.07340689, 0, 0.06364448, 0, 0.036578, 9.275094, 0.850349, 11.101258)
+
+[node name="cliff051_lp3" parent="Cliffs" unique_id=630036143 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.050288748, 0, 0.053475346, 0, 0.07340688, 0, -0.053475346, 0, 0.050288748, 9.428571, 0.82590765, 6.534396)
+
+[node name="cliff051_lp13" parent="Cliffs" unique_id=398576516 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.0341226, 0, -0.06499399, 0, 0.07340688, 0, 0.06499399, 0, -0.0341226, 9.428571, 0.82590765, 6.534396)
+
+[node name="cliff051_lp7" parent="Cliffs" unique_id=1573653317 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.06953176, 0, 0.023535198, 0, 0.07340688, 0, -0.023535198, 0, -0.06953176, 9.285487, 0.82590765, 5.9172587)
+
+[node name="cliff051_lp14" parent="Cliffs" unique_id=524480103 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.061772678, 0, -0.039657377, 0, 0.07340688, 0, 0.039657377, 0, 0.061772678, 9.030688, 0.82590765, 6.0467978)
+
+[node name="cliff051_lp2" parent="Cliffs" unique_id=1164378525 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.0733595, 0.85034895, 8.133482)
+
+[node name="cliff051_lp22" parent="Cliffs" unique_id=1048044353 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.130296, 0.850349, 9.505129)
+
+[node name="cliff051_lp23" parent="Cliffs" unique_id=1416414410 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.303728, 0.850349, 10.536913)
+
+[node name="cliff051_lp24" parent="Cliffs" unique_id=2037216349 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.49826, 0.850349, 12.096838)
+
+[node name="cliff051_lp4" parent="Cliffs" unique_id=1843504414 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.050992712, 0, -0.052804485, 0, 0.07340689, 0, 0.052804485, 0, -0.050992712, 11.406875, 0.850349, 6.734589)
+
+[node name="cliff051_lp5" parent="Cliffs" unique_id=1849577832 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.03725681, 0, -0.06324951, 0, 0.07340689, 0, 0.06324951, 0, 0.03725681, 11.752432, 0.85034865, 5.0158815)
+
+[node name="cliff051_lp6" parent="Cliffs" unique_id=1217924571 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.06357223, 0, -0.03670344, 0, 0.07340689, 0, 0.03670344, 0, 0.06357223, 10.881197, 0.85034865, 4.1478753)
+
+[node name="cliff051_lp9" parent="Cliffs" unique_id=698561146 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.06357223, 0, -0.03670344, 0, 0.07340689, 0, 0.03670344, 0, 0.06357223, 9.755057, 0.85034865, 3.13732)
+
+[node name="cliff051_lp8" parent="Cliffs" unique_id=1143694290 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.07193323, 0, 0.014634983, 0, 0.07340691, 0, -0.014634983, 0, 0.07193323, 8.143929, 0.8503492, 3.1013255)
+
+[node name="cliff051_lp10" parent="Cliffs" unique_id=1240507631 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.028091602, 0, 0.06781913, 0, 0.07340691, 0, -0.06781913, 0, 0.028091602, 6.6667676, 0.8503492, 4.029468)
+
+[node name="cliff051_lp16" parent="Cliffs" unique_id=1097138597 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.037823815, 0, 0.06291209, 0, 0.0734069, 0, -0.06291209, 0, 0.037823815, 6.8857927, 0.85034865, 8.25005)
+
+[node name="cliff051_lp17" parent="Cliffs" unique_id=1789853711 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(0.037823815, 0, 0.06291209, 0, 0.0734069, 0, -0.06291209, 0, 0.037823815, 5.855447, 0.85034865, 9.358112)
+
+[node name="cliff051_lp18" parent="Cliffs" unique_id=1297868748 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.013358446, 0, 0.072181195, 0, 0.07340691, 0, -0.072181195, 0, -0.013358446, 5.790918, 0.8503492, 10.968349)
+
+[node name="cliff051_lp19" parent="Cliffs" unique_id=547861419 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.067310885, 0, 0.029288558, 0, 0.07340693, 0, -0.029288558, 0, -0.067310885, 6.692748, 0.8503492, 12.461721)
+
+[node name="cliff051_lp27" parent="Cliffs" unique_id=762268514 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.067310885, 0, 0.029288558, 0, 0.07340693, 0, -0.029288558, 0, -0.067310885, 8.105738, 0.8503492, 13.157282)
+
+[node name="cliff051_lp28" parent="Cliffs" unique_id=491011438 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.07285975, 0, -0.00894606, 0, 0.07340693, 0, 0.00894606, 0, -0.07285975, 10.124417, 0.8503492, 13.394943)
+
+[node name="cliff051_lp11" parent="Cliffs" unique_id=99999173 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.032753993, 0, 0.06569436, 0, 0.07340691, 0, -0.06569436, 0, -0.032753993, 6.735648, 0.8503492, 5.733594)
+
+[node name="cliff051_lp12" parent="." unique_id=1833479471 instance=ExtResource("6_ptdh3")]
+transform = Transform3D(-0.099509224, 0, 1.6269599, 0, 1.6300006, 0, -1.6269599, 0, -0.099509224, -63.934345, 2.2830038, -21.373272)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=606016527]
+transform = Transform3D(0.9914449, 0, 0.1305262, 0, 1, 0, -0.1305262, 0, 0.9914449, 0.6889763, -11.395, -17.96904)
+amount = 199
+lifetime = 10.0
+visibility_aabb = AABB(-4, -4, -4, 5.975, 27.185, 100)
+process_material = SubResource("ParticleProcessMaterial_jy1iq")
+draw_pass_1 = SubResource("QuadMesh_ssud0")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1008795407]
+
+[node name="TransitionBack" type="TextureRect" parent="UI" unique_id=547670086]
+self_modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_m5g4e")
+
+[node name="BannerContainer" type="Control" parent="UI" unique_id=765359917]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="UI/BannerContainer" unique_id=1444311569]
+self_modulate = Color(0.08235294, 0.08235294, 0.08235294, 0.7764706)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 0.36
+anchor_right = 2.0
+anchor_bottom = 0.64
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_iqlb0")
+
+[node name="BannerAnim" type="AnimationPlayer" parent="UI/BannerContainer" unique_id=1181721306]
+root_node = NodePath("../TextureRect")
+libraries/ = SubResource("AnimationLibrary_ddnfo")
+script = ExtResource("7_f60rj")
+
+[node name="TimerLabel" type="Control" parent="UI" unique_id=282214612]
+layout_mode = 3
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+offset_right = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="UI/TimerLabel" unique_id=602703684]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -49.000008
+offset_right = 192.0
+offset_bottom = 49.000008
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_knuiy")
+theme_override_font_sizes/font_size = 99
+text = "10"
+horizontal_alignment = 1
+
+[node name="GameOver" type="Control" parent="UI" unique_id=168357013]
+layout_mode = 3
+anchor_left = 0.3
+anchor_top = 1.1
+anchor_right = 0.7
+anchor_bottom = 1.9
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="UI/GameOver" unique_id=888964052]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_78ssr")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="UI/GameOver/TextureRect" unique_id=1432950691]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 5.449951
+offset_bottom = 72.94995
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_knuiy")
+theme_override_font_sizes/font_size = 38
+text = "Nice Job!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/GameOver/TextureRect" unique_id=745550681]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_knuiy")
+theme_override_font_sizes/font_size = 24
+text = "You Completed The Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="GameOver" type="AnimationPlayer" parent="UI/GameOver" unique_id=1754658220]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_w7jgq")
+
+[node name="ButtonContainer" type="Control" parent="UI/GameOver" unique_id=1886243447]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.149994
+offset_top = -139.19995
+offset_right = -9.0
+offset_bottom = -14.199951
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureButton" type="Button" parent="UI/GameOver/ButtonContainer" unique_id=1924508688]
+self_modulate = Color(0.7670039, 1, 0.66922677, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.69, 0.69)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m5g4e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w7jgq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bg8ad")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d626y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j4x24")
+icon = ExtResource("10_kxrhu")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="UI/GameOver/ButtonContainer/TextureButton" unique_id=976106511]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.39856
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_knuiy")
+theme_override_font_sizes/font_size = 36
+text = "Back To Selection"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Welcome" type="Control" parent="UI" unique_id=626533092]
+layout_mode = 3
+anchor_top = 0.28
+anchor_right = 1.0
+anchor_bottom = 0.72
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Line1" type="ColorRect" parent="UI/Welcome" unique_id=703400828]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.18, 0.18, 0.18, 0.8666667)
+
+[node name="FirstLine" type="Control" parent="UI/Welcome/Line1" unique_id=1986794317]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="UI/Welcome/Line1/FirstLine" unique_id=1669299539]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 50.0
+offset_bottom = 99.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_knuiy")
+theme_override_font_sizes/font_size = 38
+text = "Welcome to Sub-Racers!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/Welcome/Line1/FirstLine" unique_id=1906068401]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = -208.5
+offset_top = 77.011986
+offset_right = 208.5
+offset_bottom = 52.987976
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_knuiy")
+theme_override_font_sizes/font_size = 25
+text = "Let's begin with the controls..."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ButtonContainer" type="Control" parent="UI/Welcome/Line1/FirstLine" unique_id=93237609]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -231.0
+offset_top = -75.56003
+offset_right = 181.5
+offset_bottom = 59.36856
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.56, 0.56)
+
+[node name="TextureButton" type="Button" parent="UI/Welcome/Line1/FirstLine/ButtonContainer" unique_id=454969455]
+self_modulate = Color(0.7670039, 1, 0.66922677, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.69, 0.69)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m5g4e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w7jgq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bg8ad")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d626y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j4x24")
+icon = ExtResource("10_kxrhu")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="UI/Welcome/Line1/FirstLine/ButtonContainer/TextureButton" unique_id=1925557029]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.39856
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_knuiy")
+theme_override_font_sizes/font_size = 36
+text = "Continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line1Player" type="AnimationPlayer" parent="UI/Welcome/Line1" unique_id=452426852]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_5ib6m")
+autoplay = &"Line1"
+
+[node name="Line2" type="ColorRect" parent="UI/Welcome" unique_id=1183673728]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.6380001
+offset_top = 320.56
+offset_bottom = -0.4666443
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.18, 0.18, 0.18, 0.8666667)
+
+[node name="SecondLine" type="Control" parent="UI/Welcome/Line2" unique_id=953874647]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="UI/Welcome/Line2/SecondLine" unique_id=558122220]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = 1.0
+offset_right = 571.0
+offset_bottom = 34.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_knuiy")
+theme_override_font_sizes/font_size = 25
+text = "Use the WASD or Arrow Keys to Move"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="UI/Welcome/Line2/SecondLine" unique_id=379304732]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 587.0
+offset_top = 1.0
+offset_right = 1122.0
+offset_bottom = 34.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_knuiy")
+theme_override_font_sizes/font_size = 25
+text = "or"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/Welcome/Line2/SecondLine" unique_id=1351011676]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 629.0
+offset_top = -48.0
+offset_right = 871.0
+offset_bottom = 111.0
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("12_5ib6m")
+expand_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Welcome/Line2/SecondLine" unique_id=1301640519]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 946.0
+offset_top = -48.0
+offset_right = 1188.0
+offset_bottom = 111.0
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("13_7o8uo")
+expand_mode = 5
+
+[node name="ThirdLine" type="Control" parent="UI/Welcome/Line2" unique_id=1912074649]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="UI/Welcome/Line2/ThirdLine" unique_id=1937415668]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -267.5
+offset_top = -16.5
+offset_right = 267.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_knuiy")
+theme_override_font_sizes/font_size = 25
+text = "Follow the Glowing Cube For One Lap"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2Player" type="AnimationPlayer" parent="UI/Welcome/Line2" unique_id=1163811683]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_f60rj")
+
+[node name="Second_Third_Player" type="AnimationPlayer" parent="UI/Welcome/Line2" unique_id=1359019017]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_78ssr")
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="UI" unique_id=1287910172]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_y7fof")
+autoplay = &"StartScene_LevelEntranceInternal"
+
+[node name="Timer" type="Timer" parent="." unique_id=1168113881]
+autostart = true
+
+[node name="Round" type="Area3D" parent="." unique_id=776691815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.624452)
+script = ExtResource("11_uhlms")
+tutorial = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Round" unique_id=877648922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.135765, 1.590332, 0)
+shape = SubResource("BoxShape3D_ssud0")
+
+[node name="AntiCheat" parent="." unique_id=1482226837 instance=ExtResource("12_7pn8o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.670367)
+
+[node name="TutorialPath" parent="." unique_id=789613541 instance=ExtResource("15_7o8uo")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8833804, 3.533062, -1.6871845)
+visible = false
+curve = SubResource("Curve3D_5ib6m")
+debugbox = true
+
+[connection signal="moved_once" from="." to="." method="_on_moved_once"]
+[connection signal="pressed" from="UI/GameOver/ButtonContainer/TextureButton" to="Round" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="UI/Welcome/Line1/FirstLine/ButtonContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="animation_finished" from="UI/TransitionPlayer" to="Round" method="_on_transition_player_animation_finished"]
+[connection signal="animation_started" from="UI/TransitionPlayer" to="Round" method="_on_transition_player_animation_started"]
+[connection signal="timeout" from="Timer" to="Round" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Round" to="Round" method="_on_body_entered"]
+[connection signal="round_finished" from="Round" to="." method="_on_round_round_finished"]
+[connection signal="round_finished" from="Round" to="PlayerCar" method="_on_round_round_finished"]
+[connection signal="round_finished" from="Round" to="Round" method="_on_round_finished"]

@@ -5,6 +5,7 @@ signal round_finished(player_won: bool)
 var nobodies = 0
 var roundcontinues = true
 var initialtimer = 7
+@export var tutorial: bool = false
 
 func _ready() -> void:
 	get_node("/root/GlobalAudio").levelmusic()
@@ -25,7 +26,10 @@ func _on_round_finished(player_won: bool) -> void:
 	%GameOver.play("GameOver")
 	if roundcontinues:
 		if player_won:
+			
 			%Label2.text = "You came 1st"
+			if tutorial:
+				%Label2.text = "You Completed The Tutorial"
 			roundcontinues = false
 		else:
 			%Label2.text = "You came 2nd"

@@ -7,7 +7,7 @@ extends RigidBody3D
 
 var mouse_position_3d = Vector3.ZERO
 var has_valid_mouse_position = false
-var race_active = false
+@export var race_active = false
 
 func _physics_process(delta):
 	%EngineAudio.volume_db = (2*linear_velocity.length())-40

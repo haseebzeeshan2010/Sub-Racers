@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dql6rwr2polbh"]
+
+[ext_resource type="Script" uid="uid://d1uvaq7ol6v7d" path="res://CarGame/Tutorial/tutorial_path.gd" id="1_scp1d"]
+[ext_resource type="Script" uid="uid://brk7cwh122b66" path="res://CarGame/Tutorial/tutorial_follow.gd" id="2_c2ato"]
+
+[sub_resource type="Curve3D" id="Curve3D_drx4c"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.0028005, 0, -11.495052, 0, 0, 0, 0, 0, 0, -0.49861574, 0, -21.410704, 0, 0, 0, 0, 0, 0, -0.44927073, 0, -32.559456, 0, 0, 0, 0, 0, 0, 3.752277, 0, -44.603893, 0, 0, 0, 0, 0, 0, 7.635482, 0, -63.205822, 0, 0, 0, 0, 0, 0, 5.62696, 0, -67.710915, 0, 0, 0, 0, 0, 0, 0.9772482, 0, -71.96848, 0, 0, 0, 0, 0, 0, -6.6415586, 0, -74.48941, 0, 0, 0, 0, 0, 0, -12.355664, 0, -75.72186, 0, 0, 0, 0, 0, 0, -28.137745, 0, -80.84546, 0, 0, 0, 0, 0, 0, -40.40725, 0, -88.1287, 0, 0, 0, 0, 0, 0, -44.496758, 0, -92.2182, 0, 0, 0, 0, 0, 0, -62.308662, 0, -108.770546, 0, 0, 0, 0, 0, 0, -74.12901, 0, -111.96372, 0, 0, 0, 0, 0, 0, -83.65253, 0, -110.451164, 0, 0, 0, 0, 0, 0, -85.55722, 0, -103.72868, 0, 0, 0, 0, 0, 0, -91.82445, 0, -93.50348, 0, 0, 0, 0, 0, 0, -99.32063, 0, -77.65202, 0, 0, 0, 0, 0, 0, -95.73531, 0, -70.5374, 0, 0, 0, 0, 0, 0, -97.05272, 0, -50.211502, 0, 0, 0, 0, 0, 0, -104.62813, 0, -30.789646, 0, 0, 0, 0, 0, 0, -102.442505, 0, -3.630653, 0, 0, 0, 0, 0, 0, -87.48261, 0, 5.400356, 0, 0, 0, 0, 0, 0, -80.92819, 0, 11.450585, 0, 0, 0, 0, 0, 0, -68.52146, 0, 22.576881, 0, 0, 0, 0, 0, 0, -66.336655, 0, 29.859566, 0, 0, 0, 0, 0, 0, -66.168594, 0, 56.435528, 0, 0, 0, 0, 0, 0, -68.577484, 0, 63.83025, 0, 0, 0, 0, 0, 0, -68.21164, 0, 94.08901, 0, 0, 0, 0, 0, 0, -63.281826, 0, 102.71619, 0, 0, 0, 0, 0, 0, -46.940075, 0, 112.83603, 0, 0, 0, 0, 0, 0, -27.668972, 0, 110.539185, 0, 0, 0, 0, 0, 0, -9.942976, 0, 97.614075, 0, 0, 0, 0, 0, 0, -0.47548866, 0, 89.77119, 0, 0, 0, 0, 0, 0, 11.231449, 0, 78.04987, 0, 0, 0, 0, 0, 0, 14.424625, 0, 66.22952, 0, 0, 0, 0, 0, 0, 12.015739, 0, 59.114902, 0, 0, 0, 0, 0, 0, 3.0021124, 0, 40.63659, 0, 0, 0, 0, 0, 0, 1.5730228, 0, 17.494461),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 39
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kmypb"]
+radius = 14.562365
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2ato"]
+emission_enabled = true
+emission = Color(8.085966e-06, 0.6455186, 0.8959761, 1)
+emission_energy_multiplier = 23.6
+
+[node name="TutorialPath" type="Path3D" unique_id=962503257]
+top_level = true
+curve = SubResource("Curve3D_drx4c")
+script = ExtResource("1_scp1d")
+
+[node name="TutorialPointer" type="PathFollow3D" parent="." unique_id=153702131]
+unique_name_in_owner = true
+transform = Transform3D(0.9987063, 0, -0.05078157, 0, 1, 0, 0.05078157, 0, 0.9987063, -1.0028005, 0, -11.495052)
+
+[node name="Area3D" type="Area3D" parent="TutorialPointer" unique_id=660142442]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialPointer/Area3D" unique_id=127844337]
+transform = Transform3D(1, 0, 7.450581e-09, 0, 1, 0, -7.450581e-09, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_kmypb")
+
+[node name="TutorialFollow" type="CSGBox3D" parent="TutorialPointer" unique_id=1085113425 node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+transform = Transform3D(0.9987063, 0, -0.05078157, 0, 1, 0, 0.05078157, 0, 0.9987063, -1.0028005, 0, -11.495052)
+top_level = true
+material = SubResource("StandardMaterial3D_c2ato")
+script = ExtResource("2_c2ato")
+target = NodePath("..")
+move_speed = 3.0
+rotate_speed = 8.0
+
+[connection signal="body_entered" from="TutorialPointer/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="TutorialPointer/Area3D" to="." method="_on_area_3d_body_exited"]
