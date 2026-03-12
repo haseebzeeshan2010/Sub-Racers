@@ -35,3 +35,6 @@ func levelmusic():
 	
 func selection_music():
 	change_music_smooth("res://SubRacersIntroLoopStream.tres")
+
+func button_press_fx():
+	%ButtonFX.play()
