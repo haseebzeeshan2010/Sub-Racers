@@ -52,6 +52,7 @@ func _on_start_signal_race_started() -> void:
 
 func _on_texture_button_pressed() -> void:
 	%TransitionPlayer.play("StartScene_LevelExitInternal")
+	get_node("/root/GlobalAudio").button_press_fx()
 	pass # Replace with function body.
 
 
