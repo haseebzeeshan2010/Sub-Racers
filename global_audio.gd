@@ -23,18 +23,18 @@ func change_music_smooth(path: String, fade_time := 1.0):
 
 # Play the intro music (first track)
 func play_intro():
-	change_music("res://SubRacersIntroStream.tres")
+	change_music("res://SubRacersIntroStreamv2.tres")
 
 # When the intro track finishes, switch to the loop
 func _on_intro_music_finished():
-	change_music("res://SubRacersIntroLoopStream.tres")
+	change_music("res://SubRacersIntroLoopStreamv2.tres")
 
 # Level music (called when gameplay starts)
 func levelmusic():
 	change_music_smooth("res://SubRacersRaceThemeLoopStream.tres")
 	
 func selection_music():
-	change_music_smooth("res://SubRacersIntroLoopStream.tres")
+	change_music_smooth("res://SubRacersIntroLoopStreamv2.tres")
 
 func button_press_fx():
 	%ButtonFX.play()
