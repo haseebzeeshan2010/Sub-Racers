@@ -22,9 +22,15 @@ GlobalAudio="*uid://b6vw7mxu5ee4f"
 
 [display]
 
-window/size/mode=2
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor]
+
+movie_writer/video_quality=0.9
+movie_writer/movie_file="C:/Users/Haseeb/Active Projects/Sub-Racers/Recordings/promotionaltrailer.avi"
+movie_writer/fps=30
 
 [input]
 

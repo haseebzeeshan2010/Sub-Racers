@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://CarGame/Audiowide-Regular.ttf" id="10_x36pa"]
 [ext_resource type="Texture2D" uid="uid://cpmt2o0mkjcrv" path="res://CarGame/Replay_BTN_DIS.png" id="11_festa"]
 [ext_resource type="Texture2D" uid="uid://7tviho6ym02a" path="res://CarGame/Replay_BTN.png" id="12_7w5j7"]
+[ext_resource type="Script" uid="uid://smfvc5b4vdf0" path="res://fact.gd" id="14_uj5s8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uj5s8"]
 
@@ -107,6 +108,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FactWindow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FactWindow/Fact:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_jo8us"]
 resource_name = "StartSceneEnter"
@@ -166,7 +191,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_w8hgf"]
 resource_name = "StartSceneExit_LevelChanger"
-length = 3.0
+length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -190,6 +215,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FactWindow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FactWindow/Fact:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_uj5s8"]
@@ -227,6 +276,44 @@ _data = {
 &"StartSceneExit": SubResource("Animation_re6lr"),
 &"StartSceneExit_LevelChanger": SubResource("Animation_w8hgf"),
 &"StartSceneExit_LevelChanger_2": SubResource("Animation_uj5s8")
+}
+
+[sub_resource type="Animation" id="Animation_yhv3p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Loading..."]
+}
+
+[sub_resource type="Animation" id="Animation_mlmim"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Loading", "Loading.", "Loading..", "Loading..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yjhph"]
+_data = {
+&"RESET": SubResource("Animation_yhv3p"),
+&"new_animation": SubResource("Animation_mlmim")
 }
 
 [node name="LevelChanger" type="Control" unique_id=725159966]
@@ -880,6 +967,81 @@ texture = SubResource("CanvasTexture_w8hgf")
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_yhv3p")
 autoplay = &"StartSceneEnter"
+
+[node name="FactWindow" type="Control" parent="." unique_id=2042004937]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Fact" type="Control" parent="FactWindow" unique_id=224420631]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("14_uj5s8")
+
+[node name="HeadingLabel" type="Label" parent="FactWindow/Fact" unique_id=362356607]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -145.475
+offset_bottom = -94.47499
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(2.695322e-06, 0.760419, 0.8408611, 1)
+theme_override_fonts/font = ExtResource("10_x36pa")
+theme_override_font_sizes/font_size = 39
+text = "Did you know?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="FactLabel" type="Label" parent="FactWindow/Fact" unique_id=599849640]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.5
+anchor_right = 0.95
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_x36pa")
+theme_override_font_sizes/font_size = 23
+text = "Coral reefs support 25% of all marine life but cover less than 1% of the ocean floor."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="LoadingLabel" type="Label" parent="FactWindow" unique_id=562528030]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_x36pa")
+theme_override_font_sizes/font_size = 23
+text = "Loading..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FactWindow" unique_id=1515973845]
+libraries/ = SubResource("AnimationLibrary_yjhph")
+autoplay = &"new_animation"
 
 [connection signal="pressed" from="CarouselContainer/CarouselOffset/Tutorial/StartButton" to="." method="_on_start_tutorial_button_pressed"]
 [connection signal="pressed" from="CarouselContainer/CarouselOffset/Level/StartButton" to="." method="_on_start_level_button_pressed"]
