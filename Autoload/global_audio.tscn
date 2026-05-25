@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b6vw7mxu5ee4f"]
+
+[ext_resource type="Script" uid="uid://c2v7ghtcxwsu" path="res://Autoload/global_audio.gd" id="1_tn11u"]
+[ext_resource type="AudioStream" uid="uid://wsehl8wulue" path="res://Assets/Audio/Music/SubRacersIntroStreamv2.tres" id="2_iit21"]
+[ext_resource type="AudioStream" uid="uid://blwjs4c7rrcpm" path="res://Assets/Audio/SFX/ButtonSFX.wav" id="3_iit21"]
+
+[node name="GlobalAudio" type="Node" unique_id=329492211]
+script = ExtResource("1_tn11u")
+
+[node name="IntroMusic" type="AudioStreamPlayer" parent="." unique_id=1464609466]
+unique_name_in_owner = true
+stream = ExtResource("2_iit21")
+
+[node name="ButtonFX" type="AudioStreamPlayer" parent="." unique_id=1282719395]
+unique_name_in_owner = true
+stream = ExtResource("3_iit21")
+max_polyphony = 5
+
+[connection signal="finished" from="IntroMusic" to="." method="_on_intro_music_finished"]

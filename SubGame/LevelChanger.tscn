@@ -1,0 +1,1053 @@
+[gd_scene format=3 uid="uid://vli6htolp18n"]
+
+[ext_resource type="Script" uid="uid://bnxype685o35p" path="res://SubGame/level_changer.gd" id="1_w8hgf"]
+[ext_resource type="Script" uid="uid://j8wm5sacjgg4" path="res://UIComponents/carousel_container.gd" id="1_wm1ts"]
+[ext_resource type="Texture2D" uid="uid://bohu1txxxy63o" path="res://Assets/Textures/UI/Window.png" id="2_jo8us"]
+[ext_resource type="FontFile" uid="uid://cott0r83xkqf0" path="res://SubGame/MajorMonoDisplay-Regular.ttf" id="3_uj5s8"]
+[ext_resource type="Texture2D" uid="uid://byedtws4pivm2" path="res://Assets/Textures/Previews/Level1Preview.png" id="4_w8hgf"]
+[ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Assets/Textures/UI/Table.png" id="5_yhv3p"]
+[ext_resource type="Texture2D" uid="uid://yetu8ghelqme" path="res://Assets/Textures/Previews/Level2Preview.png" id="6_jo8us"]
+[ext_resource type="Texture2D" uid="uid://uiyuu4286xv1" path="res://Assets/Textures/Previews/LevelLockedPreviewimg.png" id="7_uj5s8"]
+[ext_resource type="Script" uid="uid://dbey2af3dgiyw" path="res://SubGame/Camera3D.gd" id="7_yjhph"]
+[ext_resource type="PackedScene" uid="uid://bjqfckyoamvmb" path="res://Environment/cliff.tscn" id="9_glct8"]
+[ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://SubGame/Audiowide-Regular.ttf" id="10_x36pa"]
+[ext_resource type="Texture2D" uid="uid://cpmt2o0mkjcrv" path="res://SubGame/Replay_BTN_DIS.png" id="11_festa"]
+[ext_resource type="Texture2D" uid="uid://7tviho6ym02a" path="res://SubGame/Replay_BTN.png" id="12_7w5j7"]
+[ext_resource type="Script" uid="uid://smfvc5b4vdf0" path="res://Scripts/fact.gd" id="14_uj5s8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uj5s8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8hgf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhv3p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mlmim"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjhph"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ay7qp"]
+sky_top_color = Color(0.36078432, 0.42745098, 1, 1)
+sky_horizon_color = Color(0.30164886, 0.722728, 0.90974844, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_hfvu7"]
+sky_material = SubResource("ProceduralSkyMaterial_ay7qp")
+
+[sub_resource type="Environment" id="Environment_on1x6"]
+background_mode = 1
+background_color = Color(0.24115592, 0.5531948, 1, 1)
+sky = SubResource("Sky_hfvu7")
+ambient_light_source = 2
+ambient_light_color = Color(0.22919756, 0.5947704, 0.99999994, 1)
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0, 0.6960507, 0.68057626, 1)
+fog_light_energy = 0.1
+fog_density = 0.045
+fog_height = -1.85
+fog_height_density = 0.43
+volumetric_fog_density = 0.025
+volumetric_fog_albedo = Color(0.031946305, 0.45859075, 0.765062, 1)
+volumetric_fog_anisotropy = 0.45
+adjustment_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5uxvk"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 0.9
+dof_blur_near_distance = 2.75
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y504e"]
+load_path = "res://.godot/imported/Backward_BTN_DIS.png-d18d736b32ba24f20a64b3396cccfd3f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5uxvk"]
+load_path = "res://.godot/imported/Backward_BTN.png-5be3c55ded880de90b4e1bfa1d7d1d1f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aef3r"]
+load_path = "res://.godot/imported/Forward_BTN_DIS.png-8235279830f6754965b3a9c9cd6e1524.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7emii"]
+load_path = "res://.godot/imported/Forward_BTN.png-7e93732576d0c1d0ccd530f1816a7d8e.ctex"
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_w8hgf"]
+
+[sub_resource type="Animation" id="Animation_kjsks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CarouselContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FactWindow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FactWindow/Fact:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jo8us"]
+resource_name = "StartSceneEnter"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.03333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CarouselContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_re6lr"]
+resource_name = "StartSceneExit"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w8hgf"]
+resource_name = "StartSceneExit_LevelChanger"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CarouselContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FactWindow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FactWindow/Fact:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uj5s8"]
+resource_name = "StartSceneExit_LevelChanger_2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CarouselContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yhv3p"]
+_data = {
+&"RESET": SubResource("Animation_kjsks"),
+&"StartSceneEnter": SubResource("Animation_jo8us"),
+&"StartSceneExit": SubResource("Animation_re6lr"),
+&"StartSceneExit_LevelChanger": SubResource("Animation_w8hgf"),
+&"StartSceneExit_LevelChanger_2": SubResource("Animation_uj5s8")
+}
+
+[sub_resource type="Animation" id="Animation_yhv3p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Loading..."]
+}
+
+[sub_resource type="Animation" id="Animation_mlmim"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Loading", "Loading.", "Loading..", "Loading..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yjhph"]
+_data = {
+&"RESET": SubResource("Animation_yhv3p"),
+&"new_animation": SubResource("Animation_mlmim")
+}
+
+[node name="LevelChanger" type="Control" unique_id=725159966]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8hgf")
+
+[node name="CarouselContainer" type="Control" parent="." unique_id=1880077351 node_paths=PackedStringArray("position_offset_node")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 64.885
+offset_bottom = 64.88501
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wm1ts")
+spacing = 21.33
+opacity_strength = 0.535
+scale_strength = 0.43
+scale_min = 0.65
+position_offset_node = NodePath("CarouselOffset")
+
+[node name="CarouselOffset" type="Control" parent="CarouselContainer" unique_id=1691740667]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 423.36
+offset_top = 324.0
+offset_right = 423.36
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Tutorial" type="TextureRect" parent="CarouselContainer/CarouselOffset" unique_id=84822167]
+self_modulate = Color(0, 0.9702073, 0.48425937, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.467
+anchor_top = 0.365
+anchor_right = 0.467
+anchor_bottom = 0.365
+offset_left = -537.984
+offset_top = -453.6
+offset_right = -232.70398
+offset_bottom = -19.440002
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_jo8us")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Tutorial" unique_id=1795293259]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.04
+anchor_right = 1.0
+anchor_bottom = 0.095
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_uj5s8")
+theme_override_font_sizes/font_size = 29
+text = "tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CarouselContainer/CarouselOffset/Tutorial" unique_id=2035925005]
+z_index = 1
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 0.2
+offset_top = -126.15
+offset_right = 0.19998169
+offset_bottom = 78.58516
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_w8hgf")
+expand_mode = 2
+stretch_mode = 5
+flip_h = true
+
+[node name="StartButton" type="Button" parent="CarouselContainer/CarouselOffset/Tutorial" unique_id=1752632798]
+self_modulate = Color(0, 0.9702073, 0.48425937, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060000002
+anchor_top = 0.75100005
+anchor_right = 0.94000006
+anchor_bottom = 0.924
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.745, 0.745)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1.353256, 1.353256, 1.353256, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uj5s8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8hgf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhv3p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mlmim")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjhph")
+icon = ExtResource("5_yhv3p")
+
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Tutorial/StartButton" unique_id=631026496]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.048
+anchor_right = 0.92200005
+anchor_bottom = 0.832
+offset_left = -0.087566376
+offset_top = 0.03456831
+offset_right = -0.07357788
+offset_bottom = 0.045204163
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_uj5s8")
+theme_override_font_sizes/font_size = 24
+text = "start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="TextureRect" parent="CarouselContainer/CarouselOffset" unique_id=498522763]
+modulate = Color(1, 1, 1, 0.465)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.467
+anchor_top = 0.365
+anchor_right = 0.467
+anchor_bottom = 0.365
+offset_left = -211.374
+offset_top = -453.6
+offset_right = 93.906006
+offset_bottom = -19.440002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_jo8us")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Level" unique_id=1031728726]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.04
+anchor_right = 1.0
+anchor_bottom = 0.095
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_uj5s8")
+theme_override_font_sizes/font_size = 29
+text = "murky waters"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CarouselContainer/CarouselOffset/Level" unique_id=799503005]
+z_index = 1
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 0.2
+offset_top = -126.15
+offset_right = 0.19998169
+offset_bottom = 78.58516
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_w8hgf")
+expand_mode = 2
+stretch_mode = 5
+flip_h = true
+
+[node name="StartButton" type="Button" parent="CarouselContainer/CarouselOffset/Level" unique_id=369537090]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060000002
+anchor_top = 0.75100005
+anchor_right = 0.94000006
+anchor_bottom = 0.924
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.745, 0.745)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1.353256, 1.353256, 1.353256, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uj5s8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8hgf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhv3p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mlmim")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjhph")
+icon = ExtResource("5_yhv3p")
+
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Level/StartButton" unique_id=1546248479]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.048
+anchor_right = 0.92200005
+anchor_bottom = 0.832
+offset_left = -0.087566376
+offset_top = 0.03456831
+offset_right = -0.07357788
+offset_bottom = 0.045204163
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_uj5s8")
+theme_override_font_sizes/font_size = 24
+text = "start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level2" type="TextureRect" parent="CarouselContainer/CarouselOffset" unique_id=1921539866]
+modulate = Color(1, 1, 1, 0)
+z_index = -2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.467
+anchor_top = 0.365
+anchor_right = 0.467
+anchor_bottom = 0.365
+offset_left = 115.23602
+offset_top = -453.6
+offset_right = 420.51605
+offset_bottom = -19.440002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_jo8us")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Level2" unique_id=1652086504]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.04
+anchor_right = 1.0
+anchor_bottom = 0.095
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_uj5s8")
+theme_override_font_sizes/font_size = 24
+text = "thermal trench"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CarouselContainer/CarouselOffset/Level2" unique_id=426273907]
+z_index = 1
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 0.2
+offset_top = -126.15
+offset_right = 0.19998169
+offset_bottom = 78.58516
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_jo8us")
+expand_mode = 2
+stretch_mode = 5
+flip_h = true
+
+[node name="StartButton" type="Button" parent="CarouselContainer/CarouselOffset/Level2" unique_id=12997808]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060000002
+anchor_top = 0.75100005
+anchor_right = 0.94000006
+anchor_bottom = 0.924
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.745, 0.745)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1.353256, 1.353256, 1.353256, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uj5s8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8hgf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhv3p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mlmim")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjhph")
+icon = ExtResource("5_yhv3p")
+
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/Level2/StartButton" unique_id=735615419]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.048
+anchor_right = 0.92200005
+anchor_bottom = 0.832
+offset_left = -0.087566376
+offset_top = 0.03456831
+offset_right = -0.07357788
+offset_bottom = 0.045204163
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_uj5s8")
+theme_override_font_sizes/font_size = 24
+text = "start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelLocked" type="TextureRect" parent="CarouselContainer/CarouselOffset" unique_id=1888909170]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 0.7236347, 0.7892788, 1)
+z_index = -3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.467
+anchor_top = 0.365
+anchor_right = 0.467
+anchor_bottom = 0.365
+offset_left = 441.84607
+offset_top = -453.6
+offset_right = 747.1261
+offset_bottom = -19.440002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_jo8us")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/LevelLocked" unique_id=890388943]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.04
+anchor_right = 1.0
+anchor_bottom = 0.095
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_uj5s8")
+theme_override_font_sizes/font_size = 29
+text = "locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CarouselContainer/CarouselOffset/LevelLocked" unique_id=1650012576]
+z_index = 1
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 0.2
+offset_top = -126.15
+offset_right = 0.19998169
+offset_bottom = 78.58516
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_uj5s8")
+expand_mode = 2
+stretch_mode = 5
+flip_h = true
+
+[node name="StartButton" type="Button" parent="CarouselContainer/CarouselOffset/LevelLocked" unique_id=397261603]
+self_modulate = Color(2.055, 0.815, 0.815, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060000002
+anchor_top = 0.75100005
+anchor_right = 0.94000006
+anchor_bottom = 0.924
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.745, 0.745)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1.353256, 1.353256, 1.353256, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uj5s8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8hgf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhv3p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mlmim")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjhph")
+icon = ExtResource("5_yhv3p")
+
+[node name="Label" type="Label" parent="CarouselContainer/CarouselOffset/LevelLocked/StartButton" unique_id=1553795615]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.048
+anchor_right = 0.92200005
+anchor_bottom = 0.832
+offset_left = -0.087566376
+offset_top = 0.03456831
+offset_right = -0.07357788
+offset_bottom = 0.045204163
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_uj5s8")
+theme_override_font_sizes/font_size = 24
+text = "under development"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1905111238]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+z_index = 18
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=432468231]
+environment = SubResource("Environment_on1x6")
+camera_attributes = SubResource("CameraAttributesPractical_5uxvk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1546846797]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 1.741
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 1.89
+shadow_enabled = true
+shadow_blur = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1883752105]
+transform = Transform3D(1, 0, 0, 0, 0.35836798, 0.9335804, 0, -0.9335804, 0.35836798, -1.431, 17.944, -13.518)
+top_level = true
+script = ExtResource("7_yjhph")
+follow_speed = 3.0
+lookat_speed = 5.0
+
+[node name="Cliffs" type="Node3D" parent="." unique_id=517004908]
+transform = Transform3D(22.205, 0, 0, 0, 22.205, 0, 0, 0, 22.205, -220.714, -16.599, -182.892)
+
+[node name="cliff051_lp" parent="Cliffs" unique_id=1011174152 instance=ExtResource("9_glct8")]
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 8.981086, 0.850349, 8.133483)
+
+[node name="cliff051_lp25" parent="Cliffs" unique_id=50069074 instance=ExtResource("9_glct8")]
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 9.011678, 0.850349, 9.549629)
+
+[node name="cliff051_lp26" parent="Cliffs" unique_id=1959695117 instance=ExtResource("9_glct8")]
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 9.409155, 0.850349, 11.052052)
+
+[node name="cliff051_lp15" parent="Cliffs" unique_id=498054129 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.0044813934, 0, -0.07326996, 0, 0.07340689, 0, 0.07326996, 0, 0.0044813934, 8.981086, 0.850349, 8.133483)
+
+[node name="cliff051_lp20" parent="Cliffs" unique_id=654375517 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.0044813934, 0, -0.07326996, 0, 0.07340689, 0, 0.07326996, 0, 0.0044813934, 9.063836, 0.850349, 9.80226)
+
+[node name="cliff051_lp21" parent="Cliffs" unique_id=1077118258 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.036578, 0, -0.06364448, 0, 0.07340689, 0, 0.06364448, 0, 0.036578, 9.275094, 0.850349, 11.101258)
+
+[node name="cliff051_lp3" parent="Cliffs" unique_id=2006494212 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.050288748, 0, 0.053475346, 0, 0.07340688, 0, -0.053475346, 0, 0.050288748, 9.428571, 0.82590765, 6.534396)
+
+[node name="cliff051_lp13" parent="Cliffs" unique_id=787942036 instance=ExtResource("9_glct8")]
+transform = Transform3D(-0.0341226, 0, -0.06499399, 0, 0.07340688, 0, 0.06499399, 0, -0.0341226, 9.428571, 0.82590765, 6.534396)
+
+[node name="cliff051_lp7" parent="Cliffs" unique_id=261322319 instance=ExtResource("9_glct8")]
+transform = Transform3D(-0.06953176, 0, 0.023535198, 0, 0.07340688, 0, -0.023535198, 0, -0.06953176, 9.285487, 0.82590765, 5.9172587)
+
+[node name="cliff051_lp14" parent="Cliffs" unique_id=1007365258 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.061772678, 0, -0.039657377, 0, 0.07340688, 0, 0.039657377, 0, 0.061772678, 9.030688, 0.82590765, 6.0467978)
+
+[node name="cliff051_lp2" parent="Cliffs" unique_id=97681077 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 10.800886, 0.850349, 8.133483)
+
+[node name="cliff051_lp22" parent="Cliffs" unique_id=1713300681 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.130296, 0.850349, 9.505129)
+
+[node name="cliff051_lp23" parent="Cliffs" unique_id=1042750321 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.303728, 0.850349, 10.536913)
+
+[node name="cliff051_lp24" parent="Cliffs" unique_id=1638826810 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.49826, 0.850349, 12.096838)
+
+[node name="cliff051_lp4" parent="Cliffs" unique_id=1430393719 instance=ExtResource("9_glct8")]
+transform = Transform3D(-0.050992712, 0, -0.052804485, 0, 0.07340689, 0, 0.052804485, 0, -0.050992712, 11.406875, 0.850349, 6.734589)
+
+[node name="cliff051_lp5" parent="Cliffs" unique_id=433450053 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.03725681, 0, -0.06324951, 0, 0.07340689, 0, 0.06324951, 0, 0.03725681, 11.752432, 0.85034865, 5.0158815)
+
+[node name="cliff051_lp6" parent="Cliffs" unique_id=232953141 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.06357223, 0, -0.03670344, 0, 0.07340689, 0, 0.03670344, 0, 0.06357223, 10.881197, 0.85034865, 4.1478753)
+
+[node name="cliff051_lp9" parent="Cliffs" unique_id=1919975176 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.06357223, 0, -0.03670344, 0, 0.07340689, 0, 0.03670344, 0, 0.06357223, 9.755057, 0.85034865, 3.13732)
+
+[node name="cliff051_lp8" parent="Cliffs" unique_id=1911012031 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.07193323, 0, 0.014634983, 0, 0.07340691, 0, -0.014634983, 0, 0.07193323, 8.143929, 0.8503492, 3.1013255)
+
+[node name="cliff051_lp10" parent="Cliffs" unique_id=809446085 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.028091602, 0, 0.06781913, 0, 0.07340691, 0, -0.06781913, 0, 0.028091602, 6.6667676, 0.8503492, 4.029468)
+
+[node name="cliff051_lp16" parent="Cliffs" unique_id=2081856424 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.037823815, 0, 0.06291209, 0, 0.0734069, 0, -0.06291209, 0, 0.037823815, 6.8857927, 0.85034865, 8.25005)
+
+[node name="cliff051_lp17" parent="Cliffs" unique_id=409668761 instance=ExtResource("9_glct8")]
+transform = Transform3D(0.037823815, 0, 0.06291209, 0, 0.0734069, 0, -0.06291209, 0, 0.037823815, 5.855447, 0.85034865, 9.358112)
+
+[node name="cliff051_lp18" parent="Cliffs" unique_id=1552196169 instance=ExtResource("9_glct8")]
+transform = Transform3D(-0.013358446, 0, 0.072181195, 0, 0.07340691, 0, -0.072181195, 0, -0.013358446, 5.790918, 0.8503492, 10.968349)
+
+[node name="cliff051_lp19" parent="Cliffs" unique_id=929022850 instance=ExtResource("9_glct8")]
+transform = Transform3D(-0.067310885, 0, 0.029288558, 0, 0.07340693, 0, -0.029288558, 0, -0.067310885, 6.692748, 0.8503492, 12.461721)
+
+[node name="cliff051_lp27" parent="Cliffs" unique_id=845099566 instance=ExtResource("9_glct8")]
+transform = Transform3D(-0.067310885, 0, 0.029288558, 0, 0.07340693, 0, -0.029288558, 0, -0.067310885, 8.105738, 0.8503492, 13.157282)
+
+[node name="cliff051_lp28" parent="Cliffs" unique_id=357913329 instance=ExtResource("9_glct8")]
+transform = Transform3D(-0.07285975, 0, -0.00894606, 0, 0.07340693, 0, 0.00894606, 0, -0.07285975, 10.124417, 0.8503492, 13.394943)
+
+[node name="cliff051_lp11" parent="Cliffs" unique_id=1643798205 instance=ExtResource("9_glct8")]
+transform = Transform3D(-0.032753993, 0, 0.06569436, 0, 0.07340691, 0, -0.06569436, 0, -0.032753993, 6.735648, 0.8503492, 5.733594)
+
+[node name="LevelSelectionTitle" type="ColorRect" parent="." unique_id=2024139182]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.2
+grow_horizontal = 2
+color = Color(0.5411765, 0.5411765, 0.5411765, 0.44705883)
+
+[node name="Label" type="Label" parent="LevelSelectionTitle" unique_id=1558510946]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_x36pa")
+theme_override_font_sizes/font_size = 86
+text = "LEVEL  SELECTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" type="ColorRect" parent="." unique_id=1030795993]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.038397167, 0.038397167, 0.03839716, 0.44705883)
+
+[node name="Control" type="Control" parent="." unique_id=1117914489]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 78.33002
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TextureButton" type="TextureButton" parent="Control" unique_id=1458228453]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 30.0
+scale = Vector2(0.41, 0.41)
+texture_normal = SubResource("CompressedTexture2D_y504e")
+texture_pressed = SubResource("CompressedTexture2D_5uxvk")
+
+[node name="TextureButton2" type="TextureButton" parent="Control" unique_id=707541080]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -30.0
+grow_horizontal = 0
+scale = Vector2(0.41, 0.41)
+pivot_offset_ratio = Vector2(1, 0)
+texture_normal = SubResource("CompressedTexture2D_aef3r")
+texture_pressed = SubResource("CompressedTexture2D_7emii")
+
+[node name="TitleScreenButton" type="TextureButton" parent="." unique_id=33251730]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -260.0
+offset_right = 210.0
+grow_vertical = 0
+scale = Vector2(0.41, 0.41)
+pivot_offset_ratio = Vector2(0, 1)
+texture_normal = ExtResource("11_festa")
+texture_pressed = ExtResource("12_7w5j7")
+
+[node name="TransitionBack" type="TextureRect" parent="." unique_id=321706531]
+self_modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_w8hgf")
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=914495900]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_yhv3p")
+autoplay = &"StartSceneEnter"
+
+[node name="FactWindow" type="Control" parent="." unique_id=2042004937]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Fact" type="Control" parent="FactWindow" unique_id=224420631]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("14_uj5s8")
+
+[node name="HeadingLabel" type="Label" parent="FactWindow/Fact" unique_id=362356607]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -145.475
+offset_bottom = -94.47499
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(2.695322e-06, 0.760419, 0.8408611, 1)
+theme_override_fonts/font = ExtResource("10_x36pa")
+theme_override_font_sizes/font_size = 39
+text = "Did you know?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="FactLabel" type="Label" parent="FactWindow/Fact" unique_id=599849640]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.5
+anchor_right = 0.95
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_x36pa")
+theme_override_font_sizes/font_size = 23
+text = "Coral reefs support 25% of all marine life but cover less than 1% of the ocean floor."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="LoadingLabel" type="Label" parent="FactWindow" unique_id=562528030]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_x36pa")
+theme_override_font_sizes/font_size = 23
+text = "Loading..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FactWindow" unique_id=1515973845]
+libraries/ = SubResource("AnimationLibrary_yjhph")
+autoplay = &"new_animation"
+
+[connection signal="pressed" from="CarouselContainer/CarouselOffset/Tutorial/StartButton" to="." method="_on_start_tutorial_button_pressed"]
+[connection signal="pressed" from="CarouselContainer/CarouselOffset/Level/StartButton" to="." method="_on_start_level_button_pressed"]
+[connection signal="pressed" from="CarouselContainer/CarouselOffset/Level2/StartButton" to="." method="_on_start_level2_button_pressed"]
+[connection signal="pressed" from="Control/TextureButton" to="CarouselContainer" method="move_left"]
+[connection signal="pressed" from="Control/TextureButton2" to="CarouselContainer" method="move_right"]
+[connection signal="pressed" from="TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
+[connection signal="animation_finished" from="TransitionPlayer" to="." method="_on_transition_player_animation_finished"]
+[connection signal="animation_started" from="TransitionPlayer" to="." method="_on_transition_player_animation_started"]

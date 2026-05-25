@@ -1,0 +1,693 @@
+[gd_scene format=3 uid="uid://do2t4h1scsse3"]
+
+[ext_resource type="Script" uid="uid://blucuvn0os2ir" path="res://SubGame/start_scene.gd" id="1_h1jog"]
+[ext_resource type="Texture2D" uid="uid://6xb6bc332628" path="res://Assets/Textures/UI/Table.png" id="2_kjsks"]
+[ext_resource type="Script" uid="uid://dbey2af3dgiyw" path="res://SubGame/Camera3D.gd" id="3_2w0lw"]
+[ext_resource type="FontFile" uid="uid://cott0r83xkqf0" path="res://SubGame/MajorMonoDisplay-Regular.ttf" id="3_re6lr"]
+[ext_resource type="FontFile" uid="uid://b3rbgce6fiem3" path="res://SubGame/Audiowide-Regular.ttf" id="4_2w0lw"]
+[ext_resource type="PackedScene" uid="uid://qqxa251y3qlc" path="res://Scenes/submarine.tscn" id="7_2w0lw"]
+[ext_resource type="PackedScene" uid="uid://ec2o2pc5v47e" path="res://Scenes/game_jam_player_sub.tscn" id="7_dnpvf"]
+[ext_resource type="PackedScene" uid="uid://bjqfckyoamvmb" path="res://Environment/cliff.tscn" id="7_mksou"]
+[ext_resource type="Texture2D" uid="uid://bohu1txxxy63o" path="res://Assets/Textures/UI/Window.png" id="9_kjsks"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kjsks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfvu7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rpohf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4pmvp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4aio6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rj5an"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kjsks"]
+font = ExtResource("4_2w0lw")
+font_size = 36
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kjsks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_re6lr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40an5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mksou"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3siu6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_re6lr"]
+font = ExtResource("4_2w0lw")
+font_size = 36
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3siu6"]
+sky_top_color = Color(0.36078432, 0.42745098, 1, 1)
+sky_horizon_color = Color(0.30164886, 0.722728, 0.90974844, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_kjsks"]
+sky_material = SubResource("ProceduralSkyMaterial_3siu6")
+
+[sub_resource type="Environment" id="Environment_rpohf"]
+background_mode = 1
+background_color = Color(0.24115592, 0.5531948, 1, 1)
+sky = SubResource("Sky_kjsks")
+ambient_light_source = 2
+ambient_light_color = Color(0.22919756, 0.5947704, 0.99999994, 1)
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.33647245, 0.70938826, 0.14295116, 1)
+fog_light_energy = 0.1
+fog_density = 0.045
+fog_height = -1.85
+fog_height_density = 0.43
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.025
+volumetric_fog_albedo = Color(0.031946305, 0.45859075, 0.765062, 1)
+volumetric_fog_anisotropy = 0.45
+adjustment_enabled = true
+
+[sub_resource type="Animation" id="Animation_kjsks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dnpvf"]
+resource_name = "StartSceneEntrance"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_re6lr"]
+resource_name = "StartSceneExit"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionBack:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_40an5"]
+_data = {
+&"RESET": SubResource("Animation_kjsks"),
+&"StartSceneEntrance": SubResource("Animation_dnpvf"),
+&"StartSceneExit": SubResource("Animation_re6lr")
+}
+
+[sub_resource type="Animation" id="Animation_40an5"]
+resource_name = "CreditHide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.225, 0.22531268),
+"update": 0,
+"values": [0.1, 1.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.225, 0.22531268),
+"update": 0,
+"values": [0.9, 1.9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CreditsCover:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25000024, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.6666667), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CreditsCover:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 2]
+}
+
+[sub_resource type="Animation" id="Animation_m5g4e"]
+resource_name = "CreditShow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.008333334, 1),
+"transitions": PackedFloat32Array(0.22531268, 1),
+"update": 0,
+"values": [1.1, 0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.008333334, 1),
+"transitions": PackedFloat32Array(0.22531268, 1),
+"update": 0,
+"values": [1.9, 0.9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CreditsCover:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.29730183, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.6666667)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CreditsCover:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_w7jgq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CreditsCover:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CreditsCover:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_re6lr"]
+_data = {
+&"CreditHide": SubResource("Animation_40an5"),
+&"CreditShow": SubResource("Animation_m5g4e"),
+&"RESET": SubResource("Animation_w7jgq")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bic46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wg4f5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4xrh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdblw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kb341"]
+
+[node name="StartScene" type="Control" unique_id=586721950]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h1jog")
+
+[node name="TransitionBack" type="TextureRect" parent="." unique_id=1736314230]
+self_modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_kjsks")
+
+[node name="Control" type="Control" parent="." unique_id=161428879]
+layout_mode = 1
+anchor_left = 0.7
+anchor_top = 0.33
+anchor_right = 0.93
+anchor_bottom = 0.67
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="Control" unique_id=349703026]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.5
+offset_right = 180.5
+offset_bottom = 101.0
+grow_horizontal = 2
+scale = Vector2(0.66, 0.66)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hfvu7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rpohf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4pmvp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4aio6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rj5an")
+icon = ExtResource("2_kjsks")
+
+[node name="Label" type="Label" parent="Control/StartButton" unique_id=1042425398]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -24.0
+offset_right = 133.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_re6lr")
+theme_override_font_sizes/font_size = 31
+text = "Start Game"
+label_settings = SubResource("LabelSettings_kjsks")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Button" parent="Control" unique_id=228003650]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.50002
+offset_top = -101.0
+offset_right = 180.50003
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.66, 0.66)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kjsks")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_re6lr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_40an5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mksou")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3siu6")
+icon = ExtResource("2_kjsks")
+
+[node name="Label" type="Label" parent="Control/Credits" unique_id=1363540864]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = -23.5
+offset_right = 133.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_re6lr")
+theme_override_font_sizes/font_size = 26
+text = "Credits"
+label_settings = SubResource("LabelSettings_re6lr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=426473827]
+environment = SubResource("Environment_rpohf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2007390150]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 1.741
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 1.89
+shadow_enabled = true
+shadow_blur = 10.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=549068732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.32872, -12.918022, -1.4367981)
+use_collision = true
+size = Vector3(146.75488, 1, 257.88147)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=676308985]
+transform = Transform3D(1, 0, 0, 0, 0.56640625, 0.8241262, 0, -0.8241262, 0.56640625, -1.576, 9.289, 7.9367185)
+top_level = true
+script = ExtResource("3_2w0lw")
+follow_speed = 3.0
+lookat_speed = 5.0
+
+[node name="Cliffs" type="Node3D" parent="." unique_id=1208823141]
+transform = Transform3D(22.205, 0, 0, 0, 22.205, 0, 0, 0, 22.205, -220.714, -16.599, -182.892)
+
+[node name="cliff051_lp" parent="Cliffs" unique_id=1011174152 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 8.981086, 0.850349, 8.133483)
+
+[node name="cliff051_lp25" parent="Cliffs" unique_id=420138329 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 9.011678, 0.850349, 9.549629)
+
+[node name="cliff051_lp26" parent="Cliffs" unique_id=2049391096 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 9.409155, 0.850349, 11.052052)
+
+[node name="cliff051_lp15" parent="Cliffs" unique_id=1158381833 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.0044813934, 0, -0.07326996, 0, 0.07340689, 0, 0.07326996, 0, 0.0044813934, 8.981086, 0.850349, 8.133483)
+
+[node name="cliff051_lp20" parent="Cliffs" unique_id=1707501278 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.0044813934, 0, -0.07326996, 0, 0.07340689, 0, 0.07326996, 0, 0.0044813934, 9.063836, 0.850349, 9.80226)
+
+[node name="cliff051_lp21" parent="Cliffs" unique_id=2061931982 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.036578, 0, -0.06364448, 0, 0.07340689, 0, 0.06364448, 0, 0.036578, 9.275094, 0.850349, 11.101258)
+
+[node name="cliff051_lp3" parent="Cliffs" unique_id=266813227 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.050288748, 0, 0.053475346, 0, 0.07340688, 0, -0.053475346, 0, 0.050288748, 9.428571, 0.82590765, 6.534396)
+
+[node name="cliff051_lp13" parent="Cliffs" unique_id=647378160 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.0341226, 0, -0.06499399, 0, 0.07340688, 0, 0.06499399, 0, -0.0341226, 9.428571, 0.82590765, 6.534396)
+
+[node name="cliff051_lp7" parent="Cliffs" unique_id=681882907 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.06953176, 0, 0.023535198, 0, 0.07340688, 0, -0.023535198, 0, -0.06953176, 9.285487, 0.82590765, 5.9172587)
+
+[node name="cliff051_lp14" parent="Cliffs" unique_id=1965036727 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.061772678, 0, -0.039657377, 0, 0.07340688, 0, 0.039657377, 0, 0.061772678, 9.030688, 0.82590765, 6.0467978)
+
+[node name="cliff051_lp2" parent="Cliffs" unique_id=74622227 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 10.800886, 0.850349, 8.133483)
+
+[node name="cliff051_lp22" parent="Cliffs" unique_id=661203935 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.130296, 0.850349, 9.505129)
+
+[node name="cliff051_lp23" parent="Cliffs" unique_id=1975511943 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.303728, 0.850349, 10.536913)
+
+[node name="cliff051_lp24" parent="Cliffs" unique_id=161838927 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.49826, 0.850349, 12.096838)
+
+[node name="cliff051_lp4" parent="Cliffs" unique_id=325610956 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.050992712, 0, -0.052804485, 0, 0.07340689, 0, 0.052804485, 0, -0.050992712, 11.406875, 0.850349, 6.734589)
+
+[node name="cliff051_lp5" parent="Cliffs" unique_id=1725033927 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.03725681, 0, -0.06324951, 0, 0.07340689, 0, 0.06324951, 0, 0.03725681, 11.752432, 0.85034865, 5.0158815)
+
+[node name="cliff051_lp6" parent="Cliffs" unique_id=1847691948 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.06357223, 0, -0.03670344, 0, 0.07340689, 0, 0.03670344, 0, 0.06357223, 10.881197, 0.85034865, 4.1478753)
+
+[node name="cliff051_lp9" parent="Cliffs" unique_id=682509194 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.06357223, 0, -0.03670344, 0, 0.07340689, 0, 0.03670344, 0, 0.06357223, 9.755057, 0.85034865, 3.13732)
+
+[node name="cliff051_lp8" parent="Cliffs" unique_id=98988049 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.07193323, 0, 0.014634983, 0, 0.07340691, 0, -0.014634983, 0, 0.07193323, 8.143929, 0.8503492, 3.1013255)
+
+[node name="cliff051_lp10" parent="Cliffs" unique_id=285214398 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.028091602, 0, 0.06781913, 0, 0.07340691, 0, -0.06781913, 0, 0.028091602, 6.6667676, 0.8503492, 4.029468)
+
+[node name="cliff051_lp16" parent="Cliffs" unique_id=851439668 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.037823815, 0, 0.06291209, 0, 0.0734069, 0, -0.06291209, 0, 0.037823815, 6.8857927, 0.85034865, 8.25005)
+
+[node name="cliff051_lp17" parent="Cliffs" unique_id=1444732757 instance=ExtResource("7_mksou")]
+transform = Transform3D(0.037823815, 0, 0.06291209, 0, 0.0734069, 0, -0.06291209, 0, 0.037823815, 5.855447, 0.85034865, 9.358112)
+
+[node name="cliff051_lp18" parent="Cliffs" unique_id=1164114558 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.013358446, 0, 0.072181195, 0, 0.07340691, 0, -0.072181195, 0, -0.013358446, 5.790918, 0.8503492, 10.968349)
+
+[node name="cliff051_lp19" parent="Cliffs" unique_id=686184122 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.067310885, 0, 0.029288558, 0, 0.07340693, 0, -0.029288558, 0, -0.067310885, 6.692748, 0.8503492, 12.461721)
+
+[node name="cliff051_lp27" parent="Cliffs" unique_id=1303572922 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.067310885, 0, 0.029288558, 0, 0.07340693, 0, -0.029288558, 0, -0.067310885, 8.105738, 0.8503492, 13.157282)
+
+[node name="cliff051_lp28" parent="Cliffs" unique_id=490488142 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.07285975, 0, -0.00894606, 0, 0.07340693, 0, 0.00894606, 0, -0.07285975, 10.124417, 0.8503492, 13.394943)
+
+[node name="cliff051_lp11" parent="Cliffs" unique_id=479245564 instance=ExtResource("7_mksou")]
+transform = Transform3D(-0.032753993, 0, 0.06569436, 0, 0.07340691, 0, -0.06569436, 0, -0.032753993, 6.735648, 0.8503492, 5.733594)
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=1125320324]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_40an5")
+autoplay = &"StartSceneEntrance"
+
+[node name="GameJamPlayerSub" parent="." unique_id=1839833756 instance=ExtResource("7_dnpvf")]
+transform = Transform3D(-0.49858624, 0, 0.14768791, 0, 0.52, 0, -0.14768791, 0, -0.49858624, 0.197, 3.219, 1.503)
+
+[node name="Submarine" parent="." unique_id=1471293272 instance=ExtResource("7_2w0lw")]
+transform = Transform3D(-0.16504766, 0, -0.98628557, 0, 1, 0, 0.98628557, 0, -0.16504766, -4.053, 3.005, 5.514)
+
+[node name="CreditsCover" type="ColorRect" parent="." unique_id=1591137421]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Credits" type="Control" parent="." unique_id=2123943153]
+layout_mode = 1
+anchor_left = 0.3
+anchor_top = 1.1
+anchor_right = 0.7
+anchor_bottom = 1.9
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="Credits" unique_id=1202637110]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_kjsks")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Credits/TextureRect" unique_id=772779851]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 5.449951
+offset_bottom = 72.94995
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_2w0lw")
+theme_override_font_sizes/font_size = 38
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/TextureRect" unique_id=235488037]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.7375
+offset_top = -57.0
+offset_right = 176.7375
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_2w0lw")
+theme_override_font_sizes/font_size = 14
+text = "Music by Haseeb Zeeshan with guidance from Alex Shore
+
+Sketchfab Assets:
+ - Rock Assets by kEam
+ - Submarines by Landon Wright
+   and MatoyBoii
+
+Free Space Shooter Game GUI from CraftPix
+
+All other UI and Assets as well as all code is by Haseeb Zeeshan"
+autowrap_mode = 2
+
+[node name="GameOver" type="AnimationPlayer" parent="Credits" unique_id=855297639]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_re6lr")
+
+[node name="ButtonContainer" type="Control" parent="Credits" unique_id=164463180]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.149994
+offset_top = -139.19995
+offset_right = -9.0
+offset_bottom = -14.199951
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureButton" type="Button" parent="Credits/ButtonContainer" unique_id=1894771753]
+self_modulate = Color(2.40685, 0.5867145, 0.61704963, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.69, 0.69)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bic46")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wg4f5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p4xrh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fdblw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kb341")
+icon = ExtResource("2_kjsks")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Credits/ButtonContainer/TextureButton" unique_id=1238125700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.39856
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_2w0lw")
+theme_override_font_sizes/font_size = 36
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Credits" to="." method="_on_credits_pressed"]
+[connection signal="animation_finished" from="TransitionPlayer" to="." method="_on_transition_player_animation_finished"]
+[connection signal="animation_started" from="TransitionPlayer" to="." method="_on_transition_player_animation_started"]
+[connection signal="pressed" from="Credits/ButtonContainer/TextureButton" to="." method="_on_texture_button_pressed"]
