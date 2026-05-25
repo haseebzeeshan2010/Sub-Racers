@@ -413,7 +413,7 @@ curve = SubResource("Curve3D_jy1iq")
 transform = Transform3D(22.205, 0, 0, 0, 22.205, 0, 0, 0, 22.205, -220.714, -16.599, -182.892)
 
 [node name="cliff051_lp" parent="Cliffs" unique_id=1011174152 instance=ExtResource("6_w7jgq")]
-transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 8.981086, 0.850349, 8.133483)
+transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 8.981086, 0.85034895, 8.133482)
 
 [node name="cliff051_lp25" parent="Cliffs" unique_id=200219655 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(-0.015262155, 0, 0.071802765, 0, 0.07340689, 0, -0.071802765, 0, -0.015262155, 9.011678, 0.850349, 9.549629)
@@ -443,7 +443,7 @@ transform = Transform3D(-0.06953176, 0, 0.023535198, 0, 0.07340688, 0, -0.023535
 transform = Transform3D(0.061772678, 0, -0.039657377, 0, 0.07340688, 0, 0.039657377, 0, 0.061772678, 9.030688, 0.82590765, 6.0467978)
 
 [node name="cliff051_lp2" parent="Cliffs" unique_id=1164378525 instance=ExtResource("6_w7jgq")]
-transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 10.800886, 0.850349, 8.133483)
+transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 10.800906, 0.84986746, 8.133615)
 
 [node name="cliff051_lp22" parent="Cliffs" unique_id=1048044353 instance=ExtResource("6_w7jgq")]
 transform = Transform3D(0.008946047, 0, -0.07285972, 0, 0.07340689, 0, 0.07285972, 0, 0.008946047, 11.130296, 0.850349, 9.505129)

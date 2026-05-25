@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://du6qtct7w7qe6"]
+[gd_scene format=3 uid="uid://bkyfoq1oo5nbs"]
 
 [ext_resource type="Script" uid="uid://spphgsaeipi6" path="res://CarGame/EnemyCar/enemy_path.gd" id="1_so78v"]
 
@@ -11,7 +11,7 @@ _data = {
 point_count = 39
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kmypb"]
-radius = 6.0
+radius = 7.0611825
 
 [node name="EnemyPath" type="Path3D" unique_id=962503257]
 top_level = true
@@ -20,7 +20,7 @@ script = ExtResource("1_so78v")
 
 [node name="EnemyPointer" type="PathFollow3D" parent="." unique_id=153702131]
 unique_name_in_owner = true
-transform = Transform3D(0.9987063, 0, -0.05078157, 0, 1, 0, 0.05078157, 0, 0.9987063, -1.0028005, 0, -11.495052)
+transform = Transform3D(0.99870425, 0, -0.050781466, 0, 1, 0, 0.050781466, 0, 0.99870425, -1.0028005, 0, -11.495052)
 
 [node name="Area3D" type="Area3D" parent="EnemyPointer" unique_id=660142442]
 
